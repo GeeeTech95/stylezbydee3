@@ -1,0 +1,56 @@
+{% load core %}
+
+{% if attribute.code == "CLR" %}
+<div class="section-heading mb-2">
+  <span >  Available Colours</span>
+  
+
+ 
+</div>
+
+
+<div class="grid-filter color-filter mb-2 product-attr-selector" attribute_name="{{attribute}}" >
+    {% for option in values %}
+    <span  attribute_name="{{attribute}}"   class="select-attr"  id="select{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" style="background-color: {{option}};" slug="{{option.pk}}" text-value="{{option}}"></span>
+    {% endfor %}
+   
+</div>
+
+{% else %}
+
+
+<div class="section-heading mb-2">
+  <span>  Available {{attribute|capitalize}}</span>
+  
+
+</div>
+
+<div class="grid-filter mb-2 product-attr-selector" attribute_name="{{attribute}}" >
+  {% if attribute.is_multi_option %}
+  
+      {% for option in values %}
+
+      {% if option.img %}
+      <span attribute_name="{{attribute}}" id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}" text-value="{{option}}" class="for-img select-attr">
+        <img src ="{{option.img_src}}" >
+        <span>{{option}}
+        </span>
+      </span> 
+      {% else %}
+      <span attribute_name="{{attribute}}"   class="select-attr"  id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}" text-value="{{option}}">{{option}} </span>
+      {% endif %}
+      
+      {% endfor %}
+
+
+  {% elif attribute.is_option %}
+      {% for option in values %}
+      <span attribute_name="{{attribute}}"   class="select-attr" id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}" text-value="{{option}}">{{option}} </span>
+      {% endfor %}
+  {% endif %}
+</div>
+
+{% endif %}
+
+
+

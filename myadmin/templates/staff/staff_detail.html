@@ -1,0 +1,428 @@
+{% extends 'admin-base.html' %}
+
+{% load static %}
+{% load core %}
+{% block content %}
+<div class="main">
+
+    <div class="main-content project">
+        <div class="row">
+            <div class="col-9 col-xl-7 col-md-8 col-sm-12">
+                <div class="box card-box p-1">
+                    <div class="icon-box bg-color-6 d-block ">
+
+                        <div class="content text-center color-6 ">
+                            <h5 class="title-box fs-17 font-w500">All Bespoke Orders</h5>
+                            <div class="themesflat-counter fs-18 font-wb">
+                                <span class="number" data-from="0" data-to="309" data-speed="2500"
+                                    data-inviewport="yes">{{staff.all_outfit_order}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="icon-box bg-color-1 d-block">
+
+                        <div class="content text-center color-8">
+                            <h5 class="title-box fs-17 font-w500">Pending Bespke Orders</h5>
+                            <div class="themesflat-counter fs-18 font-wb">
+                                <span class="number" data-from="0" data-to="309" data-speed="2500"
+                                    data-inviewport="yes">{{staff.pending_outfit_order}}</span>
+
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3 col-xl-5 col-md-4 col-sm-12">
+                <div class="box h-100 d-flex align-items-center" style="background-color: transparent;padding: 0;">
+                    <a class="create d-flex bg-primary justify-content-center" href="{% url 'myadmin:staff-create' %}">
+                        <div class="icon color-white pt-4 pr-8">
+                            <i class='bx bx-plus-circle'></i>
+                        </div>
+                        <div class="content">
+                            <h5 class="color-white">Add A New Bespoke Order</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-xl-12">
+            <div class="box user-pro-list overflow-hidden mb-30">
+                <div class="box-body">
+                    <div class="user-pic text-center">
+                        <div class="avar ">
+                            {% if staff.user.dp %}
+                            <img src="{{staff.passport.url}}" alt="" style="height: 150px;width: 150px;"> 
+                            {% else %}
+                            <img src="{% static 'myadmin/images/profile/staff-1.png' %}" alt=""> 
+                            {% endif %}
+                            <div class="pulse-css"></div>
+                        </div>
+                        <div class="pro-user " style="margin-top: 0px;">
+                            <h5 class="pro-user-username text-dark mb-2 fs-15 mt-42 color-span">
+                                {{staff.user.full_name}}
+                            </h5>
+                      
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer " style="padding-top: 20px;">
+                    <div class="btn-list text-center">
+                        <a href="mailto:{{staff.user.email}}" class="btn btn-light"><i class='bx bxs-envelope' ></i> </a>
+                        <a href="tel:{{staff.user.phone_number}}" class="btn btn-light"> <i class='bx bxs-phone-call'></i> </a>
+                  
+                        <a href="{{staff.user.whatsapp_link}}" class="btn btn-light">  <i class="bx bxl-whatsapp"></i> </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Basic Info</div>
+                    <span>
+                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+                       
+                        
+                     
+                        </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Staff ID </span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.account_id}}</span> </td>
+                                </tr>
+                                 <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Full Name</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.full_name}}</span> </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Gender</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.gender|capitalize}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">National ID Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.national_id_number}}</span> </td>
+                                </tr>
+                              
+                             
+                                <!--tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Status</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="badge badge-success">Active</span> </td>
+                                </tr-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Contact Details</div>
+                    <span>
+                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+                       
+                        
+                     
+                        </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Email ID</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.email}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Phone Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.phone_number|default:"None"}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Whatsapp Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.user.whatsapp_number|default:"None"}}</span> </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Emergency Contact Name</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.emergency_contact_name|default:"None Set"}}</span> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Emergency Contact Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.emergency_contact_number|default:"None Set"}}</span> </td>
+                                </tr>
+                                
+                               
+                               
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Employment Details</div>
+                    <span>
+                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+                       
+                        
+                     
+                        </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    {% if staff.salary_log %}
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Contract Type</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.contract_type |capitalize}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Department</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.department|capitalize}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Date Of Employment</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.date_added|default:"None"}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Employment Status</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.employment_status|capitalize}}</span> </td>
+                                </tr>
+
+                                {% if staff.date_terminated %}
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Date Of Termination</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.date_terminated}}</span> </td>
+                                </tr>
+                                {% endif %}
+                                
+                           
+                               
+
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p>
+                        This  staff  has no log yet
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Salary Details</div>
+                    <span>
+                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+                       
+                        
+                     
+                        </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Is Salary Fixed ?</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.is_salary_fixed_verbose}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Salary Cycle</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.salary_cycle}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Salary</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">&#8358; {{staff.salary|default:"None set "}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Bank Name</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.bank_name|default:"None Set"}}</span> </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Bank Account Name</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.bank_account_name|default:"None Set"}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Bank Account Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{staff.bank_account_number|default:"None Set"}}</span> </td>
+                                </tr>
+                               
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Salary Logs</div>
+                    <span hidden>
+                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+                       
+                        
+                     
+                        </span>
+                </div>
+                <div class="box-body pb-0 table-responsive activity mt-0">
+                    {% if staff.salary_log.all %}
+                    <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer mw-100" id="task-profile" role="grid">
+                        <thead>
+                            <tr class="top">
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 100px;">
+                                    S/N
+                                </th>
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 150px;">
+                                    Amount Due
+                                </th>
+
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 100px;">
+                                    Date Due
+                                   
+                                </th>
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 100px;">
+                                    Pyament Status
+                                </th>
+
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 150px;">
+                                    Date Paid
+                                </th>
+                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0"
+                                    aria-controls="task-profile" rowspan="1" colspan="1" style="width: 200px;">
+                                    Amount Paid
+                                </th>
+                                
+                                
+                                <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1"
+                                    style="width: 150px;">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in salary_logs %}
+                            <tr class="{% cycle 'odd' 'even' %}">
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ log.amount_due }}</td>
+                                <td>{{ log.date_due|date:"Y-m-d" }}</td>
+                                <td>
+                                    {% if log.is_paid %}
+                                        <span class="badge bg-success">Paid</span>
+                                    {% else %}
+                                        <span class="badge bg-warning">Unpaid</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if log.date_paid %}
+                                        {{ log.date_paid|date:"Y-m-d" }}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ log.amount_paid|default:"N/A" }}
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class='bx bx-dots-horizontal-rounded'></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="{% url 'myadmin:salary-log-update' log.pk %}">
+                                                <i class="bx bx-edit mr-5"></i> Edit
+                                            </a>
+                                            <a class="dropdown-item" href="{% url 'myadmin:salary-log-delete' log.pk %}" data-toggle="modal" data-target="#delete_log">
+                                                <i class="bx bx-trash"></i> Delete
+                                            </a>
+                                            <a class="dropdown-item" href="{% url 'myadmin:salary-log-detail' log.pk %}">
+                                                <i class="bx bx-info-circle mr-5"></i> View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        
+                        
+                    </table>
+                    {% else %}
+                    <p class="mt-3 text-center">
+                        This staff has no salary logs Yet</p>
+                    {% endif %}
+                </div>
+            </div>
+           
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="overlay"></div>
+
+
+{% endblock %}

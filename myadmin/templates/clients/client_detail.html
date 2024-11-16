@@ -1,0 +1,254 @@
+{% extends 'admin-base.html' %}
+
+{% load static %}
+{% load core %}
+{% block content %}
+<div class="main">
+
+    <div class="main-content project">
+        <div class="row">
+            <div class="col-9 col-xl-7 col-md-8 col-sm-12">
+
+                <div class="box card-box p-1">
+
+                    <div class="icon-box bg-color-6 d-block ">
+                        <a href="{% url 'myadmin:client-bespoke-orders' client.pk 'all' %}">
+                            <div class="content text-center color-6 ">
+                                <h5 class="title-box fs-17 font-w500">All Bespoke Orders</h5>
+                                <div class="themesflat-counter fs-18 font-wb">
+                                    <span class="number" data-from="0" data-to="309" data-speed="2500"
+                                        data-inviewport="yes">{{client.bespoke_order.all|length}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="icon-box bg-color-1 d-block">
+
+                        <div class="content text-center color-8">
+                            <h5 class="title-box fs-17 font-w500">Pending Bespke Orders</h5>
+                            <div class="themesflat-counter fs-18 font-wb">
+                                <span class="number" data-from="0" data-to="309" data-speed="2500"
+                                    data-inviewport="yes">{{client.pending_bespoke_order|length}}</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3 col-xl-5 col-md-4 col-sm-12">
+                <div class="box h-100 d-flex align-items-center" style="background-color: transparent;padding: 0;">
+                    <a class="create d-flex bg-primary justify-content-center"
+                        href="{% url 'myadmin:bespoke-orders-create' client.pk %}">
+                        <div class="icon color-white pt-4 pr-8">
+                            <i class='bx bx-plus-circle'></i>
+                        </div>
+                        <div class="content">
+                            <h5 class="color-white">Add A New Bespoke Order</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-xl-12">
+            <div class="box user-pro-list overflow-hidden mb-30">
+                <div class="box-body">
+                    <div class="user-pic text-center">
+                        <div class="avar ">
+                            {% if client.passport %}
+                            <img src="{{client.passport.url}}" alt="" style="height: 150px;width: 150px;">
+                            {% else %}
+                            <img src="{% static 'myadmin/images/profile/client-1.png' %}" alt="">
+                            {% endif %}
+                            <div class="pulse-css"></div>
+                        </div>
+                        <div class="pro-user " style="margin-top: 0px;">
+                            <h5 class="pro-user-username text-dark mb-2 fs-15 mt-42 color-span">
+                                {{client.full_name}}
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer " style="padding-top: 20px;">
+                    <div class="btn-list text-center">
+                        <a href="mailto:{{client.email}}" class="btn btn-light"><i class='bx bxs-envelope'></i> </a>
+                        <a href="tel:{{client.phone_number}}" class="btn btn-light"> <i class='bx bxs-phone-call'></i>
+                        </a>
+
+                        <a href="{{client.whatsapp_link}}" class="btn btn-light"> <i class="bx bxl-whatsapp"></i> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Basic Info</div>
+                    <span>
+                        <a href="{% url 'myadmin:client-update' client.pk 'info' %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
+                                type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+
+
+
+                    </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Client ID </span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">#365900</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Full Name</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.full_name}}</span> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Gender</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.gender|capitalize}}</span> </td>
+                                </tr>
+
+
+                                <!--tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Status</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="badge badge-success">Active</span> </td>
+                                </tr-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box left-dot mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Contact Details</div>
+                    <span>
+                        <a href="{% url 'myadmin:client-update' client.pk 'info' %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
+                                type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+
+
+
+                    </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Email ID</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.email}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Phone Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.phone_number|default:"None"}}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Whatsapp Number</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span
+                                            class="">{{client.whatsapp_number|default:"None"}}</span> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Home Address</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.home_address}}</span> </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-0"> <span class="w-50">Office Address</span> </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"> <span class="">{{client.office_address}}</span> </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="box left-dot">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600">Measurement Details</div>
+                    <span>
+                        <a href="{% url 'myadmin:client-update' client.pk 'measurement' %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
+                                type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+
+
+
+                    </span>
+                </div>
+                <div class="box-body pt-20 user-profile">
+                    <div class="table-responsive">
+                        <table class="table mb-0 mw-100 color-span">
+                            <tbody>
+                                {% if client.measurement %}
+                                {% if client.is_male %}
+
+
+                                {% for field in client.measurement.male_measurement_fields %}
+                                <tr>
+                                    <td class="py-2 px-0"><span class="w-50">{{ field|get_verbose|capfirst }}</span>
+                                    </td>
+                                    <td>:</td>
+                                    <td class="py-2 px-0"><span>{{ client.measurement|get_attr:field }} inches</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                                {% else %}
+                                <!--div class="text-center">
+                                <p>No Measurement has been added for this client </p>
+                                <div class="btn-list text-center">
+                                    
+                                    <a class="btn btn-light">
+                                         <i class='fa fa-plus'></i>
+                                         </a>
+                                </div>
+                            </div-->
+                                {% endif %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="overlay"></div>
+
+
+{% endblock %}

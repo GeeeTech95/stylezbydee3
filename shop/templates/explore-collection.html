@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet">
+<link href="{% static 'css/extra.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<section class="explore-category section-padding">
+ 
+    <div class="row">
+        <div class="col-3 product-filters  .d-none .d-lg-block .d-xl-block">
+            <div class="section-heading mt-4 mb-2 ">
+                <h4 class="title ">
+                    Filters
+                </h4>
+                <span  class="text-secondary apply-filter link" target=".price-input" >Apply</span>
+              </div>
+         
+            <div class="floating-card  product-filters-body">
+                <div class="text-center" style="padding-top:30vh" >
+                  <div class="spinner-border text-secondary align-middle" role="status">
+                   
+                  </div>
+
+                </div>
+                <center hidden >
+                  <button class="light-bg-button ">Apply</button>
+                </center>
+            </div>
+
+        </div>
+        <div class="col-lg-9 col-xlg-9  col-12">
+            <div class="sticky-header mb-2" style="width: 100%;background-color: white;">
+               
+                <div>
+                    <h2 style="font-size: 17px;">
+                        <a href="{% url 'home' %}">Home</a> / 
+                        <span style="opacity: 0.6;" id="page-title">{{title|default:"Collection"}}</span>
+                    </h2>
+                </div>
+                  
+                <div>
+                    <!--select>
+                        <option>Recommended</option>
+                        <option>Lowest Price</option>
+                        <option>Highest Price</option>
+                        <option>Latest</option>
+                    </select-->
+            
+                    <select name="currency" >
+                        {% for currency in CURRENCIES %}
+                        {% if currency.name == "USD" %}
+                        <option selected>{{currency}}</option>
+                        {% else %}
+                        <option>{{currency}}</option>
+                        {% endif %}
+                        {% endfor %}
+                       
+                    </select>
+                </div>
+                    
+                   
+        
+            </div>
+
+            <div class="search-bar mb-3 mt-1">
+
+                <div class="search-explore">
+                    <form>
+                        <input type="text" class="input-search" placeholder="Search here...">
+                        <button type="submit"><i class='bx bx-search-alt'></i></button>
+                    </form>
+                </div>
+             
+            
+               
+            </div>
+
+
+           <div class="row product-list gx-3 gy-4" id="product-list" >
+
+            <div class="text-center" style="padding-top:30vh">
+
+              <div class="spinner-border text-secondary align-middle" role="status">
+              </div>
+
+            </div>
+
+           </div>
+            
+        </div>
+    </div>
+   
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+
+<script src=" {% static 'js/shop.js' %}"></script>
+<script src=" {% static 'js/product-list.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,326 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {{site_name}} | You trust, we style
+    </title>
+    <link rel="icon" type="image/png" href="{% static 'img/logo/icon-black.png' %}">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Plugin -->
+    <link rel="stylesheet" href="{% static 'myadmin/libs/owl.carousel/assets/owl.carousel.min.css' %}">
+
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="{% static 'myadmin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myadmin/css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'myadmin/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myadmin/css/responsive.css' %}">
+    <!-- Add this in your base template or directly in your HTML file -->
+
+
+    {% block css %} {% endblock %}
+
+</head>
+
+<body class="sidebar-expand">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/logo/logo-purple.png' %}" alt=" logo">
+            </a>
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <!-- SIDEBAR MENU -->
+        <div class="simlebar-sc" data-simplebar>
+            <ul class="sidebar-menu tf">
+                <li>
+                    <a href="{% url 'myadmin:dashboard' %}">
+                        <i class='bx bxs-home'></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-submenu">
+                    <a href="project.html" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-store'></i>
+                        <span>E-commerce Store</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li href="#0" >
+                            <a> Analytics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                Delivery
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-submenu">
+                    <a href="#0" class="sidebar-menu-dropdown">
+                        <i class='fas fa-cut' style="font-size: 25px;"></i>
+                        <span>Fashion House</span>
+                        <div class="dropdown-icon">
+                            <i class='bx bx-chevron-down'></i>
+                        </div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="{% url 'myadmin:client-list' %}">
+                                Clients
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myadmin:bespoke-orders-list' 'all' %}">
+                                Bespoke Orders
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#0">
+                                Deliveries
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-submenu">
+                    <a href="clients.html" class="sidebar-menu-dropdown">
+                        <i class='bx bx-group' style="font-size: 35px;"></i>
+                        <span>Human Resource</span>
+                        <div class="dropdown-icon">
+                            <i class='bx bx-chevron-down'></i>
+                        </div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="{% url 'myadmin:staff-list' %}">
+                                Staffs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myadmin:salary-log-list' %}">
+                                Salary Log
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myadmin:transactions-log-list' %}">
+                                Transactions Log
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myadmin:staff-list' %}">
+                                Loan/Debt Log
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="calendar.html">
+                        <i class='bx bx-calendar'></i>
+                        <span>Calendar</span>
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
+                        <div>
+                            <i class='bx bx-cog mr-10'></i>
+                            <span>darkmode</span>
+                        </div>
+
+                        <span class="darkmode-switch"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="d-flex">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div class="main-title">
+                Dashboard
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center">
+
+            <!-- App Search-->
+           
+            <div class="dropdown d-inline-block d-lg-none ms-2">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class='bx bx-search-alt'></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-search-dropdown">
+
+                    <form class="p-3">
+                        <div class="form-group m-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                    aria-label="Recipient's username">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary h-100" type="submit"><i
+                                            class='bx bx-search-alt'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dropdown d-inline-block d-none" hidden>
+                <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="btn dropdown-toggle" id="header-lang-img">
+                        EN
+                        <i class='bx bx-caret-down'></i>
+                    </span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
+                        <img src="{% static 'myadmin/images/flags/us.jpg' %}">English</span>
+                    </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
+                        <img src="{% static 'myadmin/images/flags/spain.jpg' %}">Spanish</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
+                        <img src="{% static 'myadmin/images/flags/germany.jpg' %}">German</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
+                        <img src="{% static 'myadmin/images/flags/italy.jpg' %}">Italian</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
+                        <img src="{% static 'myadmin/images/flags/russia.jpg' %}">Russian</span>
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                        <i class="bx bx-fullscreen"></i>
+                    </button>
+            </div> -->
+            <div class="dropdown d-inline-block mt-12">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user"
+                        src="{% static 'myadmin/images/profile/profile.png' %}" alt="Header Avatar">
+                    <span class="pulse-css"></span>
+                    <!--span class="info d-xl-inline-block  color-span d-none">
+                        <span class="d-block fs-20 font-w600">{{user}}</span>
+                        <span class="d-block mt-7">{{user.email}}</span>
+                    </span-->
+
+                    <i class='bx bx-chevron-down'></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+
+                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i
+                            class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i>
+                        <span>Lock screen</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="{% url 'logout' %}"><i
+                            class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                        <span>Logout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Header -->
+    <!-- MAIN CONTENT -->
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'dashboard-modals.html' %}
+
+    {% if messages %}
+    {% for msg in messages %}
+    <div style="z-index: 30000;position: fixed;top: 0;width: 100%;text-align: center;">
+        <div class="alert alert-{{ msg.tags }} alert-dismissible fade show" role="alert">
+            {{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">
+                    <i class="bx bx-x"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+
+    <script src="{% static 'myadmin/libs/jquery/jquery.min.js' %}""></script>
+    <script src=" {% static 'myadmin/libs/moment/min/moment.min.js' %}""></script>
+    <script src="{% static 'myadmin/libs/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
+    <script src=" {% static 'myadmin/libs/peity/jquery.peity.min.js' %}""></script>
+    <script src="{% static 'myadmin/libs/chart.js/Chart.bundle.min.js' %}""></script>
+    <script src=" {% static 'myadmin/libs/owl.carousel/owl.carousel.min.js' %}""></script>
+    <script src="{% static 'myadmin/libs/bootstrap/js/bootstrap.min.js' %}""></script>
+    <script src=" {% static 'myadmin/libs/apexcharts/apexcharts.js' %}""></script>
+    <script src="{% static 'myadmin/libs/simplebar/simplebar.min.js' %}""></script>
+
+    <!-- APP JS -->
+    <script src=" {% static 'myadmin/js/main.js' %}""></script>
+    <script src="{% static 'myadmin/js/dashboard.js' %}""></script>
+    <script src=" {% static 'myadmin/js/shortcode.js' %}""></script>
+    <script src="{% static 'myadmin/js/pages/dashboard.js' %}""></script>
+
+    {% block js %}{% endblock %}
+</body>
+
+</html>

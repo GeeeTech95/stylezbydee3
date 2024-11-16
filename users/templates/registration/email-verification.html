@@ -1,0 +1,66 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- App Header -->
+<div class="appHeader no-border transparent position-absolute">
+    <div class="left">
+        <a href="#" class="headerButton goBack">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+    </div>
+    <div class="pageTitle">Email Verification</div>
+    <div class="right">
+    </div>
+</div>
+<!-- * App Header -->
+
+<!-- App Capsule -->
+<div id="appCapsule"  style="">
+
+    <div class="section text-center" style="margin-top: 70px;">
+  
+        <h4>Enter the {{verification_code_length}} digit verification code sent to {{user.email}}, to verify your email address</h4>
+    </div>
+    <div class="section  p-2" style="">
+        <form method="POST" class="details-verification-form" action="{% url 'verify-details-api' %}">
+            
+            {% csrf_token %}
+            <input hidden readonly value="email" name="verification_type">
+            <span input-name="verification_code" class="field-error"></span>
+            <div class="form-group basic">
+                <input required name="verification_code" type="text" class="form-control verification-input" id="smscode" placeholder="••••••" maxlength="{{verification_code_length}}">
+            </div>
+
+
+            <div  class="form-button-group transparent" style="bottom: 60px;">
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Verify</button>
+            </div>
+
+        </form>
+
+        
+        <div class="section-heading pt-5 mb-0">
+
+            <h4 class="title">
+                <a target-url="{% url 'send-otp-verification' 'mail'  %}" class="send-verification-code"
+                    href="#">Send Code</a>
+            </h4>
+
+            <h5 href="#" class="link resend-verification-code" hidden>
+                You can resend code in <strong></strong>
+            </h5>
+        </div>
+    </div>
+
+</div>
+<!-- * App Capsule -->
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'core/js/account.js' %}"></script>
+{% endblock %}

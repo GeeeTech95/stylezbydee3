@@ -1,0 +1,175 @@
+
+
+[
+    {
+      "model": "myadmin.staffrole",
+      "pk": 1,
+      "fields": {
+        "name": "ceo"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 2,
+      "fields": {
+        "name": "general manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 3,
+      "fields": {
+        "name": "recruitment manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 4,
+      "fields": {
+        "name": "safety manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 5,
+      "fields": {
+        "name": "design"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 6,
+      "fields": {
+        "name": "social media manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 7,
+      "fields": {
+        "name": "customer service"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 8,
+      "fields": {
+        "name": "technical manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 9,
+      "fields": {
+        "name": "maintenance manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 10,
+      "fields": {
+        "name": "quality control manager"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 11,
+      "fields": {
+        "name": "sales repesentative"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 12,
+      "fields": {
+        "name": "personal assistant to ceo"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 13,
+      "fields": {
+        "name": "head tailor"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 14,
+      "fields": {
+        "name": "head beeder"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 15,
+      "fields": {
+        "name": "head stoner"
+      }
+    },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 16,
+      "fields": {
+        "name": "no role"
+      }
+    },
+  
+  
+    {
+      "model": "myadmin.department",
+      "pk": 1,
+      "fields": {
+        "name": "tailoring"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 2,
+      "fields": {
+        "name": "designing"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 3,
+      "fields": {
+        "name": "administration"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 4,
+      "fields": {
+        "name": "beading"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 5,
+      "fields": {
+        "name": "assistant"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 6,
+      "fields": {
+        "name": "cleaning"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 7,
+      "fields": {
+        "name": "kitchen"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 8,
+      "fields": {
+        "name": "others"
+      }
+    }
+  ]
+  

@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block head %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="checkout-section section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-xl-2 col-12">
+                <div class="floating-card d-none d-xl-flex d-lg-flex">
+                    <img src="{% static 'img/checkout-smiling.jpg' %}" style="max-width: 100%;object-fit: cover;">
+                </div>
+               
+            </div>
+
+            
+            <div class="col-lg-10 col-xl-10 col-12 order-page bg-white pt-4 pl-3"  >
+                <div class="head">
+                    <h5 class="">Order ID: {{order.number}}</h5>
+                    <h6>{{order.date_placed|date}}</h6>
+                    <h5>{{order.currency}} {{order.total|intcomma}}</h5>
+                    <button class="dark-bg-button m-0 py-1 px-2  bg-secondary text-dark" style="font-weight: 500;">{{order.status}}</button>
+                    {% if not order.is_paid %}
+                    <a class="ml-2 text-dark" href="{{order.chat_payment_link}}">
+                        <ion-icon name="wallet-outline" class=""></ion-icon>&nbsp;Make Payment
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="body mt-5">
+
+                        <div class="row gx-5 gy-5">
+                            <div class="col-xl-4  col-lg-4 col-12 d-flex ">
+                                <div class="mr-1 bg-circle">
+                                    <ion-icon name="person-outline" class="md" ></ion-icon>
+                                </div>
+                                <div>
+                                
+                                    <ul class="list-style ">
+                                        <li class="font-20">Customer</li>
+                                        <li><span class="text-muted">Name: </span>&nbsp;{{order.shipping_info.full_name}}</li>
+                                        <li><span class="text-muted">Email: </span>&nbsp;{{order.shipping_info.email}}</li>
+                                        <li><span class="text-muted">Phone: </span>&nbsp;{{order.shipping_info.phone_number}}</li>
+                                    </ul>
+
+                                </div>
+                              
+                            </div>
+
+                            <div class="col-xl-4  col-lg-4 col-12 d-flex ">
+                                    <div class="mr-1 bg-circle">
+                                        <ion-icon name="cart-outline" class="md bg-seconda" ></ion-icon>
+                                    </div>
+                                    <div>
+                                    
+                                        <ul class="list-style ">
+                                            <li class="font-20">Order Info</li>
+                                            <li><span class="text-muted">Delivery Method: </span>&nbsp;Awaiting</li>
+                                            <li><span class="text-muted">Payment Method: </span>&nbsp;Over Chat</li>
+                                            <li><span class="text-muted">status: </span>&nbsp;{{order.status}}</li>
+                                        </ul>
+    
+                                    </div>
+                                  
+                            </div>
+
+                            <div class="col-xl-4  col-lg-4 col-12 d-flex ">
+                                    <div class="mr-1 bg-circle">
+                                        <ion-icon name="cube-outline" class="md" ></ion-icon>
+                                    </div>
+                                    <div>
+                                    
+                                        <ul class="list-style ">
+                                            <li class="font-20">Delivery Info</li>
+                                            <li><span class="text-muted">Country: </span>&nbsp;{{order.shipping_info.country}}</li>
+                                            <li><span class="text-muted">City: </span>&nbsp;{{order.shipping_info.city}}</li>
+                                            <li><span class="text-muted">Postal Code: </span>&nbsp;{{order.shipping_info.postal_code}}</li>
+                                            <li><span class="text-muted">Address: </span>&nbsp;{{order.shipping_info.address}}</li>
+                                        </ul>
+    
+                                    </div>
+                                  
+                            </div>
+                            <div class="col-xl-4  col-lg-4 col-12 d-flex ">
+                                <div class="mr-1 bg-circle">
+                                    <ion-icon name="cube-outline" class="md" ></ion-icon>
+                                </div>
+                                <div>
+                                
+                                    <ul class="list-style ">
+                                        <li class="font-20">Payment Info</li>
+                                        <li><span class="text-muted">Master Card: </span>&nbsp;**** **** 4562</li>
+                                        <li><span class="text-muted">Card Name: </span>&nbsp;Bayero Nnamdi</li>
+                                        <li><span class="text-muted">Phone: </span>&nbsp;+1 434 5456 434</li>
+                                       
+
+                                </div>
+                              
+                        </div>
+                        <div class="col-xl-4  col-lg-4 col-12 d-flex ">
+                            <div class="mr-1 bg-circle">
+                                <ion-icon name="document-text-outline" class="md" ></ion-icon>
+                            </div>
+                            <div>
+                            
+                                <ul class="list-style ">
+                                    <li class="font-20">Notes</li>
+                                    <li>
+                                        <textarea> hello world </textarea>
+                                    </li>
+                                </ul>
+
+                            </div>
+                          
+                    </div>
+                        </div>
+
+                        <div class="mt-5 ">
+                            <h5 class="d-flex">Products</h5>
+                            <div style="overflow-x: auto;">
+                                <table class="styled-table">
+                                    <thead>
+                                        <th><input type="checkbox"></th>
+                                        <th>NAME</th>
+                                        <th>ATTRIBUTES</th>
+                                        <th>UNIT PRICE</th>
+                                        <th>QUANTITY</th>
+                                    </thead>
+                                    <tbody>
+                                        {% for line in order.cart.lines.all %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>
+                                                <img height="40px" width="40px" src="{{line.product.thumbnail}}">{{line.product.title}} </td>
+                                            <td>
+                                                <ul class="list-style">
+                                                    {% for line_attr in line.attributes.all %}
+                                                    <li><span class="text-muted">{{line_attr.option}}: </span>&nbsp;{{line_attr.value}}</li>
+
+                                                    {% endfor %}
+                                                </ul>
+                                            </td>
+                                            <td>{{line.price_currency}} {{line.unit_price|intcomma}}</td>
+                                            <td>{{line.quantity}}</td>
+                                        </tr>
+                                        {% endfor  %}
+                                        
+                                        <!-- and so on... -->
+                                    </tbody>
+                                </table>
+                            
+                            </div>
+                        </div>
+         
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/shop.js' %}"></script>
+
+{% endblock %}

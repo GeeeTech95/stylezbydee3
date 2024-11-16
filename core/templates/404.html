@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero section-padding">
+    <div class="">
+        <div class="row">
+            <div class="col-lg-5 col-xl-5 col-12">
+                <h1>Affordable Luxury</h1>
+                <p class="hero-writeup">
+                    Experience the essence of elegance.
+                    <b>DonLiora</b> curates the best fashion collection,
+                    where trends meet sophistication, and style knows no bounds.
+                </p>
+                <button class="light-bg-button ">Create Account</button>
+                <a href="{% url 'explore-collection' %}?g=m">
+                <button class="light-bg-button invert " style="margin-left: 20px;margin-bottom: 30px;">
+                    Explore shop
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                 </button>
+                </a>
+    
+            </div>
+            <div class="col-12 col-xl-7 col-lg-7 " >
+                <video class="hero-video img-rounded" autoplay muted loop>        
+                    <source src="{% static 'img/hero-1.mp4' %}" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            
+    
+            </div>
+        </div>
+    </div>
+   
+   
+</section>
+
+<section class="collection section-padding">
+    <h2 class="section-title">FEATURED COLLECTION</h2>
+
+    <div class="row gx-2">
+           
+            <div class="col-12 col-xl-6 col-lg-6 mb-2">
+                <div class="row gy-2">
+                    <div class="col-12 hover-img">
+                        <div class="writeup explore-collection">
+                            Top Notch Accessories
+                            <button class="dark-bg-button "> Explore Collection</button>
+                        </div>
+                       
+                        <img  class="img-cover collection"  src="{% static 'img/samples/belt.jpg' %}">
+                    </div>
+                    <div class="col-12 hover-img">
+                        <div class="writeup explore-collection">
+                            Elegant Foot Wears
+                            <button class="dark-bg-button "> Explore Collection</button>
+                        </div>
+                        <img  class="img-cover collection" src="{% static 'img/samples/shoes.jpg' %}">
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6  hover-img ">
+                <div class="writeup explore-collection">
+                    Exotic Wears
+                    <button class="dark-bg-button "> Explore Collection</button>
+                </div>
+                <img  width="auto" class="img-cover collection"  src="{% static 'img/samples/men-wear.jpg' %}">
+            </div>
+    </div>
+
+</section>
+
+<section class="partners">
+    <img src="{% static 'img/partners/master-card-logo.png' %}" >
+    <img  src="{% static 'img/partners/paypal-logo.png' %}">
+    <img  src="{% static 'img/partners/visa-logo.png' %}">
+
+</section>
+
+<section  class="product-grid section-padding">
+    <h2 class="section-title">NEW ARRIVALS</h2>
+    <div class="row gx-3 gy-3" >
+            <div class="col-6  col-lg-3 col-xl-3 ">
+                <div class="product-card ">
+    
+                    <img class="product-img img-cover" src = "{% static 'img/samples/sample-1.jpg' %}">
+                    <div class="product-footer">
+                        <div class = "product-title">
+                            <span>
+                                Eleganza Bikata
+                            </span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                       
+                        <b class="product-price">#34,000</b>  
+                </div>
+                </div>
+             
+            </div>
+            <div class="col-6 col-lg-3 col-xl-3 ">
+                <div class="product-card ">
+                    <img class="product-img img-cover" src = "{% static 'img/samples/senators/blue-1.jpg' %}">
+                    
+                    <div class="product-footer">
+                            <div class = "product-title">
+                                <span>
+                                    Eleganza Bikata
+                                </span>
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </div>
+                           
+                            <b class="product-price">#34,000</b>  
+                    </div>
+                   
+                </div>
+               
+            
+            </div>
+            <div class="col-6 col-lg-3 col-xl-3">
+                <div class="product-card ">
+                    <img class="product-img img-cover" src = "{% static 'img/samples/sample-1.jpg' %}">
+                    <div class="product-footer">
+                        <div class = "product-title">
+                            <span>
+                                Eleganza Bikata
+                            </span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                       
+                        <b class="product-price">#34,000</b>  
+                </div>
+                </div>
+              
+            </div>
+            <div class="col-6 col-lg-3 col-xl-3">
+                <div class="product-card ">
+                    <img class="product-img img-cover" src = "{% static 'img/samples/senators/blue-1.jpg' %}">
+                    <div class="product-footer">
+                        <div class = "product-title">
+                            <span>
+                                Eleganza Bikata
+                            </span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                       
+                        <b class="product-price">#34,000</b>  
+                </div>
+                </div>
+               
+            </div>
+
+    </div>
+    
+</section>
+
+<section  class="product-grid section-padding">
+    <h2 class="section-title">BEST SELLING</h2>
+
+
+        <div class="row gx-2 gy-3" >
+            <div class="col-6 col-xl-4 col-lg-4 ">
+                <div class="product-card ">
+    
+                    <img class="product-img img-cover " src = "{% static 'img/samples/sample-1.jpg' %}">
+                    <div class="product-footer">
+                        <div class = "product-title">
+                            <span>
+                                Eleganza Bikata
+                            </span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                       
+                        <b class="product-price">#34,000</b>  
+                </div>
+                </div>
+             
+            </div>
+            <div class="col-6 col-xl-4 col-lg-4 ">
+                <div class="product-card ">
+                    <img class="product-img  img-cover  " src = "{% static 'img/samples/senators/blue-1.jpg' %}">
+                    
+                    <div class="product-footer">
+                            <div class = "product-title">
+                                <span>
+                                    Eleganza Bikata
+                                </span>
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </div>
+                           
+                            <b class="product-price">#34,000</b>  
+                    </div>
+                   
+                </div>
+               
+            
+            </div>
+            <div class="col-6 col-xl-4 col-lg-4 ">
+                <div class="product-card ">
+                    <img class="product-img  img-cover" src = "{% static 'img/samples/sample-1.jpg' %}">
+                    <div class="product-footer">
+                        <div class = "product-title">
+                            <span>
+                                Eleganza Bikata
+                            </span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                       
+                        <b class="product-price">#34,000</b>  
+                </div>
+                </div>
+              
+            </div>
+           
+
+        </div>
+        
+
+
+</section>
+
+
+<section class="cta-section">
+    <h2>Subscribe To Our NewsLetter! </h2>
+    
+    <p>Let's keep you updated with the latest in our store</p>
+    
+    <form class="inline">
+        <input type="email" placeholder="Email" >
+        <button type="submit" class="right">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+    </form>
+   
+</section>
+
+<section class="collection section-padding">
+    <h2 class="section-title" >EXPLORE BY GENDER</h2>
+    
+   <div class="container">
+        <div class="row" style="justify-content: center;">
+               
+            <div class="col-6 hover-img">
+                <div class="writeup ">
+                    FOR MEN
+                    <button class="dark-bg-button "> Explore Collection</button>
+                </div>
+                <img  class="img-cver"  height="400px" src="{% static 'img/category/men.jpg' %}">
+            </div>
+                   
+    
+                <div class="col-6  hover-img">
+                    <div class="writeup ">
+                        FOR WOMEN
+                        <button class="dark-bg-button "> Explore </button>
+                    </div>
+                    <img  width="auto"  height="400px" class="img-cover"  src="{% static 'img/category/women.jpg' %}">
+                </div>
+        </div>
+   </div>
+
+</section>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="checkout-section section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-xl-4 col-12">
+                <div class="floating-card d-none d-xl-flex d-lg-flex">
+                    <img src="{% static 'img/checkout-smiling.jpg' %}" style="max-width: 100%;">
+                </div>
+               
+            </div>
+
+
+            
+            <div class="col-lg-8 col-xl-8 col-12" >
+                <div class="checkout-tab">
+                    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="#order-summary" class="active" id="order-summary-btn" data-bs-toggle="pill" data-bs-target="#order-summary-tab" role="tab" aria-controls="pills-specs" aria-selected="true">
+                                <!--ion-icon name="bag-check-outline"></ion-icon-->
+                                <ion-icon name="checkbox-outline"></ion-icon>
+                                Order Summary
+                              </a>
+                        </li>
+                        <svg class="custom-svg" for="checkout"  xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+                            <line x1="0" y1="20" x2="180" y2="20" stroke="black" stroke-width="1" />
+                        </svg>
+                        <li class="nav-item" role="presentation">
+                          <a href="#delivery-info"  id="delivery-info-btn" data-bs-toggle="pill" data-bs-target="#delivery-info-tab" role="tab" aria-controls="pills-specs" aria-selected="true">
+                            <ion-icon name="cube-outline"></ion-icon>
+                                Delivery Info
+                              </a>
+                          </a>
+                        </li>
+                 
+                        <svg class="custom-svg" for="checkout" xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+                            <line x1="0" y1="20" x2="180" y2="20" stroke="black" stroke-width="1" />
+                        </svg>
+
+                        <li class="nav-item" role="presentation">
+                            <a href="#complete-checkout" class="" id="payment-btn" data-bs-toggle="pill" data-bs-target="#payment-tab" role="tab" aria-controls="pills-specs" aria-selected="true">
+                                <ion-icon name="wallet-outline"></ion-icon>
+                                Checkout
+                              </a>
+                        </li>
+                       
+                      
+                      
+                    </ul>
+
+                
+                    <div class="tab-content " id="pills-tabContent" style="position: relative;">
+                     
+                            <div  class="tab-pane fade show active cart" id="order-summary-tab" role="tabpanel" aria-labelledby="order-summary-tab">
+                                <h4 class="form-title mb-4" >
+                                    Order Summary
+                                </h4>
+                                <div id="summary" class="content">
+                                    <div class="text-center" >
+                                        <div class="spinner-border text-secondary align-middle" role="status">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div  class="mt-5 text-center" style="bottom: 10px;font-weight: 700;font-size: 16px; text-align: center;">
+                                      Total: &nbsp;<span id="total">0 USD</span>
+                                </div>
+                            </div>
+
+ 
+
+
+                            <div class="tab-pane fade" id="delivery-info-tab" role="tabpanel" aria-labelledby="delivery-info-tab">
+                         
+                                    <h4 class="form-title mb-4" >Enter Delivery Details</h4>
+                                    
+                                    <form id="delivery-details-form" method="POST" action="{% url 'checkout-api' %}">
+                                        {% csrf_token %}
+                                        <div class="row gy-3" >
+                                            <div class="col-6">
+                                                <div class="form-input no-border">
+                                                    <label for="fullName"> Full Name</label><br>
+                                                    <span input-name="full_name" class="field-error"></span>
+                                                    <input name="full_name" type="text" required>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 ">
+                                                <div class="form-input no-border">
+                                                    <label for="phone_number"> Phone Number</label><br>
+                                                    <span input-name="phone_number" class="field-error"></span>
+                                                    <div class="input-group ">
+                                        
+                                                    <div class="input-group-prepend" style="background-color: whitesmoke;">
+                                                        <select name="phone_number_extension" class="prepend styled-select" >
+                                                            <option>+234</option> 
+                                                            <option>+41</option>
+                                                        
+                                                        </select>
+                                                    </div>
+                                                    <input  type="text" name="phone_number" class="form-control" aria-label="Text input with dropdown button">
+                                                    </div>
+                                                </div>
+
+                                            
+
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-input no-border">
+                                                    <label for="email"> Email Address</label>
+                                                    <br>
+                                                    <span input-name="email" class="field-error"></span>
+                                                    <input name="email" type="email" required >
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6 ">
+                                                <div class="form-input no-border">
+                                                    <label for="country"> Country</label><br>
+                                                    <span input-name="country" class="field-error"></span>
+                                                    <select name="country" class="form-select form-select-lg mt-0" aria-label=".form-select-lg example" required>
+                                                        {% for country in COUNTRIES %}
+                                                        <option value="{{country.pk}}">{{country}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-input no-border">
+                                                    <label for="city"> City</label><br>
+                                                    <span input-name="city" class="field-error"></span>
+                                                    <input name="city" type="text" required >
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-input no-border">
+                                                    <label for="address"> Address</label><br>
+                                                    <span input-name="address" class="field-error"></span>
+                                                    <input name="address" type="text"  required>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-input no-border">
+                                                    <label for="postal_code"> Postal Code</label><br>
+                                                    <span input-name="postal_code" class="field-error"></span>
+                                                    <input name="postal_code" type="text"  required>
+                                                </div>
+
+                                            </div>
+
+                                        
+                                            
+                                        
+                                        </div>
+                                    </form>
+                           
+                            </div>
+                        
+                            <div style="min-height: 340px;display: flex;align-items: center;justify-content: center" class="tab-pane fade " id="payment-tab" role="tabpanel" aria-labelledby="payment-tab">
+                                <!--h4 class="form-title mb-4" >Choose a Checkout Option</h4-->
+                                
+                            
+                             
+                                       <a href="{%  url 'explore-collection'%}" class="mr-4">
+                                        <button class="light-bg-button  invert " style="margin-left: 20px;">
+                                           Keep Shopping
+                                           <ion-icon name="search-outline"></ion-icon>
+                                        </button>
+                                    </a>
+                                    <a href="#0" class="chat-checkout">
+                                        <button class="light-bg-button  " style="margin-left: 20px;">
+                                           Create An Order
+                                           <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </button>
+                                       </a>
+                                       
+
+
+                                
+
+
+                                  
+                            </div>
+                    
+                    
+                    </div>
+                    
+                </div>
+                <center>
+
+                    <a href="{%  url 'explore-collection'%}" >
+                        <button class="light-bg-button invert  " style="margin-left: 20px;">
+                           Keep Shopping
+                           <ion-icon name="search-outline"></ion-icon>
+                        </button>
+                    </a>
+
+                </center>
+               
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/shop.js' %}"></script>
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+[
+    {
+        "model": "users.supportingbank",
+        "pk": 1,
+        "fields": {
+            "name": "United Bank Of Africa",
+            "short_name": "UBA"
+        }
+    },
+    {
+        "model": "users.supportingbank",
+        "pk": 2,
+        "fields": {
+            "name": "FIdelity Bank PLC",
+            "short_name": "FIDELITY"
+        }
+    }
+]

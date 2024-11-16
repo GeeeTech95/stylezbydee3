@@ -1,0 +1,1342 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start Main Banner Area -->
+<div class="home-slides-two owl-carousel owl-theme">
+
+
+    <div class="main-banner banner-bg4">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="banner-content text-white">
+                                <div class="line"></div>
+                                <span class="sub-title">Make Your Fashion Smarter</span>
+                                <h1>Clothing made for you!</h1>
+                                <p>Click here to shop in your local currency. We ship over 2 million products around the
+                                    world!</p>
+                                <div class="btn-box">
+                                    <a href="{% url 'explore-collection' %}?g=m" class="default-btn"> Explore shop</a>
+                                    <a href="{% url 'custom-tailoring' %}" class="optional-btn">Try Bespoke</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-banner banner-bg2">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="banner-content text-white">
+                                <div class="line"></div>
+                                <span class="sub-title">Trending Women's Collection</span>
+                                <h1>New Inspiration 2024</h1>
+                                <p>Click here to shop in your local currency. We ship over 2 million products around the
+                                    world!</p>
+                                <div class="btn-box">
+                                    <a href="products-right-sidebar-2.html" class="default-btn">Shop Women's</a>
+                                    <a href="products-right-sidebar-3.html" class="optional-btn">Shop Men's</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-banner banner-bg5">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="banner-content text-white">
+                                <div class="line"></div>
+                                <span class="sub-title">Clothing Made For You!</span>
+                                <h1>Your Fashion Smarter</h1>
+                                <p>Click here to shop in your local currency. We ship over 2 million products around the
+                                    world!</p>
+                                <div class="btn-box">
+                                    <a href="products-right-sidebar-2.html" class="default-btn">Shop Women's</a>
+                                    <a href="products-right-sidebar-3.html" class="optional-btn">Shop Men's</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Main Banner Area -->
+
+<!-- Start Categories Banner Area -->
+<section class="categories-banner-area  explore-gender pb-70 ptb-70" hidden >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                <center>
+                    <figure class="snip1113 gold">
+                        <img src="{% static 'img/category/man1.png' %}">
+                        <figcaption>
+                            <h3 style="padding-left:110px">For&nbsp;<span>Men</span></h3>
+                            <!--h4>
+                                Explore
+                            </h4-->
+                        </figcaption>
+                        <div class="quote home-slides-two owl-carousel owl-theme">
+
+                            <div class="content">
+                                <h5>Style, Comfort, <br>Steeze!</h5>
+                                <a href="products-left-sidebar-3.html" class="gold-btn">Explore Now</a>
+                            </div>
+                            <div class="content">
+                                <h5>Ụdị, Nkasi Obi, <br>Seze!</h5>
+                                <a href="products-left-sidebar-3.html" class="gold-btn">Nyocha Ugbua</a>
+                            </div>
+                            <div class="content">
+                                <h5>Ara, Itunu, <br>Steze!</h5>
+                                <a href="products-left-sidebar-3.html" class="gold-btn">ṣawari bayi</a>
+                            </div>
+                            <div class="content">
+                                <h5>Salo, Ta'aziyya, <br>Sanya!</h5>
+                                <a href="products-left-sidebar-3.html" class="gold-btn">Bincika yanzu</a>
+                            </div>
+                        </div>
+                    </figure>
+                </center>
+
+                <!--div class="single-categories-box explore-gender">
+                    
+                    <img src="{% static 'img/category/man1.png' %}" >
+
+                    <div class="content text-white">
+                        <span>Class & Steeze</span>
+                        <h3>FOR HIM</h3>
+                        <a href="products-left-sidebar-3.html" class="default-btn">Explore Now</a>
+                    </div>
+                    <a href="products-left-sidebar-3.html" class="link-btn"></a>
+                </div-->
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <center>
+                    <figure class="snip1113 purple">
+                        <img src="{% static 'img/category/woman1.png' %}" style="padding-right: 30px;">
+                        <figcaption>
+                            <h3>For&nbsp;<span>Women</span></h3>
+                            <!--h4>
+                                Explore
+                            </h4-->
+                        </figcaption>
+                        <div class="quote  home-slides-two owl-carousel owl-theme">
+
+
+                            <div class="content">
+                                <h5>Beauty, Elegance, <br> Magic!</h5>
+                                <a href="products-left-sidebar-3.html" class="default-btn">Explore Now</a>
+                            </div>
+                            <div class="content">
+                                <h5>Mma, ịma mma, <br> Ime Anwansi!</h5>
+                                <a href="products-left-sidebar-3.html" class="default-btn">Nyocha Ugbua</a>
+                            </div>
+                            <div class="content">
+                                <h5>Ẹwa, Didara, <br> Magic</h5>
+                                <a href="products-left-sidebar-3.html" class="default-btn">ṣawari bayi</a>
+                            </div>
+                            <div class="content">
+                                <h5>Kyakkyawa, Tsari, <br> Sihiri</h5>
+                                <a href="products-left-sidebar-3.html" class="default-btn">Bincika yanzu</a>
+                            </div>
+
+                        </div>
+                    </figure>
+                </center>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Categories Banner Area -->
+
+<!-- Start Facility Area -->
+<section class="facility-area pb-70">
+    <div class="container">
+        <div class="section-title text-start">
+            <span class="sub-title">Explore</span>
+            <h2>Dig Deeper, Explore Categories</h2>
+        </div>
+
+        <div class="facility-slides owl-carousel owl-theme">
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample2.jpeg' %}">
+
+                <div class="content text-white">
+                    <span>Take 20% OFF</span>
+                    <h3>Winter Spring!</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+
+            <div class="single-categories-box main-cat">
+                <img height="200px" src="{% static 'img/samples/sample3.jpeg' %}">
+
+                <div class="content">
+                    <span>New Collection</span>
+                    <h3>Need Now</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample4.jpeg' %}">
+
+                <div class="content text-white">
+                    <span>Don’t Miss Today</span>
+                    <h3>50% OFF</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+
+
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample5.jpg' %}">
+
+                <div class="content">
+                    <span>Your Looks</span>
+                    <h3>Must Haves</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</section>
+<!-- End Facility Area -->
+
+
+
+<!-- Start Categories Banner Area ->
+        <section class="categories-banner-area pt-100 pb-70">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="categories-box">
+                            <img src="{% static 'x/img/categories/img19.jpg' %}">
+
+                            <div class="content">
+                                <h3>New Collections!</h3>
+                            </div>
+
+                            <a href="#0" class="link-btn"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="categories-box">
+                                    <img src="{% static 'x/img/categories/img20.jpg' %}">
+        
+                                    <div class="content">
+                                        <h3>Our Popular Products</h3>
+                                    </div>
+
+                                    <a href="products-left-sidebar.html" class="link-btn"></a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="categories-box">
+                                    <img src="{% static 'x/img/categories/img7.jpg' %}">
+        
+                                    <div class="content">
+                                        <h3>Hot Trending Products</h3>
+                                    </div>
+
+                                    <a href="products-left-sidebar.html" class="link-btn"></a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="categories-box">
+                                    <img src="{% static 'x/img/categories/img8.jpg' %}">
+        
+                                    <div class="content">
+                                        <h3>Winter Collections!</h3>
+                                    </div>
+
+                                    <a href="products-left-sidebar.html" class="link-btn"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Categories Banner Area -->
+
+<!-- Start Gallery Area -->
+<section class="facility-area   pt-100 pb-70  ">
+    <div class="container">
+        <div class="section-title text-start">
+            <span class="sub-title">Explore the best</span>
+            <h2>Designers Pick</h2>
+        </div>
+
+        <div class="gallery-items">
+            <div class="col-lg-6 col-md-6 grid-item">
+                <div class="single-gallery-item">
+                    <img src="{% static 'img/studio/img13.jpg' %}" alt="image">
+
+                    <div class="gallery-content">
+                        <span>STONNED DRESSES</span>
+                        <h3>Luxury Stoned</h3>
+                    </div>
+
+                    <a href="{% static 'img/studio/img13.jpg' %}" data-effect="zoomInUp" class="popup-btn"></a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 grid-item">
+                <div class="single-gallery-item">
+                    <img src="{% static 'img/studio/img16.jpg' %}" alt="image" style="border: 3px ridge #994d99 ">
+
+                    <div class="gallery-content">
+                        <span>STONNED DRESSES</span>
+                        <h3>Luxury Stoned</h3>
+                    </div>
+
+                    <a href="{% static 'img/studio/img16.jpg' %}" data-effect="zoomInDown" class="popup-btn"></a>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-6 col-md-6 grid-item">
+                <div class="single-gallery-item">
+                    <img src="{% static 'img/studio/img14.jpg' %}" alt="image">
+
+                    <div class="gallery-content">
+                        <span>STONNED DRESSES</span>
+                        <h3>Luxury Stoned</h3>
+                    </div>
+
+                    <a href="{% static 'img/studio/img14.jpg' %}" data-effect="zoomInDown" class="popup-btn"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 grid-item">
+                <div class="single-gallery-item">
+                    <img src="{% static 'img/studio/img15.jpg' %}" alt="image" style="border: 3px ridge #994d99 ">
+
+                    <div class="gallery-content">
+                        <span>STONNED DRESSES</span>
+                        <h3>Luxury Stoned</h3>
+                    </div>
+
+                    <a href="{% static 'img/studio/img15.jpg' %}" data-effect="zoomInDown" class="popup-btn"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- End Categories Banner Area -->
+
+<!-- Start Products Area -->
+<section class="products-area pb-70">
+    <div class="container">
+        <div class="section-title text-start">
+            <span class="sub-title">New</span>
+            <h2>Latest From Our Store</h2>
+        </div>
+
+        <div class="row">
+
+
+            {% include "product-list.html" with products=new_arrivals %}
+
+
+
+
+        </div>
+    </div>
+</section>
+<!-- End Products Area -->
+
+
+<!-- Start Offer Products Area -->
+<section class="offer-products-area">
+    <div class="container">
+        <div class="offer-products-slides owl-carousel owl-theme">
+
+            <div class="single-offer-products">
+                <div class="content">
+                    <h3><a href="#0">Luxury and Class</a></h3>
+                    <p>Cuirated redy to nwear outfit for the top 1% gentlemen</p>
+                    <a href="#0" class="gold-btn">Explore!</a>
+                </div>
+
+                <div class="image">
+                    <a href="#0"><img src="{% static 'img/samples/img5.jpg' %}"></a>
+                </div>
+            </div>
+
+            <div class="single-offer-products">
+                <div class="content">
+                    <h3><a href="#0">Elegance</a></h3>
+                    <p>Explore our Ready To wear outfits for Women</p>
+                    <a href="#0" class="default-btn">Explore!</a>
+                </div>
+
+                <div class="image">
+                    <a href="#0"><img src="{% static 'img/samples/img2.jpeg' %}"></a>
+                </div>
+            </div>
+
+
+
+            <div class="single-offer-products">
+                <div class="content">
+                    <h3><a href="#0">Beat The Trend</a></h3>
+                    <p>Stay aloft in the fashgion space, build a unique style</p>
+                    <a href="#0" class="black-btn">Discover Now!</a>
+                </div>
+
+                <div class="image">
+                    <a href="#0"><img src="{% static 'img/samples/img4.jpg' %}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Offer Products Area -->
+
+
+<!-- Start Facility Area -->
+<section class="facility-area pb-70 pt-5">
+    <div class="container">
+        <div class="section-title text-start">
+            <span class="sub-title">Explore</span>
+            <h2>Checkout Out Our Top Collections</h2>
+        </div>
+
+        <div class="facility-slides owl-carousel owl-theme">
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample2.jpeg' %}">
+
+                <div class="content text-white">
+                    <span>Take 20% OFF</span>
+                    <h3>Winter Spring!</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+
+            <div class="single-categories-box main-cat">
+                <img height="200px" src="{% static 'img/samples/sample3.jpeg' %}">
+
+                <div class="content">
+                    <span>New Collection</span>
+                    <h3>Need Now</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample4.jpeg' %}">
+
+                <div class="content text-white">
+                    <span>Don’t Miss Today</span>
+                    <h3>50% OFF</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+
+
+            <div class="single-categories-box main-cat">
+                <img src="{% static 'img/samples/sample5.jpg' %}">
+
+                <div class="content">
+                    <span>Your Looks</span>
+                    <h3>Must Haves</h3>
+                    <a href="products-right-sidebar.html" class="default-btn">Discover Now</a>
+                </div>
+                <a href="products-right-sidebar.html" class="link-btn"></a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</section>
+<!-- End Facility Area -->
+
+
+
+<!-- Start Offer Area -->
+<section class="offer-area bg-image2 ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="offer-content">
+                    <span class="sub-title">Limited Time Offer!</span>
+                    <h2>-40% OFF</h2>
+                    <p>Get The Best Deals Now</p>
+                    <a href="products-one-row.html" class="default-btn">Discover Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Offer Area -->
+
+
+<!-- Start Facility Area -->
+<section class="facility-area pb-70 ptb-70">
+    <div class="container">
+        <div class="facility-slides owl-carousel owl-theme">
+            <div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-customer-service'></i>
+                </div>
+                <h3>24/7 Customer Support</h3>
+            </div>
+            <div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-tracking'></i>
+                </div>
+                <h3>Worldwide Shipping</h3>
+            </div>
+
+
+            <!--div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-shuffle'></i>
+                </div>
+                <h3>7 Day Exchange Policy</h3>
+            </div-->
+
+
+            <div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-return'></i>
+                </div>
+                <h3>Easy Return Policy</h3>
+            </div>
+
+            <!--div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-sale'></i>
+                </div>
+                <h3>Weekend Discount Coupon</h3>
+            </div-->
+
+            <div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-credit-card'></i>
+                </div>
+                <h3>Secure Payment Methods</h3>
+            </div>
+
+            <div class="single-facility-box">
+                <div class="icon">
+                    <i class='flaticon-location'></i>
+                </div>
+                <h3>Easy Package Tracking</h3>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- End Facility Area -->
+
+<div class="footer-top mt-0 pt-0">
+
+
+    <div class=" footer-contact">
+
+
+        <div class="social-links" style="">
+            <h5 class="text-white ">Keep in Touch, Follow our social handles </h5>
+
+
+            <a href="{{twitter_link}}" class="twitter">
+                <img src="{% static 'img/socials/x-logo.png' %}" style="padding: 0;margin-top: -35px;">
+            </a>
+            <a href="{{instagram_link}}" class=""><i class="bx bxl-instagram"></i></a>
+            <a href="{{facebook_link}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="{{tiktok_link}}" class=""><i class="bx bxl-tiktok"></i></a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- Start Blog Area ->
+<section class="blog-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">Recent Story</span>
+            <h2>From The Xton Blog</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog-post">
+                    <div class="post-image">
+                        <a href="single-blog-2.html">
+                            <img src="{% static 'x/img/blog/img1.jpg' %}">
+                        </a>
+                        <div class="date">
+                            <span>January 29, 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="post-content">
+                        <span class="category">Ideas</span>
+                        <h3><a href="single-blog-2.html">The #1 eCommerce blog to grow your business</a></h3>
+                        <a href="single-blog-2.html" class="details-btn">Read Story</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog-post">
+                    <div class="post-image">
+                        <a href="single-blog-2.html">
+                            <img src="{% static 'x/img/blog/img2.jpg' %}">
+                        </a>
+                        <div class="date">
+                            <span>January 29, 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="post-content">
+                        <span class="category">Advice</span>
+                        <h3><a href="single-blog-2.html">Latest ecommerce trend: The rise of shoppable posts</a></h3>
+                        <a href="single-blog-2.html" class="details-btn">Read Story</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="single-blog-post">
+                    <div class="post-image">
+                        <a href="single-blog-2.html">
+                            <img src="{% static 'x/img/blog/img3.jpg' %}">
+                        </a>
+                        <div class="date">
+                            <span>January 29, 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="post-content">
+                        <span class="category">Social</span>
+                        <h3><a href="single-blog-2.html">Building eCommerce wave: Social media shopping</a></h3>
+                        <a href="single-blog-2.html" class="details-btn">Read Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Blog Area -->
+
+<!-- Start Instagram Area -->
+<div class="instagram-area">
+    <div class="container-fluid">
+
+        <div class="instagram-slides owl-carousel owl-theme">
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img1.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img3.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img2.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img4.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img5.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img6.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img7.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img8.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img9.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+
+            <div class="single-instagram-post">
+                <img src="{% static 'img/socials/img10.jpg' %}">
+                <i class='bx bxl-instagram'></i>
+                <a href="#" target="_blank" class="link-btn"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Instagram Area -->
+
+<!-- Start Sidebar Modal -->
+<div class="modal right fade sidebarModal" id="sidebarModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+
+            <div class="modal-body">
+                <div class="sidebar-about-content">
+                    <h3>About Our Fashion Line</h3>
+
+                    <div class="about-the-store">
+                        <p>
+                            Step into a world of elegance with our Bespoke and ready to wear outfits, where every piece
+                            can be custom-tailored to your style, ensuring perfect fit and timeless elegance. . You
+                            trust, We style
+                        </p>
+
+                        <ul class="sidebar-contact-info">
+                            <li><i class='bx bx-map'></i> <a href="#" target="_blank">{{site_address}}</a>
+                            </li>
+                            <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">{{site_phone}}</a></li>
+                            <li><i class='bx bx-envelope'></i> <a href="mailto:hello@xton.com">{{site_email}}</a></li>
+                        </ul>
+                    </div>
+
+                    <ul class="social-link">
+                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                        <li><a href="#" class="d-block" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-new-in-store">
+                    <h3>New In Store</h3>
+
+                    <ul class="products-list">
+                        {% for product in new_arrivals %}
+
+                        <li>
+                            <a href="#">
+                                <img src="{{product.}}">
+                            </a>
+                        </li>
+                        {% endfor %}
+
+
+                    </ul>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                    <a href="#" class="shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar Modal -->
+
+<!-- Start QuickView Modal Area -->
+<div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="products-image">
+                        <img src="{% static 'x/img/quick-view-img.jpg' %}">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="products-content">
+                        <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
+
+                        <div class="price">
+                            <span class="old-price">$210.00</span>
+                            <span class="new-price">$200.00</span>
+                        </div>
+
+                        <div class="products-review">
+                            <div class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                            <a href="#" class="rating-count">3 reviews</a>
+                        </div>
+
+                        <ul class="products-info">
+                            <li><span>Vendor:</span> <a href="#">Lereve</a></li>
+                            <li><span>Availability:</span> <a href="#">In stock (7 items)</a></li>
+                            <li><span>Products Type:</span> <a href="#">T-Shirt</a></li>
+                        </ul>
+
+                        <div class="products-color-switch">
+                            <h4>Color:</h4>
+
+                            <ul>
+                                <li><a href="#" data-bs-toggle="tooltip" data-placement="top" title="Black"
+                                        class="color-black"></a></li>
+                                <li><a href="#" data-bs-toggle="tooltip" data-placement="top" title="White"
+                                        class="color-white"></a></li>
+                                <li><a href="#" data-bs-toggle="tooltip" data-placement="top" title="Green"
+                                        class="color-green"></a></li>
+                                <li><a href="#" data-bs-toggle="tooltip" data-placement="top" title="Yellow Green"
+                                        class="color-yellowgreen"></a></li>
+                                <li><a href="#" data-bs-toggle="tooltip" data-placement="top" title="Teal"
+                                        class="color-teal"></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="products-size-wrapper">
+                            <h4>Size:</h4>
+
+                            <ul>
+                                <li><a href="#">XS</a></li>
+                                <li class="active"><a href="#">S</a></li>
+                                <li><a href="#">M</a></li>
+                                <li><a href="#">XL</a></li>
+                                <li><a href="#">XXL</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="products-add-to-cart">
+                            <div class="input-counter">
+                                <span class="minus-btn"><i class='bx bx-minus'></i></span>
+                                <input type="text" value="1">
+                                <span class="plus-btn"><i class='bx bx-plus'></i></span>
+                            </div>
+
+                            <button type="submit" class="default-btn">Add to Cart</button>
+                        </div>
+
+                        <a href="#" class="view-full-info">View Full Info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End QuickView Modal Area -->
+
+<!-- Start Shopping Cart Modal -->
+<div class="modal right fade shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+
+            <div class="modal-body">
+                <h3>My Cart (3)</h3>
+
+                <div class="products-cart-content">
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img1.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$250.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img2.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Causal V-Neck Soft Raglan</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$200.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img3.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Hanes Men's Pullover</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$200.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-cart-subtotal">
+                    <span>Subtotal</span>
+
+                    <span class="subtotal">$524.00</span>
+                </div>
+
+                <div class="products-cart-btn">
+                    <a href="#" class="default-btn">Proceed to Checkout</a>
+                    <a href="#" class="optional-btn">View Shopping Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Shopping Cart Modal -->
+
+<!-- Start Wishlist Modal -->
+<div class="modal right fade shoppingWishlistModal" id="shoppingWishlistModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+
+            <div class="modal-body">
+                <h3>My Wish List (3)</h3>
+
+                <div class="products-cart-content">
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img1.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$250.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img2.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Causal V-Neck Soft Raglan</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$200.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="products-cart">
+                        <div class="products-image">
+                            <a href="#"><img src="{% static 'x/img/products/img3.jpg' %}"></a>
+                        </div>
+
+                        <div class="products-content">
+                            <h3><a href="#">Hanes Men's Pullover</a></h3>
+                            <span>Blue / XS</span>
+                            <div class="products-price">
+                                <span>1</span>
+                                <span>x</span>
+                                <span class="price">$200.00</span>
+                            </div>
+                            <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-cart-btn">
+                    <a href="#" class="optional-btn">View Shopping Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Wishlist Modal -->
+
+<!-- Start Size Guide Modal Area -->
+<div class="modal fade sizeGuideModal" id="sizeGuideModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="bx bx-x"></i></span>
+            </button>
+
+            <div class="modal-sizeguide">
+                <h3>Size Guide</h3>
+                <p>This is an approximate conversion table to help you find your size.</p>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Italian</th>
+                                <th>Spanish</th>
+                                <th>German</th>
+                                <th>UK</th>
+                                <th>US</th>
+                                <th>Japanese</th>
+                                <th>Chinese</th>
+                                <th>Russian</th>
+                                <th>Korean</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>34</td>
+                                <td>30</td>
+                                <td>28</td>
+                                <td>4</td>
+                                <td>00</td>
+                                <td>3</td>
+                                <td>155/75A</td>
+                                <td>36</td>
+                                <td>44</td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td>32</td>
+                                <td>30</td>
+                                <td>6</td>
+                                <td>0</td>
+                                <td>5</td>
+                                <td>155/80A</td>
+                                <td>38</td>
+                                <td>44</td>
+                            </tr>
+                            <tr>
+                                <td>38</td>
+                                <td>34</td>
+                                <td>32</td>
+                                <td>8</td>
+                                <td>2</td>
+                                <td>7</td>
+                                <td>160/84A</td>
+                                <td>40</td>
+                                <td>55</td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td>36</td>
+                                <td>34</td>
+                                <td>10</td>
+                                <td>4</td>
+                                <td>9</td>
+                                <td>165/88A</td>
+                                <td>42</td>
+                                <td>55</td>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td>38</td>
+                                <td>36</td>
+                                <td>12</td>
+                                <td>6</td>
+                                <td>11</td>
+                                <td>170/92A</td>
+                                <td>44</td>
+                                <td>66</td>
+                            </tr>
+                            <tr>
+                                <td>44</td>
+                                <td>40</td>
+                                <td>38</td>
+                                <td>14</td>
+                                <td>8</td>
+                                <td>13</td>
+                                <td>175/96A</td>
+                                <td>46</td>
+                                <td>66</td>
+                            </tr>
+                            <tr>
+                                <td>46</td>
+                                <td>42</td>
+                                <td>40</td>
+                                <td>16</td>
+                                <td>10</td>
+                                <td>15</td>
+                                <td>170/98A</td>
+                                <td>48</td>
+                                <td>77</td>
+                            </tr>
+                            <tr>
+                                <td>48</td>
+                                <td>44</td>
+                                <td>42</td>
+                                <td>18</td>
+                                <td>12</td>
+                                <td>17</td>
+                                <td>170/100B</td>
+                                <td>50</td>
+                                <td>77</td>
+                            </tr>
+                            <tr>
+                                <td>50</td>
+                                <td>46</td>
+                                <td>44</td>
+                                <td>20</td>
+                                <td>14</td>
+                                <td>19</td>
+                                <td>175/100B</td>
+                                <td>52</td>
+                                <td>88</td>
+                            </tr>
+                            <tr>
+                                <td>52</td>
+                                <td>48</td>
+                                <td>46</td>
+                                <td>22</td>
+                                <td>16</td>
+                                <td>21</td>
+                                <td>180/104B</td>
+                                <td>54</td>
+                                <td>88</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Size Guide Modal Area -->
+
+<!-- Start Shipping Modal Area -->
+<div class="modal fade productsShippingModal" id="productsShippingModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i></span>
+            </button>
+
+            <div class="shipping-content">
+                <h3>Shipping</h3>
+                <ul>
+                    <li>Complimentary ground shipping within 1 to 7 business days</li>
+                    <li>In-store collection available within 1 to 7 business days</li>
+                    <li>Next-day and Express delivery options also available</li>
+                    <li>Purchases are delivered in an orange box tied with a Bolduc ribbon, with the exception of
+                        certain items</li>
+                    <li>See the delivery FAQs for details on shipping methods, costs and delivery times</li>
+                </ul>
+
+                <h3>Returns and Exchanges</h3>
+                <ul>
+                    <li>Easy and complimentary, within 14 days</li>
+                    <li>See conditions and procedure in our return FAQs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Shipping Modal Area -->
+
+<!-- Start Products Filter Modal Area -->
+<div class="modal left fade productsFilterModal" id="productsFilterModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class='bx bx-x'></i> Close</span>
+            </button>
+
+            <div class="modal-body">
+                <div class="woocommerce-widget-area">
+                    <div class="woocommerce-widget filter-list-widget">
+                        <h3 class="woocommerce-widget-title">Current Selection</h3>
+
+                        <div class="selected-filters-wrap-list">
+                            <ul>
+                                <li><a href="#"><i class='bx bx-x'></i> 44</a></li>
+                                <li><a href="#"><i class='bx bx-x'></i> XI</a></li>
+                                <li><a href="#"><i class='bx bx-x'></i> Clothing</a></li>
+                                <li><a href="#"><i class='bx bx-x'></i> Shoes</a></li>
+                            </ul>
+
+                            <a href="#" class="delete-selected-filters"><i class='bx bx-trash'></i> <span>Clear
+                                    All</span></a>
+                        </div>
+                    </div>
+
+                    <div class="woocommerce-widget collections-list-widget">
+                        <h3 class="woocommerce-widget-title">Collections</h3>
+
+                        <ul class="collections-list-row">
+                            <li><a href="#">Men's</a></li>
+                            <li class="active"><a href="#" class="active">Women’s</a></li>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Shoes</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Uncategorized</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="woocommerce-widget price-list-widget">
+                        <h3 class="woocommerce-widget-title">Price</h3>
+
+                        <div class="collection-filter-by-price">
+                            <input class="js-range-of-price" type="text" data-min="0" data-max="1055"
+                                name="filter_by_price" data-step="10">
+                        </div>
+                    </div>
+
+                    <div class="woocommerce-widget size-list-widget">
+                        <h3 class="woocommerce-widget-title">Size</h3>
+
+                        <ul class="size-list-row">
+                            <li><a href="#">20</a></li>
+                            <li><a href="#">24</a></li>
+                            <li class="active"><a href="#">36</a></li>
+                            <li><a href="#">30</a></li>
+                            <li><a href="#">XS</a></li>
+                            <li><a href="#">S</a></li>
+                            <li><a href="#">M</a></li>
+                            <li><a href="#">L</a></li>
+                            <li><a href="#">L</a></li>
+                            <li><a href="#">XL</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="woocommerce-widget color-list-widget">
+                        <h3 class="woocommerce-widget-title">Color</h3>
+
+                        <ul class="color-list-row">
+                            <li class="active"><a href="#" title="Black" class="color-black"></a></li>
+                            <li><a href="#" title="Red" class="color-red"></a></li>
+                            <li><a href="#" title="Yellow" class="color-yellow"></a></li>
+                            <li><a href="#" title="White" class="color-white"></a></li>
+                            <li><a href="#" title="Blue" class="color-blue"></a></li>
+                            <li><a href="#" title="Green" class="color-green"></a></li>
+                            <li><a href="#" title="Yellow Green" class="color-yellowgreen"></a></li>
+                            <li><a href="#" title="Pink" class="color-pink"></a></li>
+                            <li><a href="#" title="Violet" class="color-violet"></a></li>
+                            <li><a href="#" title="Blue Violet" class="color-blueviolet"></a></li>
+                            <li><a href="#" title="Lime" class="color-lime"></a></li>
+                            <li><a href="#" title="Plum" class="color-plum"></a></li>
+                            <li><a href="#" title="Teal" class="color-teal"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="woocommerce-widget brands-list-widget">
+                        <h3 class="woocommerce-widget-title">Brands</h3>
+
+                        <ul class="brands-list-row">
+                            <li><a href="#">Gucci</a></li>
+                            <li><a href="#">Virgil Abloh</a></li>
+                            <li><a href="#">Balenciaga</a></li>
+                            <li class="active"><a href="#">Moncler</a></li>
+                            <li><a href="#">Fendi</a></li>
+                            <li><a href="#">Versace</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="woocommerce-widget aside-trending-widget">
+                        <div class="aside-trending-products">
+                            <img src="{% static 'x/img/offer-bg.jpg' %}">
+
+                            <div class="category">
+                                <h3>Top Trending</h3>
+                                <span>Spring/Summer 2024 Collection</span>
+                            </div>
+                            <a href="#" class="link-btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Products Filter Modal Area -->
+
+
+{% endblock %}

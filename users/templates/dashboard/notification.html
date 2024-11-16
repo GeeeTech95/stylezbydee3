@@ -1,0 +1,101 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+    <!-- App Header -->
+    <div class="appHeader">
+        <div class="left">
+            <a href="#" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="pageTitle">
+            Notifications
+        </div>
+        <div class="right">
+            <!--a href="#" class="headerButton" onclick="toastbox('toast-example-1', 3000)">
+                <ion-icon name="notifications-off-outline"></ion-icon>
+            </a-->
+        </div>
+    </div>
+    <!-- * App Header -->
+
+
+  <!-- App Capsule -->
+  <div id="appCapsule">
+    {% if notifications %}
+    <div class="section full">
+
+        <ul class="listview image-listview flush">
+            
+             {% for not in notifications %}
+             {% if not.is_read %}
+                <li class="active">
+                    <a href="{{not.content_url|default:'#0'}}" class="item">
+                        <div class="icon-box {{not.icon.bg}} ">
+                            <ion-icon name="{{not.icon.class}}"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>
+                                <div class="mb-05"><strong>{{not.title}}</strong></div>
+                                <div class="text-small mb-05">{{not.message}}</div>
+                                <div class="text-xsmall">{{not.date|date:"j b, Y"}}</div>
+                            </div>
+                            <span class="badge badge-primary badge-empty"></span>
+                        </div>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{not.content_url|default:'#0' }}" class="item">
+                        <div class="icon-box {{not.icon.bg}} ">
+                            <ion-icon name="{{not.icon.class}}"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>
+                                <div class="mb-05"><strong>{{not.title}}</strong></div>
+                                <div class="text-small mb-05">{{not.message}}</div>
+                                <div class="text-xsmall">{{not.date|date:"j b, Y"}}</div>
+                            </div>
+                            
+                        </div>
+                    </a>
+                </li>
+            {% endif %}
+            {% endfor %}
+      
+        </ul>
+
+    </div>
+    {% else %}
+    <div class="section mt-4 py-2 mx-3">
+        <div class="card pt-3" style="text-align: center;">
+            <center>
+            <img src="{% static 'core/img/empty-state.jpg' %}" style="width:100px;height: 60px;" class="card-img-top" alt="image">
+            </center>
+            <div class="card-body">
+                
+                <p class="card-text" style="text-align: center;">
+                    You have no notifications, they would appear here
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+   
+
+</div>
+<!-- * App Capsule -->
+
+
+
+<!-- * App Capsule -->
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'core/js/escrow.js' %}"></script>
+<script src="{% static 'core/js/e-tickets.js' %}"></script>
+<script src=" {% static 'core/js/wallet.js' %}"></script>
+{% endblock %}

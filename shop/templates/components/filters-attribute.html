@@ -1,0 +1,92 @@
+{% load core %}
+
+{% if attribute.code == "CLR" %}
+<div class="section-heading ">
+  <h5 class="title ">
+    Colour
+  </h5>
+  <a  class="text-secondary link clear-filter" target="CLR" >clear</a>
+</div>
+
+
+<div class="grid-filter filter  color-filter  mb-3">
+    {% for option in attribute.option_group.options.all %}
+    <span  id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" style="background-color: {{option}};" slug="{{option.pk}}"></span>
+    {% endfor %}
+   
+</div>
+
+{% else %}
+
+
+<div class="section-heading ">
+  <h5 class="title ">
+    {{attribute|capitalize}}
+  </h5>
+  <a  class="text-secondary link clear-filter" target="{{attribute.code}}" >clear</a>
+</div>
+
+<div class="grid-filter filter mb-3 ">
+  {% if attribute.is_multi_option %}
+  
+      {% for option in values %}
+
+      {% if option.img %}
+      <span id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}" class="for-img">
+        <img src ="{{option.img_src}}" >
+        <span style="font-weight: 800;">{{option}}
+        </span>
+      </span> 
+      {% else %}
+      <span  id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}">{{option}} </span>
+      {% endif %}
+      
+      {% endfor %}
+  {% elif attribute.is_option %}
+      {% for option in attribute.option_group.options.all %}
+      <span style="font-weight: 800;" id="filter-{{attribute.code}}-{{option.pk}}" code="{{attribute.code}}" slug="{{option.pk}}">{{option}} </span>
+      {% endfor %}
+  {% endif %}
+</div>
+
+{% endif %}
+
+
+
+<!--s>
+{% if attribute.is_multi_option %}
+
+{% for option in values %}
+<label class="checkbox-container">
+    {{option}}
+    {% if attribute_items|dictValue:attribute.code == option  %}
+    <input type="checkbox" checked value="{{option.pk}}" name="{{attribute.code}}" id="{{option.option}}-{{option.pk}}">
+    {% else %}
+    <input type="checkbox"  value="{{option.pk}}" name="{{attribute.code}}" id="{{option.option}}-{{option.pk}}">
+    {% endif %}
+    <span class="checkmark"></span>
+    <span class="item-count">8</span>
+  </label>
+  
+{% endfor %}
+
+{% elif attribute.is_option %}
+
+
+{% for option in attribute.option_group.options.all %}
+<label class="checkbox-container">
+    {{option}}
+    {% if attribute_items|dictValue:attribute.code == option  %}
+    <input type="checkbox" checked value="{{option.pk}}" name="{{attribute.code}}" id="{{option.option}}-{{option.pk}}">
+    {% else %}
+    <input type="checkbox"  value="{{option.pk}}" name="{{attribute.code}}" id="{{option.option}}-{{option.pk}}">
+    {% endif %}
+    <span class="checkmark"></span>
+    <span class="item-count">8</span>
+  </label>
+  
+{% endfor %}
+
+{% endif %}
+
+</s-->

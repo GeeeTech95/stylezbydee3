@@ -1,0 +1,221 @@
+{% extends 'dashboard/dashboard-base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main">
+
+
+    <div class="main-content dashboard">
+      
+        <div class="mb-2">
+           <h5  >Fashion House</h5><br>
+        </div>
+        <div class="row ">
+            <div class="col-6 col-md-6 col-sm-12 mb-0">
+                <div class="row">
+                
+                    <div class="col-6 col-xl-12 col-sm-12 pt-0">
+                        <div class="box">
+                            <div class="box-body d-flex pb-0">
+                                <div class="me-auto">
+                                    <h4 class="numb fs-30 font-wb">0</h4>
+                                    <h5 class="card-title fs-18 font-w400">Total Projects</h5>
+                                    <p class="fs-14 mb-0 mt-11"><span class="text-primary">0% </span>than last month</p>
+                                </div>
+                                <div id="total-revenue-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                  
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-sm-12 mb-0">
+                <div class="row">
+                
+                    
+                    <div class="col-6 col-xl-12 col-sm-12">
+                        <div class="box">
+                            <div class="box-body d-flex pb-0">
+                                <div class="me-auto">
+                                    <h5 class="box-title mb-36">Projects Completed</h5>
+                                    <div class="progress skill-progress mb-10" style="height:10px;">
+                                        <div class="progress-bar bg-primary progress-animated" style="width: 0%; height:10px;" role="progressbar">
+                                            <span class="sr-only">0% Complete</span>
+                                        </div>
+                                    </div>
+                                    <p class="fs-16 mb-0 mt-2"><span class="text-primary">0 </span>left from target</p>
+                                </div>
+                                <h4 class="numb font-wb fs-30">0</h4>
+                            </div>
+                        </div>
+                    </div>
+                   
+                  
+                </div>
+            </div>
+      
+         
+        </div>
+
+
+        <div id="add_project" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Project Name</label>
+                                        <input class="form-control" value="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Client</label>
+                                        <select class="select">
+                                            <option>Client 1</option>
+                                            <option>Client 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <div class="cal-icon">
+                                            <input class="form-control " type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <div class="cal-icon">
+                                            <input class="form-control" type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 mb-0">
+                                    <div class="form-group">
+                                        <label>Rate</label>
+                                        <input placeholder="₦50" class="form-control" value="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mb-0">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <select class="select">
+                                            <option>Hourly</option>
+                                            <option selected>Fixed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Priority</label>
+                                        <select class="select">
+                                            <option selected>High</option>
+                                            <option>Medium</option>
+                                            <option>Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Upload Files</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal custom-modal fade" id="delete_project" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>Delete Project</h3>
+                            <p>Are you sure want to delete?</p>
+                        </div>
+                        <div class="modal-btn delete-action">
+                            <div class="row">
+                                <div class="col-6 mb-0">
+                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                                </div>
+                                <div class="col-6 mb-0">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal custom-modal fade" id="edit_project" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h5 class="modal-title">Edit Project</h5>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Project Name</label>
+                                        <input class="form-control" value="Gold App" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-0">
+                                    <div class="form-group">
+                                        <label>Client</label>
+                                        <select class="select">
+                                            <option>Client 1</option>
+                                            <option>Client 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+
+<div class="overlay"></div>
+
+
+{% endblock %}
