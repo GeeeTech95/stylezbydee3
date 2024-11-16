@@ -1,0 +1,169 @@
+{% extends 'staff-base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main">
+
+
+    <div class="main-content dashboard">
+        <div class="row">
+            <div class="col-12" hidden>
+                <div class="box card-box">
+                    <div class="icon-box bg-color-1">
+                        <div class="icon bg-icon-1">
+                            <i class="bx bxs-bell bx-tada bx-tada"></i>
+                        </div>
+                        <div class="content">
+                            <h5 class="title-box">Notification</h5>
+                            <p class="color-1 mb-0 pt-4">0 Unread notification</p>
+                        </div>
+                    </div>
+
+                    <div class="icon-box bg-color-3">
+                        <a class="create d-flex" href="#0">
+                            <div class="icon bg-icon-3">
+                                <i class="bx bx-calendar"></i>
+                            </div>
+                            <div class="content">
+                                <h5 class="title-box">Calendar</h5>
+                                <p class="color-3 mb-0 pt-4">0 Unread notification</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="mb-2">
+            <h5>Fashion House</h5><br>
+        </div>
+        <div class="row ">
+            <div class="col-6 col-md-6 col-sm-12 mb-0">
+                <div class="pt-0">
+                    <div class="box">
+                        <div class="box-body d-flex pb-0">
+                            <div class="me-auto">
+                                <h4 class="numb fs-30 font-wb">{{ user.staff.all_bespoke_orders|length }}</h4>
+                                <h5 class="card-title fs-18 font-w400">Total Bespoke Orders</h5>
+                                <p class="fs-14 mb-0 mt-11"><span class="text-primary">0</span> this week</p>
+                            </div>
+                            
+                            <!-- "View All" button aligned to the top right -->
+                            <div class="ms-auto">
+                                <a href="{% url 'staff-bespoke-orders' 'all' %}" class="btn btn-outline-primary btn-sm">View All</a>
+                            </div>
+                            
+                            <div hidden id="total-revenue-chart"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-sm-12 mb-0">
+                <div class="">
+                    <div class="box">
+                        <div class="box-body d-flex pb-0">
+                         
+                            <div class="me-auto">
+                                
+                                <h5 class="box-title mb-36">Bespoke Orders</h5>
+                                <div class="progress skill-progress mb-10" style="height:10px;">
+                                    <div class="progress-bar bg-primary progress-animated"
+                                        style="width: 0%; height:10px;" role="progressbar">
+                                        <span class="sr-only">0% Complete</span>
+                                    </div>
+                                </div>
+                                <p class="fs-16 mb-0 mt-2"><span class="text-primary">0 </span>left from target</p>
+                            </div>
+                   
+                            <h4 class="numb font-wb fs-30">0</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="container">
+
+    </div>
+
+   
+
+
+
+    <div class="modal custom-modal fade" id="delete_project" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-header">
+                        <h3>Delete Project</h3>
+                        <p>Are you sure want to delete?</p>
+                    </div>
+                    <div class="modal-btn delete-action">
+                        <div class="row">
+                            <div class="col-6 mb-0">
+                                <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                            </div>
+                            <div class="col-6 mb-0">
+                                <a href="javascript:void(0);" data-dismiss="modal"
+                                    class="btn btn-primary cancel-btn">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal custom-modal fade" id="edit_project" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-header">
+                        <h5 class="modal-title">Edit Project</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6 mb-0">
+                                <div class="form-group">
+                                    <label>Project Name</label>
+                                    <input class="form-control" value="Gold App" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-0">
+                                <div class="form-group">
+                                    <label>Client</label>
+                                    <select class="select">
+                                        <option>Client 1</option>
+                                        <option>Client 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="submit-section">
+                            <button class="btn btn-primary submit-btn">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- END MAIN CONTENT -->
+
+<div class="overlay"></div>
+
+
+{% endblock %}

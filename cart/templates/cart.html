@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="checkout-section section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <div class="floating-card ">
+
+                </div>
+               
+            </div>
+
+
+            
+            <div class="col-8" >
+                <div class="checkout-tab">
+                    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a href="#0" class="active" id="pills-specs-tab" data-bs-toggle="pill" data-bs-target="#pills-specs" role="tab" aria-controls="pills-specs" aria-selected="true">
+                            <ion-icon name="cube-outline"></ion-icon>
+                                Shipping
+                              </a>
+                          </a>
+                        </li>
+                 
+                        <svg class="custom-svg" xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+                            <line x1="0" y1="20" x2="180" y2="20" stroke="black" stroke-width="1" />
+                        </svg>
+
+                        <li class="nav-item" role="presentation">
+                            <a href="#0" class="" id="checkout-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" role="tab" aria-controls="pills-specs" aria-selected="true">
+                                <ion-icon name="wallet-outline"></ion-icon>
+                                Payment
+                              </a>
+                        </li>
+                        <svg class="custom-svg" xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+                            <line x1="0" y1="20" x2="180" y2="20" stroke="black" stroke-width="1" />
+                        </svg>
+                      
+                        <li class="nav-item" role="presentation">
+                            <a href="#0" class="" id="pills-specs-tab" data-bs-toggle="pill" data-bs-target="#pills-reviews" role="tab" aria-controls="pills-specs" aria-selected="true">
+                                <!--ion-icon name="bag-check-outline"></ion-icon-->
+                                <ion-icon name="checkbox-outline"></ion-icon>
+                                Review
+                              </a>
+                        </li>
+                    </ul>
+                
+                    <div class="tab-content " id="pills-tabContent" style="position: relative;">
+                       
+                        <div class="tab-pane fade show active" id="pills-specs" role="tabpanel" aria-labelledby="pills-specs-tab">
+                            <div  class="side-bar" >
+                                <div class="heading">
+                                    <a href="#0" class="closebtn" onclick="closeNav()">
+                                        <ion-icon name="chevron-back"></ion-icon>
+                                    </a>
+                                    <span>Shopping Cart</span>
+                                    <a href="#0" class="clear-cart" onclick="clearCart()">
+                                        <ion-icon name="trash" class="ml-2"></ion-icon>
+                                    </a>
+                                </div>
+                                
+                               <div class="content"> 
+                                   {% include 'cart-items.html' %}
+                               </div>
+                               <div class="footer">
+                               
+                                 <button class="light-bg-button invert ">
+                                    Total   :  <span class="ml-2">&#8358;34,000</span>
+                                 
+                                </button>
+                                <a href="{% url 'site-checkout' %}">
+                                <button class="light-bg-button ml-3">
+                                    Checkout
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                 </button>
+                                </a>
+                    
+                               </div>
+                              </div>
+                           
+                               
+                            
+                        </div>
+                        <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <h4 class="form-title mb-4" >Select A Payment Method</h4>
+                        </div>
+                        <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                    
+                
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/shop.js' %}"></script>
+{% endblock %}

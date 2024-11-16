@@ -1,0 +1,31 @@
+{% load static %}
+
+
+{% for x in '21413' %}
+{% cycle 'img/samples/shoes/8.jpg' 'img/samples/shoes/12.jpg' 'img/samples/shoes/9.jpg' 'img/samples/shoes/14.jpg'  as img_path silent %}
+<div class="row mb-4" >
+    <div class="col-4">
+        <img src="{% static img_path %}">
+    </div>
+    <div class="col-7">
+        <h6 style="font-size: 15px;margin-bottom: 0px;">Liora Essence Leather Cavier</h6>
+        <div style="color: #0000008f;">
+            <span >Size : <b>44</b>
+            </span><span class="ml-2">Color : <b>Black</b></span>
+        </div>
+        
+        <h5>&#8358;{{x}},000</h5>
+    </div>
+    
+    <div class="col-1" style="display: block;">
+        <span style="border-radius: 50%;border: #0000008f 1px solid;height: 50px;width: 50px;">
+            <ion-icon name="add"></ion-icon>
+        </span> 
+        <h4 style="margin: 5px 0px;font-weight: 250;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{x}}</h4>
+        <span style="border-radius: 50%;border: #0000008f 1px solid;height: 50px;width: 50px;">
+            <ion-icon name="remove"></ion-icon>
+        </span>
+        
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero section-padding">
+    <div class="">
+        <div class="row">
+            <div class="col-lg-5 col-xl-5 col-12 mb-5">
+                <p class="hero-writeup">
+                    Sewn to Perfection: Your Style, Your Story, Our <b>Craftsmanship.</b><br> 
+                    Redefine your confidence<br>
+                    with unmatched Precision, Passion, and Personalization.
+                </p>
+                <a href="{% url 'how-it-works' %}">
+                    <button class="light-bg-button ">How It Works</button>
+                </a>
+                <a href="{% url 'fashion-catalogue' %}">
+                    <button class="light-bg-button invert " style="margin-left: 20px;">
+                        See Catalogue
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                     </button>
+                </a>
+               
+    
+            </div>
+            <div class="col-12 col-xl-7 col-lg-7 " >
+                <img class="img-cover hero-img" src="{% static 'img/sewing-machine.jpg' %}" >
+              
+            </div>
+        </div>
+    </div>
+   
+   
+</section>
+
+<section class="service-wrap style1 pt-100 pb-75 px-4">
+    <div class="container">
+        <div class="row gx-5 align-items-center">
+            <div class="col-xl-6 col-lg-12 service-card-wrap">
+                <div class="row">
+                    <div class="col-md-6 mmt-45">
+                        <div class="service-card style1">
+                            <span class="service-icon">
+                                <img src="{% static 'img/service/service-icon-1.png' %}" alt="Image">
+                            </span>
+                            <h3><a href="service-details.html">Timely Delivery</a></h3>
+                            <p>Punctuality is our promise. Your tailor-made masterpiece, ready precisely when you expect it.</p>
+                            <p></p>
+                        </div>
+                        <div class="service-card style1">
+                            <span class="service-icon">
+                                <img src="{% static 'img/service/service-icon-2.png' %}" alt="Image">
+                            </span>
+                            <h3><a href="service-details.html">Value For Money</a></h3>
+                            <p>Exceptional tailoring, unbeatable value. Elevate your style without breaking the bank with our cost-effective solutions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-card style1">
+                            <span class="service-icon">
+                                <img src="{% static 'img/service/service-icon-7.png' %}" alt="Image">
+                            </span>
+                            <h3><a href="service-details.html">Home Service</a></h3>
+                            <p>Tailoring at your door. Our experts bring fitting to your home, ensuring convenience and personalized service.
+                                
+                                </p>
+                                
+                                <a>
+                                    <button class="light-bg-button">
+                                       Chat with us
+                                        <ion-icon name="logo-whatsapp"></ion-icon>
+                                    </button>
+                                    </a>
+                        </div>
+                        <div class="service-card style1">
+                            <span class="service-icon">
+                                <img src="{% static 'img/service/service-icon-8.png' %}" alt="Image">
+                            </span>
+                            <h3><a href="service-details.html">Bespoke Creations</a></h3>
+                            <p>Crafting unique stories in fabric; where style and personality meet in every stitch of your custom attire.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-12">
+                <div class="service-content">
+                    <div class="content-title style1">
+                        <span>Our Key Attributes</span>
+                        <h2>Discover what sets {{site_name}} apart.</h2>
+                        <p>At {{site_name}}, we take pride in our commitment to excellence. Our exceptional features are designed to elevate your tailoring experience.
+                            </p>
+                        <p>
+                            From bespoke creations that reflect your unique style to timely delivery, affordability, and the convenience of home service, we're here to make your wardrobe dreams a reality. Explore the elements that set us apart and discover the perfect blend of craftsmanship and convenience.
+                        </p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cta-section">
+    <h2>Subscribe To Our NewsLetter! </h2>
+    
+    <p>Let's keep you updated with the latest in our store</p>
+    
+    <form>
+        <input type="email" placeholder="Email">
+        <button type="submit">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+    </form>
+   
+</section>
+
+<section class="app-wrap style3 px-4">
+    <div class="container">
+        <div class="row align-items-center gx-5 gy-5">
+           
+            <div class="col-xlg-6 col-lg-6 col-12 ">
+                <div class="app-content">
+                    <div class="content-title style1">
+                        <span>Free Remake Guaranteed</span>
+                        <h2>You would always end up with a perfect fit and a smile</h2>
+                        <p>We are committed to ensuring that your clothing fits you perfectly and meets your expectations. We understand that sometimes alterations may be needed to 
+                            achieve that ideal fit. That's why we proudly offer our 
+                            "Free Remake Guaranteed" policy
+                        </p>
+                        <p>
+                            With our "Free Remake Guaranteed" policy, you can work with us confidently, knowing that we are here
+                             to make your tailoring experience seamless and enjoyable.
+                             Your satisfaction is our success.
+                        </p>
+                    </div>
+                    <div class="app-btn">
+                        <a href="#0">
+                            <button class="light-bg-button ">
+                                Talk WIth Us
+                      
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                     </button>
+                </a>
+               
+                <a href="#0">
+                    <button class="light-bg-button invert " style="margin-left: 20px;">
+                        See Catalogue
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                     </button>
+                </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xlg-6 col-lg-6 col-12">
+                <div class="app-img-wrap">
+                    <img  style="object-fit: cover;max-height: auto;width: 100%;border-radius: 20px;"  height="400px"  class="bounce" src="{% static 'img/samples/suits/1.jpg' %}" alt="Image">
+                    <img style="height: 400px;width: 400px;" class="app-shape-one" src="{% static 'img/app-shape-1.png' %}" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

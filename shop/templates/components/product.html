@@ -1,0 +1,60 @@
+{% load static %}
+
+
+
+<div class="single-products-box">
+    <div class="products-image">
+        <a href="{% url 'product-detail'   product.slug  %}">
+
+            <img src="{{product.thumbnail}}" alt="{% static 'img/samples/product_woman1.png' %}">
+
+        </a>
+
+        <div class="products-button">
+            <ul>
+                <li>
+                    <div class="wishlist-btn">
+                        <a href="#" class="add-to-cart">
+                            <i class='bx bx-heart'></i>
+                            <span class="tooltip-label">Add to Wishlist</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="compare-btn">
+                        <a href="#">
+                            <i class='bx bx-refresh'></i>
+                            <span class="tooltip-label">Compare</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="quick-view-btn">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                            <i class='bx bx-search-alt'></i>
+                            <span class="tooltip-label">Quick View</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="products-content">
+        <h3><a href="{{product.detail_url}}">{{product.title}}</a></h3>
+        <div class="price">
+            {% if product.old_price %}
+            <span class="old-price">{{product.currency.name}} {{product.old_price}}</span>
+            {% endif %}
+            <span class="new-price">{{product.currency.name}} {{product.price}}</span>
+        </div>
+        <div class="star-rating">
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+        </div>
+        <a href="#" class="add-to-cart">Add to Cart</a>
+    </div>
+</div>

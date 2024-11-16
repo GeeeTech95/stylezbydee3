@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet">
+<link href="{% static 'css/extra.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<section class="explore-category section-padding">
+
+
+    <!-- Start Products Area -->
+    <section class="products-area pt-0 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="woocommerce-widget-area">
+                        <div class="woocommerce-widget filter-list-widget">
+                            <h3 class="woocommerce-widget-title">Current Selection</h3>
+
+                            <div class="selected-filters-wrap-list">
+                                <ul>
+                                    <li><a href="#"><i class='bx bx-x'></i> 44</a></li>
+                                    <li><a href="#"><i class='bx bx-x'></i> XI</a></li>
+                                    <li><a href="#"><i class='bx bx-x'></i> Clothing</a></li>
+                                    <li><a href="#"><i class='bx bx-x'></i> Shoes</a></li>
+                                </ul>
+
+                                <a href="#" class="delete-selected-filters"><i class='bx bx-trash'></i> <span>Clear
+                                        All</span></a>
+                            </div>
+                        </div>
+
+                        <h5 class="woocommerce-widget-title ">Filters</h5>
+
+                        <div class="woocommerce-widget-area mb-4" hidden >
+
+
+                            <div class="woocommerce-widget price-list-widget">
+                                <h3 class="woocommerce-widget-title">Price</h3>
+
+                                <div class="collection-filter-by-price">
+                                    <input class="js-range-of-price" type="text" data-min="0" data-max="1055"
+                                        name="filter_by_price" data-step="10">
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="product-filters-body " class="mt-5">
+                            <div class="text-center" style="padding-top:30vh">
+                                <div class="spinner-border text-secondary align-middle" role="status">
+
+                                </div>
+
+                            </div>
+                            <center hidden>
+                                <button class="light-bg-button ">Apply</button>
+                            </center>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-md-12">
+                    <div class="search-bar mb-3 mt-1" style="display: flex;align-items: center;">
+                        <span class="sub-title d-lg-none " style="margin-right: 20px;">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#productsFilterModal">
+                                <i class='bx bx-filter-alt' style="font-size: 25px;"></i>
+                            </a>
+                        </span>
+                        <div class="search-explore" style="width: 100%;">
+                            <form>
+                              
+                                <input type="text" class="input-search" name="q" placeholder="Search here...">
+                                <button type="submit"><i class='bx bx-search-alt'></i></button>
+                            </form>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="products-filter-options" hidden>
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-md-4">
+                                <div class="d-lg-flex d-md-flex align-items-center">
+                                    <span class="sub-title d-lg-none"><a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#productsFilterModal"><i class='bx bx-filter-alt'></i>
+                                            Filter</a></span>
+
+                                    <span class="sub-title d-none d-lg-block d-md-block">View:</span>
+
+                                    <div class="view-list-row d-none d-lg-block d-md-block">
+                                        <div class="view-column">
+                                            <a href="#" class="icon-view-one">
+                                                <span></span>
+                                            </a>
+
+                                            <a href="#" class="icon-view-two active">
+                                                <span></span>
+                                                <span></span>
+                                            </a>
+
+                                            <a href="#" class="icon-view-three">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </a>
+
+                                            <a href="#" class="view-grid-switch">
+                                                <span></span>
+                                                <span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-4 col-md-4">
+                                <div class="products-ordering-list">
+                                    <select>
+                                        <option>Sort by Price: Low to High</option>
+                                        <option>Default Sorting</option>
+                                        <option>Sort by Popularity</option>
+                                        <option>Sort by Average Rating</option>
+                                        <option>Sort by Latest</option>
+                                        <option>Sort by Price: High to Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row product-list gx-3 gy-4 pt-0 mt-0" id="product-list">
+
+      
+
+                    </div>
+
+
+
+                    <div class="pagination-area text-center" hidden>
+                        <a href="#" class="prev page-numbers"><i class='bx bx-chevron-left'></i></a>
+                        <span class="page-numbers current" aria-current="page">1</span>
+                        <a href="#" class="page-numbers">2</a>
+                        <a href="#" class="page-numbers">3</a>
+                        <a href="#" class="page-numbers">4</a>
+                        <a href="#" class="page-numbers">5</a>
+                        <a href="#" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Products Area -->
+
+
+</section>
+
+{% include 'shop/templates/components/modals.html' %}
+
+
+{% endblock %}
+
+{% block js %}
+
+<script src=" {% static 'js/shop.js' %}"></script>
+<script src=" {% static 'js/product-list.js' %}"></script>
+{% endblock %}

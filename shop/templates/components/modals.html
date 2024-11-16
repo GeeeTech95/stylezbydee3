@@ -1,0 +1,698 @@
+ {% load static %}
+
+
+
+
+ <!-- Start Products Filter Modal Area -->
+ <div class="modal left fade productsFilterModal" id="productsFilterModal" tabindex="-1" role="dialog">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true"><i class='bx bx-x'></i> Close</span>
+       </button>
+
+       <div class="modal-body">
+         <div class="woocommerce-widget-area">
+           <div class="woocommerce-widget filter-list-widget">
+             <h3 class="woocommerce-widget-title">Current Selection</h3>
+
+             <div class="selected-filters-wrap-list">
+               <ul>
+                 <li><a href="#"><i class='bx bx-x'></i> 44</a></li>
+                 <li><a href="#"><i class='bx bx-x'></i> XI</a></li>
+                 <li><a href="#"><i class='bx bx-x'></i> Clothing</a></li>
+                 <li><a href="#"><i class='bx bx-x'></i> Shoes</a></li>
+               </ul>
+
+               <a href="#" class="delete-selected-filters"><i class='bx bx-trash'></i> <span>Clear
+                   All</span></a>
+             </div>
+           </div>
+
+           <h4 class="woocommerce-widget-title mb-4 mt-2">Filters</h4>
+           
+           <div class="product-filters-body">
+               <div class="text-center" style="padding-top:30vh" >
+                 <div class="spinner-border text-secondary align-middle" role="status">
+                  
+                 </div>
+
+               </div>
+               <center hidden >
+                 <button class="light-bg-button ">Apply</button>
+               </center>
+           </div>
+
+
+
+           <div class="woocommerce-widget aside-trending-widget">
+             <div class="aside-trending-products">
+               <img src="assets/img/offer-bg.jpg" alt="image">
+
+               <div class="category">
+                 <h3>Top Trending</h3>
+                 <span>Spring/Summer 2021 Collection</span>
+               </div>
+               <a href="#" class="link-btn"></a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- End Products Filter Modal Area -->
+
+
+ <div id="checkoutOptionsModal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog modal-md">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title">Purchase Options</h4>
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       </div>
+       <div class="modal-body">
+         <p>How would you want to complete your purchase? Please choose an option most convenient for you.</p>
+       </div>
+       <div class="modal-footer text-center">
+         <a href="{% url 'chat-checkout' %}">
+           <button class="light-bg-button invert">
+             Buy over chat
+             <ion-icon name="logo-whatsapp"></ion-icon>
+           </button>
+         </a>
+
+         <a href="{% url 'site-checkout' %}">
+           <button class="light-bg-button" style="margin-left: 20px;">
+             Proceed to Checkout
+             <ion-icon name="arrow-forward-outline"></ion-icon>
+           </button>
+         </a>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+ <!-- Modal -->
+ <div class="modal top fade" id="mobile-menu-modal" tabindex="-1" aria-labelledby="mobile-menu-modal" aria-hidden="true"
+   data-mdb-backdrop="true" data-mdb-keyboard="true">
+   <div class="modal-dialog modal-fullscreen">
+     <div class="modal-content">
+       <nav class="navbar no-shadow">
+
+         <div>
+           <span class="mobile-menu">
+
+
+             <a class="modal-btn" data-target="#mobile-menu-modal" data-mdb-toggle="modal"
+               data-mdb-target="#mobile-menu-modal">
+               <ion-icon name="close-outline" style="font-size: 25px;"></ion-icon>
+             </a>
+
+           </span>
+           <a href="{% url 'home' %}">
+             <img class="logo" src="{% static 'img/logo/logo-name.png' %}">
+           </a>
+         </div>
+
+
+         <div class="nav-links">
+           <ul>
+             <li><a class="link-item" href="{% url 'home' %}">Home</a></li>
+             <li><a class="link-item" href="{% url 'explore-collection' %}?g=M">Men</a></li>
+             <li><a class="link-item" href="{% url 'explore-collection' %}?g=W">Women</a></li>
+             <li><a class="link-item" href="{% url 'explore-collection' %}?g=U">Unisex</a></li>
+             <li><a class="link-item" href="{% url 'custom-tailoring' %}">Custom Tailoring</a></li>
+           </ul>
+         </div>
+
+         <div class="nav-icons">
+           <a href="#0">
+             <ion-icon class="nav-icon" name="search"></ion-icon>
+           </a>
+           <a href="#0">
+             <ion-icon class="nav-icon" name="heart-outline"></ion-icon>
+           </a>
+           <a href="#0">
+             <ion-icon name="person-circle-outline"></ion-icon>
+           </a>
+           <a href="#0" onclick="openNav()">
+             Cart
+             <span class="count-indicator">0</span>
+           </a>
+
+         </div>
+
+       </nav>
+       <div class="modal-body">...</div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+           Close
+         </button>
+         <button type="button" class="btn btn-primary">Save changes</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+ <div id="cartModal" class="modal fade" tabindex="-1" role="dialog">
+   <div class="modal-dialog modal-md">
+     <div class="modal-content" style="">
+
+       <div class="modal-body">
+         <div id="title" style="text-align: center;">
+           <div class="section-heading ">
+             <h5 class="mb-2 pb-0 title">Shopping Bag</h5>
+
+             <button type="button" data-target="#cartModal" class="close-modal-btn bg-white">
+               <ion-icon name="close-outline" class="text-secondary"></ion-icon>
+             </button>
+
+             </a>
+           </div>
+
+           <span>Subtotal: <span id="cart-total">USD 0.00</span></span>
+         </div>
+         <hr>
+         <div class="body" style="max-height: 90vh;">
+           <div class="text-center">
+             <div class="spinner-border text-secondary align-middle" role="status">
+
+             </div>
+
+           </div>
+
+
+         </div>
+
+         <hr>
+
+         <div class="footer text-center hide">
+           <a id="clear-cart">
+             <button class="light-bg-button sm  invert">
+               Clear Cart
+               <ion-icon name="close-outline" style="font-size:17px"></ion-icon>
+             </button>
+           </a>
+
+           <a href="{% url 'site-checkout' %}">
+             <button class="light-bg-button sm " style="margin-left: 20px;">
+               Proceed to Checkout
+               <ion-icon name="arrow-forward-outline"></ion-icon>
+             </button>
+           </a>
+         </div>
+       </div>
+
+
+     </div>
+   </div>
+ </div>
+
+
+ <!-- Modal @s -->
+ <div class="modal" id="load-modal" data-bs-keyboard="false" data-bs-backdrop="static"
+   style="align-items: center;text-align: center;">
+   <div class="modal-dialog modal-sm"
+     style="background-color: transparent; left: calc(50vw - 50px); top: calc(50vh - 50px);position: fixed;height: max-content;width: max-content;">
+     <div class="modal-content" style="width: fit-content;background-color: transparent;border: 0;">
+       <div class="modal-body p-md-4 p-lg-5">
+         <img src="{% static 'img/loader2.webp' %}" height="50px" width="50px">
+
+       </div>
+
+     </div>
+   </div>
+ </div><!-- .modal @e -->
+
+
+ <div class="modal fade" id="success-modal" data-bs-keyboard="false" data-bs-backdrop="static"
+   style="align-items: center;text-align: center;">
+   <div class="modal-dialog modal-sm"
+     style="background-color: transparent; left: calc(50vw - 140px);position: fixed;height: max-content;width: max-content;">
+     <div class="modal-content" style="width: fit-content;">
+       <div class="modal-body p-md-4 p-lg-5" id="success-modal-content">
+         <img class="mb-0" src="{% static 'img/success.gif' %}" style="height: auto;width: 140px;">
+         <p class="pt-0" id="success-modal-content-text">Completed Successfully </p>
+
+         <a href="#0">
+           <button type="button" class="btn btn-primary mt-2 mb-2">
+             Check Dashboard
+           </button>
+         </a>
+       </div>
+     </div>
+   </div>
+ </div><!-- .modal @e -->
+
+
+ <!-- Modal @s -->
+ <div class="modal fade" id="alert-modal">
+   <div class="modal-dialog modal-xl"
+     style="background-color: transparent;  top: calc(50vh - 50px);height: max-content;width: max-content;">
+     <div class="modal-content">
+       <center class="text-center">
+         <a href="#" hidden class="modal-close" data-dismiss="modal" aria-label="Close"><em
+             class="ti ti-close"></em></a>
+         <div class="modal-body p-md-4 p-lg-5" id="modal-message">
+         </div>
+       </center>
+     </div>
+   </div>
+ </div><!-- .modal @e -->
+
+
+
+ <div class="modal fade" id="sizeGuideModal" tabindex="-1" role="dialog" aria-labelledby="sizeGuideModalTitle"
+   aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="sizeGuideModalTitle">
+           International Size Guide
+         </h5>
+         <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+
+
+
+         <h4>Women's Clothing</h4>
+         <table>
+           <tr>
+             <th>US</th>
+             <th>UK</th>
+             <th>Europe</th>
+             <th>Italy</th>
+             <th>France</th>
+             <th>Australia</th>
+             <th>Japan</th>
+             <th>Bust (inches)</th>
+             <th>Waist (inches)</th>
+             <th>Hips (inches)</th>
+           </tr>
+           <tr>
+             <td>0</td>
+             <td>4</td>
+             <td>32</td>
+             <td>36</td>
+             <td>34</td>
+             <td>6</td>
+             <td>5</td>
+             <td>32</td>
+             <td>24</td>
+             <td>34</td>
+           </tr>
+           <tr>
+             <td>2</td>
+             <td>6</td>
+             <td>34</td>
+             <td>38</td>
+             <td>36</td>
+             <td>8</td>
+             <td>7</td>
+             <td>33</td>
+             <td>25.5</td>
+             <td>35.5</td>
+           </tr>
+           <tr>
+             <td>4</td>
+             <td>8</td>
+             <td>36</td>
+             <td>40</td>
+             <td>38</td>
+             <td>10</td>
+             <td>9</td>
+             <td>34</td>
+             <td>26.5</td>
+             <td>36.5</td>
+           </tr>
+           <tr>
+             <td>6</td>
+             <td>10</td>
+             <td>38</td>
+             <td>42</td>
+             <td>40</td>
+             <td>12</td>
+             <td>11</td>
+             <td>35</td>
+             <td>28</td>
+             <td>38</td>
+           </tr>
+           <tr>
+             <td>8</td>
+             <td>12</td>
+             <td>40</td>
+             <td>44</td>
+             <td>42</td>
+             <td>14</td>
+             <td>13</td>
+             <td>36</td>
+             <td>29.5</td>
+             <td>39.5</td>
+           </tr>
+           <tr>
+             <td>10</td>
+             <td>14</td>
+             <td>42</td>
+             <td>46</td>
+             <td>44</td>
+             <td>16</td>
+             <td>15</td>
+             <td>37</td>
+             <td>31</td>
+             <td>41</td>
+           </tr>
+           <tr>
+             <td>12</td>
+             <td>16</td>
+             <td>44</td>
+             <td>48</td>
+             <td>46</td>
+             <td>18</td>
+             <td>17</td>
+             <td>38.5</td>
+             <td>32.5</td>
+             <td>42.5</td>
+           </tr>
+           <tr>
+             <td>14</td>
+             <td>18</td>
+             <td>46</td>
+             <td>50</td>
+             <td>48</td>
+             <td>20</td>
+             <td>19</td>
+             <td>40</td>
+             <td>34</td>
+             <td>44</td>
+           </tr>
+           <tr>
+             <td>16</td>
+             <td>20</td>
+             <td>48</td>
+             <td>52</td>
+             <td>50</td>
+             <td>22</td>
+             <td>21</td>
+             <td>41.5</td>
+             <td>35.5</td>
+             <td>45.5</td>
+           </tr>
+           <tr>
+             <td>18</td>
+             <td>22</td>
+             <td>50</td>
+             <td>54</td>
+             <td>52</td>
+             <td>24</td>
+             <td>23</td>
+             <td>43</td>
+             <td>37.5</td>
+             <td>47.5</td>
+           </tr>
+         </table>
+
+         <h4 style="margin-top: 50px;">Men's Clothing</h4>
+
+         <table>
+           <tr>
+             <th>US</th>
+             <th>UK</th>
+             <th>Europe</th>
+             <th>Italy</th>
+             <th>France</th>
+             <th>Australia</th>
+             <th>Japan</th>
+             <th>Chest (inches)</th>
+             <th>Waist (inches)</th>
+             <th>Hips (inches)</th>
+           </tr>
+           <tr>
+             <td>34</td>
+             <td>34</td>
+             <td>44</td>
+             <td>44</td>
+             <td>54</td>
+             <td>87</td>
+             <td>1</td>
+             <td>34</td>
+             <td>28</td>
+             <td>35</td>
+           </tr>
+           <tr>
+             <td>36</td>
+             <td>36</td>
+             <td>46</td>
+             <td>46</td>
+             <td>56</td>
+             <td>92</td>
+             <td>3</td>
+             <td>36</td>
+             <td>30</td>
+             <td>37</td>
+           </tr>
+           <tr>
+             <td>38</td>
+             <td>38</td>
+             <td>48</td>
+             <td>48</td>
+             <td>58</td>
+             <td>97</td>
+             <td>5</td>
+             <td>38</td>
+             <td>32</td>
+             <td>39</td>
+           </tr>
+           <tr>
+             <td>40</td>
+             <td>40</td>
+             <td>50</td>
+             <td>50</td>
+             <td>60</td>
+             <td>102</td>
+             <td>7</td>
+             <td>40</td>
+             <td>34</td>
+             <td>41</td>
+           </tr>
+           <tr>
+             <td>42</td>
+             <td>42</td>
+             <td>52</td>
+             <td>52</td>
+             <td>62</td>
+             <td>107</td>
+             <td>9</td>
+             <td>42</td>
+             <td>36</td>
+             <td>43</td>
+           </tr>
+           <tr>
+             <td>44</td>
+             <td>44</td>
+             <td>54</td>
+             <td>54</td>
+             <td>64</td>
+             <td>112</td>
+             <td>11</td>
+             <td>44</td>
+             <td>38</td>
+             <td>45</td>
+           </tr>
+           <tr>
+             <td>46</td>
+             <td>46</td>
+             <td>56</td>
+             <td>56</td>
+             <td>66</td>
+             <td>117</td>
+             <td>13</td>
+             <td>46</td>
+             <td>40</td>
+             <td>47</td>
+           </tr>
+           <tr>
+             <td>48</td>
+             <td>48</td>
+             <td>58</td>
+             <td>58</td>
+             <td>68</td>
+             <td>122</td>
+             <td>15</td>
+             <td>48</td>
+             <td>42</td>
+             <td>49</td>
+           </tr>
+           <tr>
+             <td>50</td>
+             <td>50</td>
+             <td>60</td>
+             <td>60</td>
+             <td>70</td>
+             <td>127</td>
+             <td>17</td>
+             <td>50</td>
+             <td>44</td>
+             <td>51</td>
+           </tr>
+         </table>
+
+
+         <h4 style="margin-top: 50px;">Footwear Sizing</h4>
+         <table>
+           <tr>
+             <th>US</th>
+             <th>UK</th>
+             <th>Europe</th>
+             <th>Italy</th>
+             <th>France</th>
+             <th>Australia</th>
+             <th>Japan</th>
+             <th>Chest (inches)</th>
+             <th>Waist (inches)</th>
+             <th>Hips (inches)</th>
+           </tr>
+           <tr>
+             <td>34</td>
+             <td>34</td>
+             <td>44</td>
+             <td>44</td>
+             <td>54</td>
+             <td>87</td>
+             <td>1</td>
+             <td>34</td>
+             <td>28</td>
+             <td>35</td>
+           </tr>
+           <tr>
+             <td>36</td>
+             <td>36</td>
+             <td>46</td>
+             <td>46</td>
+             <td>56</td>
+             <td>92</td>
+             <td>3</td>
+             <td>36</td>
+             <td>30</td>
+             <td>37</td>
+           </tr>
+           <tr>
+             <td>38</td>
+             <td>38</td>
+             <td>48</td>
+             <td>48</td>
+             <td>58</td>
+             <td>97</td>
+             <td>5</td>
+             <td>38</td>
+             <td>32</td>
+             <td>39</td>
+           </tr>
+           <tr>
+             <td>40</td>
+             <td>40</td>
+             <td>50</td>
+             <td>50</td>
+             <td>60</td>
+             <td>102</td>
+             <td>7</td>
+             <td>40</td>
+             <td>34</td>
+             <td>41</td>
+           </tr>
+           <tr>
+             <td>42</td>
+             <td>42</td>
+             <td>52</td>
+             <td>52</td>
+             <td>62</td>
+             <td>107</td>
+             <td>9</td>
+             <td>42</td>
+             <td>36</td>
+             <td>43</td>
+           </tr>
+           <tr>
+             <td>44</td>
+             <td>44</td>
+             <td>54</td>
+             <td>54</td>
+             <td>64</td>
+             <td>112</td>
+             <td>11</td>
+             <td>44</td>
+             <td>38</td>
+             <td>45</td>
+           </tr>
+           <tr>
+             <td>46</td>
+             <td>46</td>
+             <td>56</td>
+             <td>56</td>
+             <td>66</td>
+             <td>117</td>
+             <td>13</td>
+             <td>46</td>
+             <td>40</td>
+             <td>47</td>
+           </tr>
+           <tr>
+             <td>48</td>
+             <td>48</td>
+             <td>58</td>
+             <td>58</td>
+             <td>68</td>
+             <td>122</td>
+             <td>15</td>
+             <td>48</td>
+             <td>42</td>
+             <td>49</td>
+           </tr>
+           <tr>
+             <td>50</td>
+             <td>50</td>
+             <td>60</td>
+             <td>60</td>
+             <td>70</td>
+             <td>127</td>
+             <td>17</td>
+             <td>50</td>
+             <td>44</td>
+             <td>51</td>
+           </tr>
+         </table>
+
+         <h4>How to Measure</h4>
+         <ul>
+           <li><strong>Bust/Chest:</strong> Measure around the fullest part of the chest.</li>
+           <li><strong>Waist:</strong> Measure around the natural waistline.</li>
+           <li><strong>Hips:</strong> Measure around the fullest part of the hips.</li>
+           <li><strong>Foot Length:</strong> Measure the length of your foot from heel to toe.</li>
+         </ul>
+
+         <h4>Fit Guide</h4>
+         <ul>
+           <li><strong>Slim Fit:</strong> Close to the body for a sleek and modern look.</li>
+           <li><strong>Regular Fit:</strong> Standard fitting, neither too tight nor too loose.</li>
+           <li><strong>Loose Fit:</strong> Generous fit for maximum comfort.</li>
+         </ul>
+
+         <h4>Model Information</h4>
+         <p>Our models are approximately 5ft 11" tall and are wearing size 44(EU) in shoes in the product images.</p>
+
+
+
+
+       </div>
+       <div class="modal-footer" hidden>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+       </div>
+     </div>
+   </div>
+ </div>

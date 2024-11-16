@@ -1,0 +1,427 @@
+{% extends 'dashboard-base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+<!-- App Header -->
+<div class="appHeader">
+    <div class="left">
+        <a href="#" class="headerButton goBack">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+    </div>
+    <div class="pageTitle">
+        Profile
+    </div>
+    <!--div class="right">
+        <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#DialogBasic">
+            <ion-icon name="trash-outline"></ion-icon>
+        </a>
+    </div-->
+</div>
+<!-- * App Header -->
+
+
+
+<!-- App Capsule -->
+<div id="appCapsule pb-4 " style="padding-top: 50px;">
+
+    <div class="section mt-3 text-center">
+        <div class="avatar-section">
+            <a href="#" class="item" data-bs-toggle="modal" data-bs-target="#updateDpDialog">
+                <img style="height: 100px;" src="{{user.dp}}" alt="avatar" class="imaged w100 rounded userDp">
+                <span class="button">
+                    <ion-icon name="camera-outline"></ion-icon>
+                </span>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="listview-title mt-3">Security</div>
+    <ul class="listview image-listview text inset  " >
+
+        <li>
+            <a class="item" data-bs-toggle="modal" data-bs-target="#updateEmailDialog">
+                <div class="in">
+                    <div>Change E-mail</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="item" data-bs-toggle="modal" data-bs-target="#updatePhoneNumberDialog">
+                <div class="in">
+                    <div>Change Phone Number</div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="item">
+                <div class="in">
+                    <div>Update Address</div>
+                    <span class="text-primary">Edit</span>
+                </div>
+            </a>
+        </li>
+        <!--li>
+            <div class="item">
+                <div class="in">
+                    <div>
+                        Private Profile
+                    </div>
+                    <div class="form-check form-switch ms-2">
+                        <input class="form-check-input" type="checkbox" id="SwitchCheckDefault2">
+                        <label class="form-check-label" for="SwitchCheckDefault2"></label>
+                    </div>
+                </div>
+            </div>
+        </li-->
+    </ul>
+
+
+    <div class="section-heading mt-3 px-3">
+        <span class="listview-title" style="margin-left: -15px;">Payment Options(s)</span>
+        <a data-bs-toggle="modal" data-bs-target="#addPaymentMethodDialog" href="#" class="link ">Add</a>
+    </div>
+    <ul class="listview image-listview text inset  "  style="margin-bottom: 100px;">
+        {% for method in user.payment_method.all %}
+        {% if method.method_type == "bank" %}
+        <li>
+            <a class="item" data-bs-toggle="modal" method-pk="{{method.pk}}"
+                data-bs-target="#updatePaymentMethod{{method.pk}}Dialog">
+                <div class="in">
+                    <div>{{method.bank.short_name}}</div>
+                    <div>{{method.account_number}}</div>
+                </div>
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+
+
+    </ul>
+
+
+</div>
+<!-- * App Capsule -->
+
+<!-- Profile Picture -->
+<div class="modal fade dialogbox" id="updateDpDialog" data-bs-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Profile picture</h5>
+            </div>
+            <form modal-parent="updateDpDialog" class="update-profile-form" action="{% url 'update-profile' %}"
+                method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+
+                    <div class="custom-file-upload" id="fileUpload1">
+                        <input type="file" id="fileuploadInput" name="passport" accept=".png, .jpg, .jpeg">
+                        <label for="fileuploadInput">
+                            <span>
+                                <strong>
+                                    <ion-icon name="arrow-up-circle-outline"></ion-icon>
+                                    <i>Upload a clear Photo of your face</i>
+                                </strong>
+                            </span>
+                        </label>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                        <button type="submit" href="#" class="btn btn-text-primary submit-button">UPDATE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- * Profile Picture -->
+
+<!-- Email -->
+<div class="modal fade dialogbox" id="updateEmailDialog" data-bs-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-title">Update Email</h5>
+            </div>
+
+            <form modal-parent="updateEmailDialog" class="update-profile-form" action="{% url 'update-profile' %}"
+                method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text11">New Email</label>
+                            <span input-name="email" class="field-error"></span>
+                            <input value=" " autofill="off" autocomplete="off" required type="email" name="email"
+                                class="form-control" placeholder="Enter your new email">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="password_">Password Comfirmation</label>
+                            <span input-name="old_password" class="field-error"></span>
+                            <input value=" " required name="old_password" type="password" class="form-control" id="password_"
+                                autocomplete="off" placeholder="Your password" autofill="off">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                        <button type="submit" href="#" class="btn btn-text-primary submit-button">UPDATE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Email-->
+
+
+
+<!-- Phone number -->
+<div class="modal fade dialogbox" id="updatePhoneNumberDialog" data-bs-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-title">Update Phone Number</h5>
+            </div>
+
+            <form modal-parent="updatePhoneNumberDialog" class="update-profile-form" action="{% url 'update-profile' %}"
+                method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text11">New Phone Number</label>
+                            <span input-name="phone_number" class="field-error"></span>
+                            <input value="{{user.phone_number|default:'+'}}" autofill="off" autocomplete="off" required type="text" name="phone_number"
+                                class="form-control" placeholder="Enter your new phone number">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="password_">Password Comfirmation</label>
+                            <span input-name="old_password" class="field-error"></span>
+                            <input value=" " required name="old_password" type="password" class="form-control" id="password_"
+                                autocomplete="off" placeholder="Your password" autofill="off">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                        <button type="submit" href="#" class="btn btn-text-primary submit-button">UPDATE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Phone number -->
+
+
+
+<!-- Payment Method -->
+{% for method in user.payment_method.all %}
+<div class="modal fade dialogbox" id="updatePaymentMethod{{method.pk}}Dialog" data-bs-backdrop="static" tabindex="-1"
+    role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-title">Update Payment Method</h5>
+            </div>
+
+            <form modal-parent="updatePaymentMethod{{method.pk}}Dialog" class="payment-method-form"
+                action="{% url 'manage-payment-method' method.pk %}" method="PATCH">
+                {% csrf_token %}
+
+                <div class="modal-body">
+                   
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text11">Account Name</label>
+                            <span input-name="account_name" class="field-error"></span>
+                            <input value="{{method.account_name}}" autofill="off" autocomplete="off" required
+                                type="text" name="account_name" class="form-control" placeholder="account name">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text11">Account Number</label>
+                            <span input-name="account_number" class="field-error"></span>
+                            <input value="{{method.account_number}}" autofill="off" autocomplete="off" required
+                                type="text" name="account_number" class="form-control" placeholder="account number">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="bank">Bank</label>
+                            <span input-name="bank" class="field-error"></span>
+                            <select name="bank" class="form-control custom-select" id="bank">
+
+                                {% for bank in withdrawal_supporting_banks %}
+                                    {% if method.bank == bank %}
+                                        <option value="{{bank.pk}}">{{bank.name}}({{bank.short_name}})</option>
+                                    {% else %}
+                                        <option value="{{bank.pk}}">{{bank.name}}({{bank.short_name}})</option>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="password_">Password Comfirmation</label>
+                            <span input-name="old_password" class="field-error"></span>
+                            <input required name="old_password" type="password" class="form-control" id="password_"
+                                autocomplete="off" placeholder="Your password" autofill="off">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                        <button type="submit" href="#" class="btn btn-text-primary submit-button">UPDATE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<div  class="modal fade dialogbox" id="addPaymentMethodDialog" data-bs-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="margin:0px -70px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-title">Add Payment Method</h5>
+            </div>
+
+            <form modal-parent="addPaymentMethodDialog" class="payment-method-form"
+                action="{% url 'payment-method' %}" method="POST">
+                <input type="text" name="method_type" value="bank" hidden readonly>
+
+                {% csrf_token %}
+                <div class="modal-body">
+                  
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="account_name_new">Account Name</label>
+                            <span input-name="account_name" class="field-error"></span>
+                            <input  value="" autofill="off" autocomplete="off" required
+                                type="text" name="account_name" class="form-control" placeholder="account name">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text11">Account Number</label>
+                            <span input-name="account_number" class="field-error"></span>
+                            <input  value="" autofill="off" autocomplete="off" required
+                                type="text" name="account_number" class="form-control" placeholder="account number">
+
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="bank">Bank</label>
+                            <span input-name="bank" class="field-error"></span>
+                            <select name="bank" class="form-control custom-select" id="bank">
+
+                                {% for bank in withdrawal_supporting_banks %}
+                                <option value="{{bank.pk}}">{{bank.name}}({{bank.short_name}})</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+                    </div>
+              
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="password_">Password Comfirmation</label>
+                            <span input-name="old_password" class="field-error"></span>
+                            <input value=" " required name="old_password" type="password" class="form-control" id="password_"
+                                autocomplete="off" placeholder="Your password" autofill="off">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                        <button type="submit" href="#" class="btn btn-text-primary submit-button">ADD</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Payment Method -->
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+<script src="{% static 'core/js/profile.js' %}"></script>
+{% endblock %}
