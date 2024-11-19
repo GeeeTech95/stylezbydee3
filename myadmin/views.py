@@ -6,7 +6,8 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from fashion.models import BespokeOrder,BespokeOrderStatusLog
-
+from .models import StaffSalaryLog
+from .utils import Charts
 
 class AdminRequiredMixin(UserPassesTestMixin):
     """Mixin to ensure the user is an admin (superuser or staff)."""
@@ -28,7 +29,9 @@ class Dashboard(AdminRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs ) :
         ctx = super().get_context_data(**kwargs)
         ctx['bespoke_orders_count'] = BespokeOrder.objects.count()
-        
         ctx['completed_bespoke_orders_count'] = BespokeOrder.get_completed_bespoke_orders(True)
         ctx['completed_bespoke_orders_percent'] = (ctx['completed_bespoke_orders_count'] / ctx['bespoke_orders_count']) * 100 if ctx['bespoke_orders_count'] else 0
+        ctx['unpaid_salaries'] = StaffSalaryLog.objects.filter(is_paid=False)[:5]
+        ctx.update(Charts.bespoke_order_chart_view())
+        
         return ctx
