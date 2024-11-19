@@ -1,13 +1,14 @@
 {% extends 'admin-base.html' %}
 {% load static %}
-
+{% load core %}
+{% load humanize %}
 {% block content %}
 
 
 <div class="main">
 
 
-    <div class="main-content dashboard">
+    <div class="main-content project">
         <div class="row">
             <div class="col-12">
                 <div class="box card-box">
@@ -93,7 +94,7 @@
                                 </ul>
                             </div>
                             <div class="box-body pt-20">
-                                <div id="customer-chart"></div>
+                                <div id="bespoke_order_chart"></div>
                             </div>
                         </div>
                         <!-- END CUSTOMERS CHART -->
@@ -104,6 +105,94 @@
       
          
         </div>
+
+        <div class="row mb-5">
+            <div class="">
+                <div class="box-header pt-0 pl-0 ms-0 mb-4 mt-4 border-bottom-0 responsive-header">
+                    <h5 class="box-title fs-22">Unpaid Due Salaries</h5>
+                    <div class="card-options">
+                        <div class="btn-list d-flex">
+
+                            <a href="{% url 'myadmin:salary-log-list' %}" class="btn btn-light me-0 d-flex align-items-center"
+                              > See All <i
+                                    class="eye"></i></a>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box ">
+                    <div class="box-body pb-0 table-responsive activity mt-0">
+                        <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer mw-100"
+                            id="unpaid-salaries" role="grid">
+                            <thead>
+                                <tr class="top">
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 100px;">Staff ID
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 150px;">Name</th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 100px;">Department
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 100px;">Role</th>
+
+
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Salary Due
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Date Due
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Bank Name
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Account
+                                        Number</th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Account
+                                        Name</th>
+
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 120px;">Employment
+                                        Status</th>
+                                    <th class="border-bottom-0 sorting_disabled fs-14 font-w500" style="width: 150px;">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in unpaid_salaries %}
+                                <tr class="{% cycle 'odd' 'even' %}">
+                                    <td><a href="{% url 'myadmin:staff-detail' log.staff.pk %}"
+                                            class="d-flex"><span><b>#{{ log.staff.user.account_id }}</b></span></a></td>
+                                    <td><a href="#"
+                                            class="d-flex"><span>{{ log.staff.user.full_name|capitalize  }}</span></a>
+                                    </td>
+                                    <td>{{ log.staff.department_verbose|capitalize }}</td>
+                                    <td>{{ log.staff.role_verbose|capitalize  }}</td>
+                                    <td>₦{{ log.amount_due|intcomma }}</td>
+                                    <td>{{ log.date_due|date:"Y-m-d"  }}</td>
+
+
+                                    <td>{{log.staff.bank_name|default:"N/A"}}</td>
+                                    <td>{{log.staff.bank_account_number|default:"N/A"}}</td>
+                                    <td>{{log.staff.bank_account_name|default:"N/A"}}</td>
+                                    <td>{{ log.staff.get_employment_status_display }}</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm mt-2 salary-paid-btn "
+                                            id="mark-salary-paid{{ log.id }}" data-order-id="{{log.pk}}"
+                                            data-target-url="{% url 'myadmin:mark-salary-paid' log.pk %}" data-new-status="approved">
+                                            Mark As Paid
+                                        </button>
+                                    </td>
+
+                                </tr>
+                                {% empty %}
+                                <tr class="mt-5 mb-5">
+                                    <td colspan="9">No unpaid salaries found.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
 
 
         <div id="add_project" class="modal custom-modal fade" role="dialog">
@@ -261,5 +350,27 @@
 
 <div class="overlay"></div>
 
+
+{% endblock %}
+
+{% block js %}
+<script>
+    window.chartData = {
+        series: [
+            {% for series_item in bespoke_chart_series %}
+                {
+                    name: "{{ series_item.name }}",
+                    data: [{{ series_item.data|join:', ' }}]
+                },
+            {% endfor %}
+        ],
+        categories: [
+            {% for month in bespoke_chart_categories %}
+                "{{ month }}",
+            {% endfor %}
+        ]
+    };
+</script>
+<script src="{% static 'js/admin/charts.js' %}""></script>
 
 {% endblock %}

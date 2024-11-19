@@ -8,7 +8,7 @@ from myadmin.models import Staff
 import random
 from django.db.models import Q
 from django.core.exceptions import ValidationError
-
+from django.apps import apps
 
 
 
@@ -202,6 +202,7 @@ class ClientBodyMeasurement(Measurement):
 
 
 class BespokeOrder(Measurement):
+   
     order_id = models.CharField(max_length=8, unique=True, editable=False)
     client = models.ForeignKey(Client, related_name='bespoke_order', on_delete=models.PROTECT)
     style = models.ForeignKey(Catalogue, related_name='bespoke_order', on_delete=models.CASCADE, null=True, blank=True, help_text="You can leave style blank")
@@ -212,8 +213,13 @@ class BespokeOrder(Measurement):
     material_cost = models.DecimalField(max_digits=10, decimal_places=2)
     extra_design_cost = models.DecimalField(max_digits=10, default=0.00, decimal_places=2)
     advance_fee = models.DecimalField(max_digits=10, decimal_places=2)
+    date_created = models.DateField(auto_now_add=True,editable=False)
     expected_date_of_delivery = models.DateField(null=False, blank=False)
     
+    #status
+    last_status_log = models.CharField(max_length=30)
+
+
     @property
     def created_at(self) :
         return self.status_log.filter(status = BespokeOrderStatusLog.ORDER_CREATED).first().date
@@ -306,7 +312,11 @@ class BespokeOrder(Measurement):
     
     def __str__(self):
         return f"Order #{self.order_id} for {self.client} - Due: {self.expected_date_of_delivery}"
-
+    
+    def save(self,*args,**kwargs) :
+        self.last_status_log = self.status
+        super().save(*args,**kwargs)
+    
 
 class BespokeOrderStaffInfo(models.Model):
     Delegationchoices = (
@@ -400,7 +410,7 @@ class BespokeOrderStatusLog(models.Model):
         if self.status == BespokeOrderStatusLog.SEWING_COMMENCED :
             if BespokeOrderStatusLog.objects.filter(status = BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE,
                                                     outfit = self.outfit).exists() :
-                raise ValidationError("Advance paymen has not been made")
+                raise ValidationError("Advance payment has not been made")
         super().save(*args,**kwargs)
     
     

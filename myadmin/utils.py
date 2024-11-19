@@ -4,7 +4,12 @@ from django.utils import timezone
 from datetime import datetime, timedelta
 from django.utils import timezone
 
-from fashion.models import  BespokeOrder, BespokeOrderStaffInfo
+from fashion.models import  BespokeOrder, BespokeOrderStaffInfo,BespokeOrderStatusLog
+
+from django.db.models import Count,Max
+from django.db.models.functions import TruncMonth
+from datetime import datetime, timedelta
+from collections import defaultdict
 
 
 
@@ -146,3 +151,66 @@ class Salary :
                     #add associuated bespoke orders
                     if bespoke_orders : 
                         log.bespoke_orders.add(*bespoke_orders)
+
+
+
+
+
+class Charts :
+
+    def bespoke_order_chart_view():
+        # Get the past calendar year's date range
+        today = datetime.today()
+        last_year = today - timedelta(days=365)
+
+        # Get the latest status log entry for each order within the last year
+        latest_logs = (
+            BespokeOrderStatusLog.objects.filter(date__gte=last_year)
+            .annotate(latest_log_date=Max('date'))  # Ensure we consider the latest log for each order
+            .values('outfit', 'status', 'latest_log_date')
+        )
+
+        # Extract orders grouped by month and status
+        orders = (
+            latest_logs.annotate(month=TruncMonth('latest_log_date'))
+            .values('month', 'status')
+            .annotate(count=Count('outfit'))
+            .order_by('month')
+            #.distinct('outfit') 
+        )
+
+        # Prepare data for chart
+        data = defaultdict(lambda: defaultdict(int))
+        for order in orders:
+            month = order['month'].strftime('%b')  # Format month as 'Jan', 'Feb', etc.
+            status = order['status']
+            count = order['count']
+            data[month][status] = count
+
+        # Get all months for the past year
+        months = [(last_year + timedelta(days=i)).strftime('%b') for i in range(0, 366, 30)]
+
+        # Build series data for ApexCharts
+        status_labels = {
+            "Delivered" : BespokeOrderStatusLog.DELIVERED,
+            "Ready to be Delivered" : BespokeOrderStatusLog.READY_FOR_DELIVERY,
+            "In Progress" : BespokeOrderStatusLog.SEWING_COMMENCED
+            }
+        
+        series = [
+            {
+                "name": status_label,
+                "data": [data[month].get(status_label.lower(), 0) for month in months],
+            }
+            for status_label in status_labels
+        ]
+
+        # Pass series and categories to the template
+        context = {
+            "bespoke_chart_series": series,
+            "bespoke_chart_categories": months,
+        }
+        print(context)
+
+        return context
+        
