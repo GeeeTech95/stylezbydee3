@@ -40,21 +40,58 @@ class BespokeOrderStaffInfoAdmin(admin.ModelAdmin):
     ordering = ['-date_accepted']
 
 
+
 class CatalogueImageInline(admin.TabularInline):
+    """Inline admin for managing catalogue images directly within the catalogue admin."""
     model = CatalogueImage
-    extra = 1
+    fields = ('image', 'alt_text', 'position', 'created_at', 'updated_at')  # Fields to display
+    readonly_fields = ('created_at', 'updated_at')  # Non-editable fields
+    extra = 1  # Number of empty forms to display for new images
+    ordering = ['position']  # Order images by position
 
 
 @admin.register(Catalogue)
 class CatalogueAdmin(admin.ModelAdmin):
-    list_display = ('title', 'cost', 'created_at', 'updated_at')
-    search_fields = ['title', 'description_text']
-    ordering = ['title']
-    inlines = [CatalogueImageInline]
+    """Admin configuration for the Catalogue model."""
+    list_display = (
+        'title', 
+        'category', 
+        'cost', 
+        'discount_price', 
+        'get_final_price', 
+        'is_discounted', 
+        'created_at', 
+        'updated_at'
+    )  # Columns to display in the admin list view
+    list_filter = ('category', 'created_at', 'updated_at')  # Filters for quick navigation
+    search_fields = ('title', 'description_text')  # Enables search functionality
+    prepopulated_fields = {'slug': ('title',)}  # Automatically populates slug from title
+    readonly_fields = ('created_at', 'updated_at')  # Prevents editing timestamps
+    inlines = [CatalogueImageInline]  # Includes images as inline fields
+    fieldsets = (
+        ('General Information', {
+            'fields': ('title', 'slug', 'description_text', 'category')
+        }),
+        ('Pricing', {
+            'fields': ('cost', 'discount_price')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at')
+        }),
+    )
+
+    def get_final_price(self, obj):
+        """Display the calculated final price in the admin."""
+        return obj.get_final_price()
+
+    get_final_price.short_description = 'Final Price'
+    get_final_price.admin_order_field = 'cost'  # Allows sorting by cost
 
 
 @admin.register(CatalogueImage)
 class CatalogueImageAdmin(admin.ModelAdmin):
-    list_display = ('catalogue', 'image', 'alt_text')
-    search_fields = ['catalogue__title', 'alt_text']
-    list_filter = ('catalogue',)
+    """Admin configuration for standalone management of Catalogue Images."""
+    list_display = ('catalogue', 'alt_text', 'position', 'created_at', 'updated_at')
+    list_filter = ('created_at', 'updated_at', 'catalogue')
+    search_fields = ('alt_text', 'catalogue__title')
+    ordering = ['catalogue', 'position']  # Orders by catalogue and position

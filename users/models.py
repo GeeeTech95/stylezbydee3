@@ -67,6 +67,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email_verified = models.BooleanField(default=False, blank=True)
     phone_number_verified = models.BooleanField(default=False, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
+    access_permission_level = models.PositiveIntegerField(default=5) #ranges from 1 through 5
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -122,7 +123,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         """" 
         permision level used to control what a user can see
         ranges from 1 which is the highest to 5
-        1 - can see all(business ownder) 
+        1 - can see all(business owner) 
         2  - can see all except sensitive data
         3 - can see some
         """ 
@@ -214,9 +215,12 @@ class Notification(models.Model):
         ordering = ['-date']
 
 
-class Savings(models.Model):
-    user = models.OneToOneField(
-        get_user_model(),
-        related_name="savings",
-        on_delete=models.PROTECT
-    )
+
+class CustomPermission(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True, null=True)
+    users = models.ManyToManyField(get_user_model(), related_name="custom_permissions", blank=True)
+
+    def __str__(self):
+        return self.name
+

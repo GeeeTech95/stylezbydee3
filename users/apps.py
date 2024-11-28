@@ -9,8 +9,8 @@ class UsersConfig(AppConfig):
     def ready(self) :
         from . import signals
         from django.contrib.auth import get_user_model
+        from .models import CustomPermission as CP
         request_finished.connect(signals.create_user_credentials, sender=get_user_model())    
-
-
+        request_finished.connect(signals.dumpdata_after_save, sender=CP)    
 
 

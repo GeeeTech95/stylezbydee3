@@ -1,5 +1,6 @@
 {% extends 'admin-base.html' %}
 {% load static %}
+{% load myadmin %}
 {% load humanize %}
 {% load core %}
 {% block content %}
@@ -19,6 +20,8 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <!-- Buttons: Edit and Delete -->
+                    {% if user|has_custom_permission:"can modify bespoke order and related details" %}
+
                     <div class="d-flex justify-content-end">
                         <!-- Edit Button -->
                         <a href="{% url 'myadmin:bespoke-orders-update' order.pk %}"
@@ -32,10 +35,14 @@
                         </form>
                     </div>
 
+                    {% endif %}
+
+
+                    {% if user|has_custom_permission:"can view customer personal info" %}
                     <div class="row align-items-center">
 
                         <div class="col-md-4 text-center">
-                            <a href="{% url 'myadmin:client-detail' order.client.pk %}" >
+                            <a href="{% url 'myadmin:client-detail' order.client.pk %}">
                                 {% if order.client.passport %}
                                 <img src="{{ order.client.passport.url }}" alt="Client Profile Picture"
                                     class="img-fluid rounded-circle" style="width: 150px;">
@@ -70,6 +77,8 @@
                             </table>
                         </div>
                     </div>
+
+                    {% endif %}
                 </div>
             </div>
 
@@ -101,13 +110,17 @@
                                         <td class="w-50">Expected Delivery Date</td>
                                         <td class="w-50">{{ order.expected_date_of_delivery|date:"F d, Y" }}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="w-50">Total Cost</td>
-                                        <td class="w-50">₦{{ order.total_cost|intcomma }}</td>
-                                    </tr>
+                                    {% if user|has_custom_permission:"can view bespoke order status logs" %}
                                     <tr>
                                         <td class="w-50">Order Status</td>
                                         <td class="w-50">{{ order.status }}</td>
+                                    </tr>
+                                    {% endif %}
+
+                                    {% if user|has_custom_permission:"can view company financials" %}
+                                    <tr>
+                                        <td class="w-50">Total Cost</td>
+                                        <td class="w-50">₦{{ order.total_cost|intcomma }}</td>
                                     </tr>
                                     <tr>
                                         <td class="w-50">Labour Cost</td>
@@ -121,16 +134,24 @@
                                         <td class="w-50">Extra Designs Cost</td>
                                         <td class="w-50">₦{{ order.extra_design_cost|intcomma }}</td>
                                     </tr>
+
+                                    {% endif %}
+
+
                                     <tr>
                                         <td class="w-50">Style</td>
                                         <td class="w-50">
-                                            <a href="#0">
-                                                {% if order.style %}
-                                                {{ order.style }}
-                                                {% else %}
-                                                N/A
-                                                {% endif %}
+
+                                            {% if order.style %}
+                                            {{ order.style }}
+                                            <a href="{% url 'myadmin:catalogue-detail' order.style.pk %}"
+                                                class="btn btn-primary btn-sm mr-5 ml-5">
+                                                View Style
                                             </a>
+                                            {% else %}
+                                            N/A
+                                            {% endif %}
+
 
                                         </td>
                                     </tr>
@@ -144,7 +165,7 @@
 
 
 
-
+                {% if user|has_custom_permission:"can view bespoke order status logs" %}
                 <!-- Status Log Section -->
                 <div class="card mb-4">
                     <div class="card-header bg-info text-white">Order Status Log</div>
@@ -175,7 +196,9 @@
                     </div>
 
                 </div>
+                {% endif %}
 
+                {% if user|has_custom_permission:"can view other staffs details" %}
 
                 <div class="card mb-4">
                     <div class="card-header bg-primary text-white">Assigned Staffs </div>
@@ -185,8 +208,8 @@
                             <li class="list-group-item">
                                 <div class="d-flex justify-content-between">
                                     <a href="{% url 'myadmin:staff-detail' staff_info.staff.pk %}">
-                                    <p><strong>{{ staff_info.staff.user.full_name }}</strong> -
-                                        {{ staff_info.delegation|capfirst }}</p>
+                                        <p><strong>{{ staff_info.staff.user.full_name }}</strong> -
+                                            {{ staff_info.delegation|capfirst }}</p>
                                     </a>
                                     <p><small>
                                             Status:
@@ -252,13 +275,16 @@
                         </ul>
                     </div>
                 </div>
+
+                {% endif %}
+
             </div>
 
-
+            {% if user|has_custom_permission:" can view customer personal info" %}
 
             <!-- Contact Information Section -->
             <div class="card mb-4">
-                <div class="card-header bg-info text-white">Contact Information</div>
+                <div class="card-header bg-info text-white">Client Contact Information</div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <tbody>
@@ -286,6 +312,8 @@
                     </table>
                 </div>
             </div>
+
+            {% endif  %}
 
             <!-- Measurement Details Section -->
             <div class="card mb-4">

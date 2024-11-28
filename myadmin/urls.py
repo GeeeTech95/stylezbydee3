@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, clients, bespoke_orders, staff
+from . import views, clients, bespoke_orders, staff, catalogue
 
 
 app_name = 'myadmin'  # This sets the app namespace
@@ -7,6 +7,15 @@ app_name = 'myadmin'  # This sets the app namespace
 
 urlpatterns = [
     path("", views.Dashboard.as_view(), name="dashboard"),
+
+    #CATALOGUE
+    path("catalogue/",catalogue.CatalogueListView.as_view(),name = 'calalogue-list'),
+    path('catalogue/create/', catalogue.CatalogueCreateView.as_view(), name='catalogue-create'),  # Create view
+
+    path('catalogue/<int:pk>/', catalogue.CatalogueDetailView.as_view(), name='catalogue-detail'),
+ path('catalogue/<int:pk>/edit/', catalogue.CatalogueEditView.as_view(), name='edit-catalogue'),
+    path('catalogue/<int:pk>/delete/', catalogue.CatalogueDeleteView.as_view(), name='delete-catalogue'),
+
 
 
     # CLIENTS
