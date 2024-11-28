@@ -16,12 +16,21 @@ from fashion.forms import BespokeOrderForm, BespokeOrderStaffInfoForm, BespokeOr
 from django.views.generic import CreateView
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+from users.permissions import ActivityPermissions
 
 
-class BespokeOrderListView(ListView):
+
+class BespokeOrderListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
     model = BespokeOrder
     template_name = 'bespoke_orders/bespoke_orders_list.html'
     context_object_name = 'orders'
+
+    def test_func(self) :
+        user = self.request.user
+        if user.is_company_staff :
+            return True
+        return False
 
     def get_queryset(self):
 
@@ -57,11 +66,20 @@ class BespokeOrderListView(ListView):
         return context
 
 
-class BespokeOrderDetailView(DetailView):
+class BespokeOrderDetailView(LoginRequiredMixin,UserPassesTestMixin ,DetailView):
     model = BespokeOrder
     template_name = 'bespoke_orders/bespoke_orders_detail.html'
     context_object_name = 'order'
 
+    def test_func(self) :
+        user = self.request.user
+        order = self.get_object()
+        if user.is_company_staff and BespokeOrderStaffInfo.objects.filter(
+            staff__user = user,order = order
+        ).exists() :
+            return True
+        return False
+    
     def get_context_data(self, **kwargs) :
         ctx = super().get_context_data(**kwargs) 
         ctx["MEASUREMENT_ACQUIRED_STATUS"] = BespokeOrderStatusLog.MEASUREMENT_ACQUIRED

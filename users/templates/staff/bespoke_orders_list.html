@@ -86,7 +86,10 @@
                                         Date Assigned
                                     </th>
                                     <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 150px;">
-                                        Acceptance Status
+                                        Date Completed
+                                    </th>
+                                    <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 150px;">
+                                        Status
                                     </th>
                                     <th class="border-bottom-0 sorting fs-14 font-w500" style="width: 150px;">Expected
                                         Delivery</th>
@@ -119,6 +122,12 @@
                                     <td>₦{{ order.staff_infos.pay|intcomma}}</td>
 
                                     <td>{{order.staff_infos.date_assigned|date:"Y-m-d"}}</td>
+                                    <td>
+                                        {% if order.staff_infos.date_completed %}
+                                        {{order.staff_infos.date_completed|date:"Y-m-d"}}</td>
+                                        {% else %}
+                                        N/A
+                                        {% endif %}
                                     <td>
                                         {% if order.staff_infos.status == "assigned" %}
                                             <span class="task-btn bg-warning text-dark fs-14 staff-status-btn" id="update-staff-info-btn-{{ order.id }}" data-order-id="{{order.pk}}" data-target-url = "{% url 'staff-update-bespoke-order-status' order.staff_infos.pk %}" data-new-status="accepted">Assigned</span>

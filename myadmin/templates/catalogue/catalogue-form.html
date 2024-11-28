@@ -1,0 +1,164 @@
+{% extends 'admin-base.html' %}
+{% load crispy_forms_tags %}
+{% block css %}
+<style>
+    .container {
+        max-width: 800px;
+    }
+
+    .form-row, .form-group {
+        margin-bottom: 30px;
+    }
+
+    .form-section {
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        color: #343a40;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    button {
+        height: 60px;
+    }
+
+    .add-image-btn {
+        margin-top: 20px;
+    }
+
+    .remove-image-btn {
+        color: red;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main-content project container">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+           
+        <!-- Catalogue Form Fields -->
+        <div class="form-section mb-4" style="margin-top: 50px;">
+            <h3 class="mb-3">Add New Catalogue</h3>
+            <div style="margin-top: 30px;">
+                <!-- Render each fiel d manually to avoid rendering the submit button -->
+                {% for field in form %}
+                    {% if not field.name == 'submit' %}
+                        <div class="form-group">
+                            {{ field.label_tag }} {{ field }}
+                            {% for error in field.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+            <div class="form-section mb-4">
+                <h3 class="mb-3">Catalogue Images</h3>
+                <div id="image-container">
+                    {% for form in image_formset %}
+                        <div class="form-row image-row">
+                            <div class="col mb-4">
+                                <label for="image_{{ forloop.counter0 }}">Image</label>
+                                {{ form.image }}  <!-- Form field for image -->
+                            </div>
+                            <div class="col mb-4">
+                                <label for="alt_text_{{ forloop.counter0 }}">Alt Text</label>
+                                {{ form.alt_text }}  <!-- Form field for alt text -->
+                            </div>
+                            <div class="col mb-4">
+                                <label for="position_{{ forloop.counter0 }}">Position</label>
+                                {{ form.position }}  <!-- Form field for position -->
+                            </div>
+                            <div class="col mb-4">
+                                {{ form.DELETE }}  <!-- Delete button for the image form -->
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div>
+                    {{ image_formset.management_form }}
+                </div>
+                
+
+                <div class="form-group text-center">
+                    <button type="button" id="add-image" class="btn btn-secondary add-image-btn">Add Another Image</button>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Save Catalogue</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    const imageContainer = document.getElementById("image-container");
+    const addImageButton = document.getElementById("add-image");
+
+    let imageCount = document.querySelectorAll(".image-row").length; // Start from existing number of forms
+
+    addImageButton.addEventListener("click", function () {
+        // Create a new row for additional image input fields
+        const newImageRow = document.createElement("div");
+        newImageRow.classList.add("form-row", "image-row");
+
+        newImageRow.innerHTML = `
+            <h5 class="mb-4"> Image ${imageCount + 1}</h5>
+            <div class="col mb-4">
+                <label for="id_images_${imageCount}">Image</label>
+                <input type="file" name="images_${imageCount}" class="form-control" id="id_images_${imageCount}">
+            </div>
+            <div class="col mb-4">
+                <label for="id_alt_texts_${imageCount}">Alt Text</label>
+                <input type="text" name="alt_texts_${imageCount}" class="form-control" id="id_alt_texts_${imageCount}">
+            </div>
+            <div class="col mb-4">
+                <label for="id_positions_${imageCount}">Position</label>
+                <input type="number" name="positions_${imageCount}" class="form-control" id="id_positions_${imageCount}" min="0">
+            </div>
+            <div class="col mb-4">
+                <span class="remove-image-btn">Remove</span>
+            </div>
+        `;
+
+        imageContainer.appendChild(newImageRow);
+
+        // Attach event listener for the remove button
+        newImageRow.querySelector(".remove-image-btn").addEventListener("click", function () {
+            newImageRow.remove();
+        });
+
+        imageCount++;
+    });
+});
+</script>
+{% endblock %}

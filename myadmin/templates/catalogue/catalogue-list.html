@@ -1,0 +1,304 @@
+{% extends 'admin-base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <div class="main-content client">
+        <h3 class="mb-5">Catalogue</h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-body d-flex justify-content-between pt-0 pb-0">
+                        <div class="search-form d-flex">
+                            <input type="text" placeholder="Style Name" class="form-control">
+
+                            <button type="submit" class="search d-flex"><i class="fas fa-search"></i>Search</button>
+                        </div>
+                        <div class="list-action">
+                            <a hidden  class="list" href="#" onclick="liststyle()"><i class='bx bx-menu'></i></a>
+                            <a hidden href="#" class="list-board active" onclick="listboard()"><i
+                                    class='bx bxs-dashboard'></i></a>
+                            <a href="{% url 'myadmin:catalogue-create' %}" class="add">
+                                Add Catalogue
+                                <i class="fas fa-plus-circle"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            {% if catalogue_items %}
+            {% for catalogue in catalogue_items %}
+            <div class="col-3 col-md-6 col-sm-12 mb-25">
+                <div class="box client">
+                    <div class="dropdown">
+                        <a hidden href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class='bx bx-dots-horizontal-rounded'></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client">
+                                <i class="bx bx-trash"></i> Delete
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="bx bx-edit mr-5"></i> Edit
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body pt-5 pb-0 text-center">
+                        <div class="img-box">
+                            <img style="height: 300px;width: fit-content;" src="{{ catalogue.thumbnail }}"
+                                alt="{{ catalogue.alt_text }}">
+
+                        </div>
+                        <a href="client-details.html">
+                            <h5 class="mt-17">{{ catalogue.title }}</h5>
+                        </a>
+                        <p class="fs-14 font-w400 font-main">
+                            Description: <span
+                                class="text-clo-primary font-w500 pl-4">{{ catalogue.description_text }}</span>
+                        </p>
+                        <ul class="info">
+                            <li class="fs-14" style="font-size: 30px;">
+                                <i class='bx bx-naira'>₦</i>Cost: {{ catalogue.cost|intcomma }}
+                            </li>
+                            <li class="fs-14" hidden>
+                                <i class='bx bx-percent'></i>Discount Price: {{ catalogue.discount_price|default:"N" }}
+                            </li>
+                        </ul>
+                        <div class="group-btn d-flex justify-content-between">
+
+                            <a hidden class="bg-btn-sec color-main" href="#0">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-12">
+                <div class="box client text-center p-5">
+                    <div class="box-body">
+                        <h5 class="mt-17">No Catalogue Items Available</h5>
+                        <p class="fs-14 font-w400 font-main">
+                            It seems there are no catalogue items at the moment. Please add new items to see them
+                            here.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+
+        </div>
+
+        <div id="add_project" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Project Name</label>
+                                        <input class="form-control" value="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Client</label>
+                                        <select class="select">
+                                            <option>Client 1</option>
+                                            <option>Client 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <div class="cal-icon">
+                                            <input class="form-control " type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <div class="cal-icon">
+                                            <input class="form-control " type="date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Rate</label>
+                                        <input placeholder="$50" class="form-control" value="" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <select class="select">
+                                            <option>Hourly</option>
+                                            <option selected>Fixed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Priority</label>
+                                        <select class="select">
+                                            <option selected>High</option>
+                                            <option>Medium</option>
+                                            <option>Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="4" class="form-control"
+                                    placeholder="Enter your message here"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Upload Files</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="add_client" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Client</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Upload Avata</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <div class="form-group">
+                                <label>Client Name</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <label>Client Company</label>
+                                <select class="form-control select">
+                                    <option>Company Name</option>
+                                    <option>Company Name</option>
+                                    <option>Company Name</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Client Phone</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <label>Client Email</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+
+                            <div class="submit-section text-center">
+                                <button class="btn btn-primary submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal custom-modal fade" id="delete_client" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>Delete Client</h3>
+                            <p>Are you sure want to delete?</p>
+                        </div>
+                        <div class="modal-btn delete-action">
+                            <div class="row">
+                                <div class="col-6 mb-0">
+                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                                </div>
+                                <div class="col-6 mb-0">
+                                    <a href="javascript:void(0);" data-dismiss="modal"
+                                        class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="edit_client" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Client</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Client Name</label>
+                                <input type="text" class="form-control" value="Tom Schneider">
+                            </div>
+                            <div class="form-group">
+                                <label>Client Company</label>
+                                <select class="form-control select">
+                                    <option>Company Name</option>
+                                    <option>Company Name</option>
+                                    <option>Company Name</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Client Phone</label>
+                                <input type="text" class="form-control" value="(589)505-4521">
+                            </div>
+                            <div class="form-group">
+                                <label>Client Email</label>
+                                <input type="text" class="form-control" value="tom.name@mail.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Upload Files</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <div class="submit-section text-center">
+                                <button class="btn btn-primary submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+
+<div class="overlay"></div>
+
+
+{% endblock %}

@@ -10,7 +10,7 @@ from django.forms import inlineformset_factory
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Row, Submit, Column, Div
-from .models import Client, ClientBodyMeasurement
+from .models import Client, ClientBodyMeasurement,CatalogueImage,Catalogue
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Row, Column, Submit
@@ -20,6 +20,88 @@ from crispy_forms.layout import Layout, Row, Column, Submit, Div
 from crispy_forms.bootstrap import Tab, TabHolder
 from crispy_forms.helper import FormHelper
 from django.forms.models import inlineformset_factory
+
+
+
+from django import forms
+from .models import Catalogue
+
+class CatalogueForm(forms.ModelForm):
+    """Form for creating or updating a Catalogue."""
+    
+    class Meta:
+        model = Catalogue
+        fields = ['title', 'description_text', 'cost', 'discount_price', 'category']
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter catalogue title'
+            }),
+            'description_text': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 2,
+                'placeholder': 'Enter description here'
+            }),
+            'cost': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter cost'
+            }),
+            'discount_price': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter discount price'
+            }),
+            'category': forms.Select(attrs={
+                'class': 'form-control',
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        """Customize form fields and add more classes if necessary."""
+        super().__init__(*args, **kwargs)
+        
+        # Example: Add custom CSS classes to any form field
+        for field in self.fields.values():
+            field.widget.attrs['class'] = field.widget.attrs.get('class', '') + ' form-control'
+
+
+
+class CatalogueImageForm(forms.ModelForm):
+    """Form for creating or updating Catalogue Images."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Styling for the image field
+        self.fields['image'].widget.attrs.update({
+            'class': 'form-control custom-file-input',
+            'id': 'id_image',
+        })
+        self.fields['alt_text'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Enter alternative text',
+        })
+        self.fields['position'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Enter display position',
+        })
+    class Meta:
+        model = CatalogueImage
+        fields = ['image', 'alt_text', 'position']
+        widgets = {
+            'alt_text': forms.TextInput(attrs={'placeholder': 'Image description'}),
+        }
+
+
+# Inline formset for CatalogueImage
+CatalogueImageFormSet = inlineformset_factory(
+    Catalogue,  # Parent model
+    CatalogueImage,  # Related model
+    form=CatalogueImageForm,
+    extra=1,  # Number of empty image forms
+    can_delete=False,  # Allow deletion of images
+)
+
+
 
 
 class ClientForm(forms.ModelForm):

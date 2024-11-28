@@ -57,7 +57,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-submenu">
+                <li class="sidebar-submenu" hidden>
                     <a href="project.html" class="sidebar-menu-dropdown">
                         <i class='bx bxs-store'></i>
                         <span>E-commerce Store</span>
@@ -95,9 +95,15 @@
                         </div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        
                         <li>
                             <a href="{% url 'myadmin:client-list' %}">
                                 Clients
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myadmin:calalogue-list' %}">
+                                Catalogue
                             </a>
                         </li>
                         <li>

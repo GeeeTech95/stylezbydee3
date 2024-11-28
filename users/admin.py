@@ -32,11 +32,19 @@ class UserAdmin(BaseUserAdmin):
 
     ordering = ('email',)
 
+
+@admin.register(CustomPermission)
+class CustomPermissionAdmin(admin.ModelAdmin):
+    list_display = ("name", "description")
+    filter_horizontal = ("users",)
+
+
+
+
 # Register the user model and custom admin
 admin.site.register(User, UserAdmin)
-
-
-
 admin.site.register(Security)
 admin.site.register(NotificationCategory)
 admin.site.register(Notification)
+
+
