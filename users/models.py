@@ -217,6 +217,7 @@ class Notification(models.Model):
 
 
 class CustomPermission(models.Model):
+    code = models.CharField(max_length=10)
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, null=True)
     users = models.ManyToManyField(get_user_model(), related_name="custom_permissions", blank=True)
