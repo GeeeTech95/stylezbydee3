@@ -1,5 +1,9 @@
+from .models import CustomPermission
+
+
 
 class ActivityPermissions () :
+    model = CustomPermission
 
     def __init__(self,user) :
         self.user = user
@@ -13,3 +17,14 @@ class ActivityPermissions () :
         if not self.user.is_staff :
             return False
         return True
+    
+    def has_custom_permission(self,permission_name):
+
+        if not self.user.is_authenticated:
+            return False
+        if hasattr(self.user, "custom_permissions"):
+        
+            return self.user.custom_permissions.filter(name=permission_name).exists()
+        return False
+    
+    

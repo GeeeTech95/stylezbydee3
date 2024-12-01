@@ -12,6 +12,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from users.permissions import ActivityPermissions
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 
 
@@ -60,8 +62,6 @@ class StaffDeleteView(DeleteView):
 
 
 
-
-# List View for Transaction Log
 class StaffTransactionLogListView(ListView):
     model = StaffTransactionLog
     template_name = 'staff/staff_transaction_list.html'
@@ -69,19 +69,46 @@ class StaffTransactionLogListView(ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        # You can filter by staff if needed
-        return StaffTransactionLog.objects.all()
+        queryset = super().get_queryset()
+        staff_pk = self.kwargs.get('staff_pk')
+        if staff_pk:
+            # Filter transactions for the specified staff
+            queryset = queryset.filter(staff_id=staff_pk)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        staff_pk = self.kwargs.get('staff_pk')
+        if staff_pk:
+            staff = get_object_or_404(Staff, pk=staff_pk)
+            context['staff'] = staff
+            context['title'] = "All Transactions For {}".format(staff)
+        else :
+            context['title'] = "All Transactions"
+        return context
+
+
+
 
 # Create View for Transaction Log
 class StaffTransactionLogCreateView(CreateView):
     model = StaffTransactionLog
     form_class = StaffTransactionLogForm
-    template_name = 'transaction_log_form.html'
-    success_url = reverse_lazy('transaction_log_list')
+    template_name = 'staff/staff_transaction_log_form.html'
+    success_url = reverse_lazy('myadmin:transactions-log-list')
 
     def form_valid(self, form):
-        form.instance.staff = self.request.user.staff  # Assuming staff is related to the logged-in user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        transaction_log = form.instance  # The saved instance of the StaffTransactionLog
+        messages.success(self.request, '{} transaction log of ₦{:,.2f}  for {} has been successfully created.'.format(
+            transaction_log.transaction_type.capitalize(),  # Example: 'Credit' or 'Debit'
+            transaction_log.amount   ,
+            transaction_log.staff,       
+        ))
+        return response
+
+
+     
 
 
 

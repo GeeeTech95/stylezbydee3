@@ -8,13 +8,17 @@ app_name = 'myadmin'  # This sets the app namespace
 urlpatterns = [
     path("", views.Dashboard.as_view(), name="dashboard"),
 
-    #CATALOGUE
-    path("catalogue/",catalogue.CatalogueListView.as_view(),name = 'calalogue-list'),
-    path('catalogue/create/', catalogue.CatalogueCreateView.as_view(), name='catalogue-create'),  # Create view
+    # CATALOGUE
+    path("catalogue/", catalogue.CatalogueListView.as_view(), name='calalogue-list'),
+    path('catalogue/create/', catalogue.CatalogueCreateView.as_view(),
+         name='catalogue-create'),  # Create view
 
-    path('catalogue/<int:pk>/', catalogue.CatalogueDetailView.as_view(), name='catalogue-detail'),
- path('catalogue/<int:pk>/edit/', catalogue.CatalogueEditView.as_view(), name='edit-catalogue'),
-    path('catalogue/<int:pk>/delete/', catalogue.CatalogueDeleteView.as_view(), name='delete-catalogue'),
+    path('catalogue/<int:pk>/', catalogue.CatalogueDetailView.as_view(),
+         name='catalogue-detail'),
+    path('catalogue/<int:pk>/edit/',
+         catalogue.CatalogueEditView.as_view(), name='edit-catalogue'),
+    path('catalogue/<int:pk>/delete/',
+         catalogue.CatalogueDeleteView.as_view(), name='delete-catalogue'),
 
 
 
@@ -38,7 +42,7 @@ urlpatterns = [
 
     path('bespoke-orders/<int:pk>/update/',
          bespoke_orders.BespokeOrderUpdateView.as_view(), name='bespoke-orders-update'),
-    
+
     path('bespoke-orders/<int:pk>/status/update/',
 
          bespoke_orders.BespokeOrderStatusUpdate.as_view(), name='bespoke-orders-status-update'),
@@ -73,10 +77,16 @@ urlpatterns = [
     # STAFF transactions
     path('staffs/transactions/', staff.StaffTransactionLogListView.as_view(),
          name='transactions-log-list'),
+    path('staffs/<int:staff_pk>/transactions/',
+         staff.StaffTransactionLogListView.as_view(), name='staff-transactions-log-list'),
+
+    # STAFF transactions
+    path('staffs/transactions/<int:pk>/', staff.StaffTransactionLogListView.as_view(),
+         name='transaction-log-detail'),
     path('staffs/transactions/add/', staff.StaffTransactionLogCreateView.as_view(),
          name='transactions-log-create'),
     path('staffs/transactions/<int:pk>/edit/',
-         staff.StaffTransactionLogUpdateView.as_view(), name='transactions-log-update'),
+         staff.StaffTransactionLogUpdateView.as_view(), name='transaction-log-update'),
 
 
 
