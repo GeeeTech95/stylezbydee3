@@ -1,0 +1,73 @@
+[
+    {
+        "model": "users.custompermission",
+        "pk": 1,
+        "fields": {
+            "code": "",
+            "name": "can view company financials",
+            "description": "can view financial related info considering company accounting",
+            "users": [
+                [
+                    "admin@stylezbydee.com"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "users.custompermission",
+        "pk": 2,
+        "fields": {
+            "code": "",
+            "name": "can view customer personal info",
+            "description": "can view client personal infos",
+            "users": [
+                [
+                    "admin@stylezbydee.com"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "users.custompermission",
+        "pk": 3,
+        "fields": {
+            "code": "",
+            "name": "can modify bespoke order and related details",
+            "description": "can modify bespoke order and related details",
+            "users": [
+                [
+                    "admin@stylezbydee.com"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "users.custompermission",
+        "pk": 4,
+        "fields": {
+            "code": "",
+            "name": "can view other staffs details",
+            "description": "can view other staffs details",
+            "users": [
+                [
+                    "admin@stylezbydee.com"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "users.custompermission",
+        "pk": 5,
+        "fields": {
+            "code": "",
+            "name": "can view bespoke order status logs",
+            "description": "can view bespoke order status logs",
+            "users": [
+                [
+                    "admin@stylezbydee.com"
+                ]
+            ]
+        }
+    }
+    ]
+    

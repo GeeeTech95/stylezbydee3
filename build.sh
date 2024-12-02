@@ -11,9 +11,9 @@ export DEBUG=False
 python manage.py collectstatic --no-input
 
 # Apply any outstanding database migrations
-python manage.py migrate
-#python manage.py loaddata dump.json
-
+python manage.py migrate 
+python manage.py loaddata admin-data.json
+python manage.py loaddata custom_permissions.json
 
 export DJANGO_SUPERUSER_EMAIL=admin1@stylezbydee.com
 export DJANGO_SUPERUSER_PASSWORD=Rox!By375
