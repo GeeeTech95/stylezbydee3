@@ -140,9 +140,9 @@ INSTALLED_APPS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'fiberswift',
-    'API_KEY': '271668128239557',
-    'API_SECRET': '23YaM7w-fCCN9od48MhUG6dctwc',
+    'CLOUD_NAME': 'dqlbvzdhx',
+    'API_KEY': '491664366214778',
+    'API_SECRET': 'EroTArEsCH4bJhkApAQl4_bijIA',
 }
 
 if DEBUG :
@@ -272,16 +272,19 @@ LOGIN_REDIRECT_URL = 'login-redirect'
 
 LOGOUT_REDIRECT_URL = 'home'
 STATIC_URL = '/static/'
-
+#FOR CLOUDINARY 
+#email - info@stylezbydee.com
+#password - V&lop!#GoikB82k 
+# 
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
 EMAIL_PORT = "587"
 # for other emails
-EMAIL_HOST_USER = "support@stylezbydee.com"
-DEFAULT_FROM_EMAIL = "support@stylezbydee.com"
-EMAIL_HOST_PASSWORD = '#Thop!$9!!0f'
+EMAIL_HOST_USER = "customer.care@stylezbydee.com"
+DEFAULT_FROM_EMAIL = "customer.care@stylezbydee.com"
+EMAIL_HOST_PASSWORD = 'V&lop!#GoikB82k'
 EMAIL_HOST_USER_LOGISTICS = "logistics@stylezbydee.com"
-EMAIL_HOST_USER_SUPPORT = "support@stylezbydee.com"
+EMAIL_HOST_USER_SUPPORT = "customer.care@stylezbydee.com"
 
 EMAIL_USE_TLS = "True"
 
