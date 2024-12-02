@@ -16,16 +16,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hxyz71c)#===vrx&7nzz0=h!a1@genp)p@v($l%t=a+#649mj7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #os.getenv('DEBUG', 'True') == 'True'
+DEBUG = True  # os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ["*"]
 
 SITE_WHATSAPP_NO = "+2348162467444"
 
 SITE_URL = "http://127.0.0.1:8000"
-
-
-
 
 
 UNFOLD = {
@@ -53,14 +50,14 @@ UNFOLD = {
     ],
     "SHOW_HISTORY": True,  # show/hide "History" button, default: True
     "SHOW_VIEW_ON_SITE": True,  # show/hide "View on site" button, default: True
-    #"ENVIRONMENT": "fashion.environment_callback",
-    #"DASHBOARD_CALLBACK": "fashion.dashboard_callback",
+    # "ENVIRONMENT": "fashion.environment_callback",
+    # "DASHBOARD_CALLBACK": "fashion.dashboard_callback",
     "THEME": "light",  # Force theme: "dark" or "light". Will disable theme switcher
     "LOGIN": {
         "image": lambda request: static("img/studio/DSC_0944.jpg"),
-       
+
     },
- 
+
 }
 
 
@@ -99,19 +96,17 @@ JAZZMIN_SETTINGS = {
 }
 
 
-
-
 # Application definition
 INSTALLED_APPS = [
     'jazzmin',
-    #"unfold",  # before django.contrib.admin
-    #"unfold.contrib.filters",  # optional, if special filters are needed
-    #"unfold.contrib.forms",  # optional, if special form elements are needed
-    #"unfold.contrib.inlines",  # optional, if special inlines are needed
-    #"unfold.contrib.import_export",  # optional, if django-import-export package is used
-    #"unfold.contrib.guardian",  # optional, if django-guardian package is used
+    # "unfold",  # before django.contrib.admin
+    # "unfold.contrib.filters",  # optional, if special filters are needed
+    # "unfold.contrib.forms",  # optional, if special form elements are needed
+    # "unfold.contrib.inlines",  # optional, if special inlines are needed
+    # "unfold.contrib.import_export",  # optional, if django-import-export package is used
+    # "unfold.contrib.guardian",  # optional, if django-guardian package is used
     # optional, if django-simple-history package is used
-    #"unfold.contrib.simple_history",
+    # "unfold.contrib.simple_history",
     "django.contrib.admin",  # required
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -140,7 +135,22 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_rest_passwordreset',
     'storages',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'fiberswift',
+    'API_KEY': '271668128239557',
+    'API_SECRET': '23YaM7w-fCCN9od48MhUG6dctwc',
+}
+
+if DEBUG :
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+else:
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # or 'bootstrap5'
 
