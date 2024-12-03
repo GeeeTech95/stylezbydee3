@@ -36,6 +36,7 @@ django-sekizai==4.1.0
 django-storages==1.12.3
 django-tables2==2.3.4
 django-treebeard==4.4
+django-unfold==0.36.0
 django-widget-tweaks==1.4.12
 djangocms-admin-style==3.2.4
 djangorestframework==3.13.1
