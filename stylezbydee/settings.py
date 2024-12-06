@@ -294,7 +294,7 @@ SITE_ADDRESS = "https://www.stylezbydee.com/"
 STATIC_ROOT = os.path.join(BASE_DIR, "asset")
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'stylezbydee.storages.CustomStaticFilesStorage'
 
 
 
