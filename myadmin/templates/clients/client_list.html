@@ -144,8 +144,7 @@
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" href="{% url 'myadmin:client-detail'   client.pk %}" 
                                                 ><i class="bx bx-edit mr-5"></i>View Details</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                                    data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                                                <a class="dropdown-item" href="{{client.whatsapp_link}}" ><i class="bx bx-whatsapp"></i> Chat On Whatsapp</a>
                                                 <a class="dropdown-item" href="#" data-toggle="modal"
                                                     data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
 
