@@ -272,10 +272,17 @@ LOGIN_REDIRECT_URL = 'login-redirect'
 
 LOGOUT_REDIRECT_URL = 'home'
 STATIC_URL = '/static/'
+
 #FOR CLOUDINARY 
 #email - info@stylezbydee.com
 #password - V&lop!#GoikB82k 
-# 
+
+
+#TAWKTO
+#EMAIL = info@stylezbydee.com
+#PASSWORD = V&lop!#GoikB82k
+
+
 # EMAIL FOR ZOHO
 EMAIL_HOST = "smtp.zoho.com"
 EMAIL_PORT = "587"
