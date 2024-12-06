@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.core.management import call_command
 from users.models import Security, Setting,CustomPermission
-
+from core.communication import AccountMail
 
 @receiver(post_save, sender=get_user_model())
 def create_user_credentials(sender, instance, created, **kwargs):
@@ -15,9 +15,9 @@ def create_user_credentials(sender, instance, created, **kwargs):
         Security.objects.create(user=instance)
         Setting.objects.create(user=instance)
 
-        # send registration email
-        #mail = AccountMail(instance)
-        # mail.send_registration_email()
+        # send credentials email
+        mail = AccountMail(instance)
+        mail.send_user_credentials()
 
 
 @receiver(post_save, sender=CustomPermission)
