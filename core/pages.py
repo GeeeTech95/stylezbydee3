@@ -44,8 +44,8 @@ class HomePage(generic.TemplateView) :
     def get_context_data(self, **kwargs) :
         source_folder = os.path.join(settings.STATICFILES_DIRS[0], "img")  # Adjust index if multiple dirs
         destination_folder = os.path.join(settings.STATICFILES_DIRS[0], "img2")  # Change STATICFILES_DIRS[0] to STATIC_ROOT if needed
-            # Run the function
-        self.process_images(source_folder, destination_folder)
+        # Run the function
+        #self.process_images(source_folder, destination_folder)
         ctx = super(HomePage,self).get_context_data(**kwargs)
         ctx['new_arrivals'] = Product.objects.all().order_by("-created_at")[:6]
         ctx['best_selling'] = Product.objects.all()[:6]
