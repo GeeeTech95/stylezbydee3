@@ -217,8 +217,17 @@ class Notification(models.Model):
 
 
 class CustomPermission(models.Model):
+    
+    PermissionNameChoices = (
+        ("can view company financials","can view company financials"),
+        ("can view customer personal info","can view customer personal info"),
+        ("can modify bespoke order and related details","can modify bespoke order and related details"),
+        ("can view other staffs details","can view other staffs details"),
+        ("can view bespoke order status logs","can view bespoke order status logs"),
+    )
+
     code = models.CharField(max_length=10)
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True, choices=PermissionNameChoices)
     description = models.TextField(blank=True, null=True)
     users = models.ManyToManyField(get_user_model(), related_name="custom_permissions", blank=True)
 
