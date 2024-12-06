@@ -11,7 +11,7 @@ urlpatterns = [
     path("shop/", include("shop.urls")),
     path("fashion/", include("fashion.urls")),
     path("order/", include("order.urls")),
-    path("myadmin/", include("myadmin.urls", namespace='myadmin')),
+    path("myadmin-encoded-target/", include("myadmin.urls", namespace='myadmin')),
     path("account/",include("users.urls")),
     # API
     path("api/v1/", include("core.api.v1.urls")),
