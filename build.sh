@@ -15,10 +15,10 @@ python manage.py migrate
 python manage.py loaddata admin-data.json
 python manage.py loaddata custom_permissions.json
 
-export DJANGO_SUPERUSER_EMAIL=admin5@stylezbydee.com
+export DJANGO_SUPERUSER_EMAIL=admin1@stylezbydee.com
 export DJANGO_SUPERUSER_PASSWORD=VlopGoikB8 
 
-#python manage.py createsuperuser --no-input
+python manage.py createsuperuser --no-input
 
 
 
