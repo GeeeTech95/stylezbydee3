@@ -12,17 +12,49 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hxyz71c)#===vrx&7nzz0=h!a1@genp)p@v($l%t=a+#649mj7'
+# Security settings for production
+"""SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+"""
+# Strong secret key
+SECRET_KEY = 'y0uR$ecR3tK3y-!@#R4nD0mly-Gen3Rat3d-FoR$3cUrity&STaBil1ty'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
+#DEBUG  = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 SITE_WHATSAPP_NO = "+2348162467444"
 
 SITE_URL = "http://127.0.0.1:8000"
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'error.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
 
 
 UNFOLD = {
@@ -194,6 +226,9 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATES[0]['OPTIONS']['debug'] = True
+
+
 WSGI_APPLICATION = 'stylezbydee.wsgi.application'
 
 
@@ -201,7 +236,7 @@ WSGI_APPLICATION = 'stylezbydee.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-if DEBUG:
+if True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -301,8 +336,9 @@ SITE_ADDRESS = "https://www.stylezbydee.com/"
 STATIC_ROOT = os.path.join(BASE_DIR, "asset")
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'stylezbydee.storages.CustomStaticFilesStorage'
-
+#STATICFILES_STORAGE = 'stylezbydee.storages.CustomStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
+ 
 
 
 # Default primary key field type
