@@ -1,0 +1,113 @@
+{% extends 'base-mail.html' %}
+
+{% load static %}
+{% load humanize %}
+{% load vocabulary %}
+
+
+
+{% block content %}
+<tr>
+  <td>
+    <h2 style="text-align:left"><b>{{site_name}} Transaction</b></h2>
+    <strong>
+      <h4>Hi {{transaction.user.username}},</h4>
+    </strong>
+
+
+
+    <p>
+      This is to notify you that {% if transaction.trx_form|startswith_vowel %} an {% else %} a {% endif %}
+      {{transaction.trx_form|upper}} transaction just occured on your {{site_name}} account. <br>You should always
+      verify the legitimacy of any transaction by checking your {{site_name}}
+      <a href="https://www.commonwealthscredit.com{% url 'transaction-history' %}">transaction logs</a>.
+ 
+
+
+    </p>
+    <p>
+
+    </p>
+
+    <p>
+      if you did not authorize this activity please  contact
+      <a href="#">support</a> immediately.
+    </p>
+
+    <p>
+      Below are the details of this transaction ;
+    </p>
+
+
+
+    <table style="background-color: #00A9A41A; margin-bottom:30px;padding:10px">
+      <tbody style="color: #000000;">
+        <tr>
+          <td>Transaction Type</td>
+          <td>{{transaction.transaction_type|upper}}</td>
+        </tr>
+         <hr>
+         <tr>
+          <td>Transaction Nature</td>
+          <td>{{transaction.nature|upper}}</td>
+        </tr>
+         <hr>
+        <tr>
+          <td>Transaction Amount</td>
+          <td>{{transaction.user.wallet.currency.code}}{{transaction.amount|intcomma}}</td>
+        </tr>
+        <hr>
+     
+        <tr>
+          <td>Naration</td>
+          <td>{{transaction.description}}</td>
+        </tr>
+        <hr>
+        <tr>
+          <td>REF. </td>
+          <td>{{transaction.transaction_id}}</td>
+        </tr>
+        <hr>
+
+        <tr>
+          <td>Available Balance</td>
+          <td>{{transaction.user.wallet.currency.code}}
+            {{transaction.user.wallet.available_balance|intcomma}}
+          </td>
+        </tr>
+        <hr>
+        <tr>
+          <td>Ledger Balance</td>
+          <td>
+            {{transaction.user.wallet.currency.code}}
+            {{transaction.user.wallet.available_balance|intcomma}}
+          </td>
+        </tr>
+        <hr>
+
+        <tr>
+          <td>Date and Time</td>
+          <td>{{transaction.show_date|date:"j b, Y"}} {{transaction.show_date.time}}</td>
+        </tr>
+
+
+
+      </tbody>
+
+    </table>
+
+
+    <br>
+    <i>This is an automatically generated message, it does not accept replies.</i>
+
+
+    {% autoescape off %}
+    {{text}}
+    {% endautoescape %}
+
+
+
+
+  </td>
+</tr>
+{% endblock %}
