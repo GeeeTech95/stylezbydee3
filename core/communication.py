@@ -31,7 +31,6 @@ class AccountMail() :
         message = "Your Email :  {}, Your account Id : {}".format(self.user.email,self.user.account_id)
         mail.send_email(
             [self.user.email],
-            "Your Credentials",
             subject = "{} User Credentials".format(settings.SITE_NAME),
             message= message,
         
