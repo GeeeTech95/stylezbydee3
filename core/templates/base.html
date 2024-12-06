@@ -31,7 +31,7 @@
 
     <link rel="icon" type="image/png" href="{% static 'img/logo/icon-black.png' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    
+
     <style>
         /* PRELOADER CSS STARTS */
 
@@ -130,9 +130,18 @@
 
                 <div class="col-lg-4 col-md-12">
                     <div class="top-header-discount-info home-slides-two owl-carousel owl-theme">
-                        <p><strong>50% OFF</strong> all new collections! <a href="#">Discover Now!</a></p>
-                        <p><strong>80% OFF</strong> all new collections! <a href="#">Discover Now!</a></p>
-                        <p><strong>90% OFF</strong> all new collections! <a href="#">Discover Now!</a></p>
+                        <p>Keep cozy and chic: <strong>60% OFF</strong> winter essentials! <a href="#">Browse Now!</a>
+                        </p>
+                        <p><strong>40% OFF</strong> warm layers – Stay stylish this season! <a href="#">Shop Here!</a>
+                        </p>
+                        <p>The countdown is on! <strong>50% OFF</strong> New Year’s Eve looks. <a href="#">Find
+                                Yours!</a></p>
+                        <p>Out with the old, in with the bold! <strong>70% OFF</strong> end-of-year styles. <a
+                                href="#">Shop Bold</a></p>
+                        <p>Perfect presents for everyone: <strong>Up to 80% OFF</strong>. 🎁 <a href="#">Shop Gifts!</a>
+                        </p>
+                        <p>Fashion-forward gifts they’ll love – <strong>30% OFF</strong> curated collections. <a
+                                href="#">Start Gifting</a></p>
                     </div>
                 </div>
 
@@ -246,7 +255,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="brand-slides owl-carousel owl-theme">
+                                            <div class="brand-slides owl-carousel owl-theme" hidden>
                                                 <div class="brand-item">
                                                     <a href="#"><img src="{% static 'x/img/brand/img1.png' %}"></a>
                                                 </div>
@@ -311,7 +320,7 @@
                                                     <ul class="megamenu-submenu">
                                                         <li>
                                                             <div class="aside-trending-products">
-                                                              
+
                                                                 <img src="{{womenTopTrending.thumbnail}}">
 
                                                                 <div class="category">
@@ -321,7 +330,7 @@
                                                                 <a href="#" class="link-btn"></a>
                                                             </div>
 
-                                                            <div class="aside-trending-products">
+                                                            <div class="aside-trending-products" hidden >
                                                                 <img src="{% static 'x/img/categories/img2.jpg' %}">
 
                                                                 <div class="category">
@@ -370,7 +379,7 @@
 
 
                                                 <div class="col">
-                                                    <ul class="megamenu-submenu">
+                                                    <ul class="megamenu-submenu" hidden>
                                                         <li>
                                                             <div class="aside-trending-products">
                                                                 <img src="{% static 'x/img/categories/img1.jpg' %}">
@@ -428,8 +437,7 @@
                                     <li class="nav-item"><a href="#" class="nav-link">Single Post <i
                                                 class='bx bx-chevron-right'></i></a>
                                         <ul class="dropdown-menu">
-                                            <li class="nav-item"><a href="#0"
-                                                    class="nav-link">Default</a></li>
+                                            <li class="nav-item"><a href="#0" class="nav-link">Default</a></li>
 
                                             <li class="nav-item"><a href="#0" class="nav-link">With
                                                     Video</a></li>
@@ -538,7 +546,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="brand-slides owl-carousel owl-theme">
+                                            <div class="brand-slides owl-carousel owl-theme" hidden>
                                                 <div class="brand-item">
                                                     <a href="#"><img src="{% static 'x/img/brand/img1.png' %}"></a>
                                                 </div>
@@ -578,15 +586,15 @@
                                                 {% for cat in womenParentProductCategories %}
                                                 <div class="col">
                                                     <h6 class="submenu-title">{{cat}}</h6>
-                                                        {% if cat.has_children %}
-                                                        <ul class="megamenu-submenu">
-                                                            {% for cat in cat.children %}
-                                                            <li><a href="#0">{{cat}}</a>
-                                                            </li>
-                                                            {% endfor %}
+                                                    {% if cat.has_children %}
+                                                    <ul class="megamenu-submenu">
+                                                        {% for cat in cat.children %}
+                                                        <li><a href="#0">{{cat}}</a>
+                                                        </li>
+                                                        {% endfor %}
 
-                                                        </ul>
-                                                        {% endif %}
+                                                    </ul>
+                                                    {% endif %}
                                                 </div>
                                                 {% endfor %}
 
@@ -717,8 +725,7 @@
                                     <li class="nav-item"><a href="#" class="nav-link">Single Post <i
                                                 class='bx bx-chevron-right'></i></a>
                                         <ul class="dropdown-menu">
-                                            <li class="nav-item"><a href="#0"
-                                                    class="nav-link">Default</a></li>
+                                            <li class="nav-item"><a href="#0" class="nav-link">Default</a></li>
 
                                             <li class="nav-item"><a href="#0" class="nav-link">With
                                                     Video</a></li>
@@ -788,7 +795,7 @@
     {% block content %}
 
     {% endblock %}
-    
+
     <!-- to be used in js -->
     <img hidden class="loading-img" id="loading-img" src="{% static 'img/logo/icon-black.png' %}">
 
@@ -918,9 +925,8 @@
     <script src="{% static 'x/js/contact-form-script.js' %}""></script>
         <script src=" {% static 'x/js/ajaxchimp.min.js' %}""></script>
     <script src="{% static 'x/js/main.js' %}""></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src=" {% static 'js/base.js' %}"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11"> </script> <script src=" {% static 'js/base.js' %}">
+    </script>
     <script src=" {% static 'js/core/helpers.js' %}"></script>
     <script src=" {% static 'js/core/utils.js' %}"></script>
     {% block js %}{% endblock %}
