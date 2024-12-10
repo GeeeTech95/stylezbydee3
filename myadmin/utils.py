@@ -6,10 +6,11 @@ from django.utils import timezone
 
 from fashion.models import  BespokeOrder, BespokeOrderStaffInfo,BespokeOrderStatusLog
 
-from django.db.models import Count,Max
+from django.db.models import Count,Max,Sum
 from django.db.models.functions import TruncMonth
 from datetime import datetime, timedelta
 from collections import defaultdict
+
 
 
 
@@ -54,103 +55,92 @@ class Salary :
                 print(f"Created monthly salary log for {staff.user.get_full_name()}")
 
 
-
     def create_salary_logs():
-        # Get current date and the current day of the week
+        """
+        Generate salary logs for all staff members based on their salary cycle.
+        - Monthly: Create logs due on the 25th of the month or the next unpaid cycle.
+        - Weekly: Summarize weekly pay from completed BespokeOrders and create logs.
+
+        Handles duplicate logs by ensuring no redundant unpaid logs exist.
+        """
+        # Get today's date and the current day of the week
         today = timezone.now().date()
         weekday = today.weekday()  # Monday = 0, Sunday = 6
+        is_saturday = weekday == 5  # Check if today is Saturday for weekly logs
 
-        # Check if today is Saturday (for weekly earners)
-        is_saturday = weekday == 5
-
-        # Get all staff members
+        # Retrieve all staff members
         staffs = Staff.objects.all()
 
+        # Process each staff member
         for staff in staffs:
-            # Check if the staff is a monthly salary earner
+            # Handle monthly salary cycle
             if staff.salary_cycle == 'monthly':
-                # Get the last salary log of the staff
-                last_salary_log = StaffSalaryLog.objects.filter(staff=staff,is_paid = True).last()
+                # Retrieve the last paid salary log for the staff
+                last_paid_salary_log = StaffSalaryLog.objects.filter(staff=staff, is_paid=True).last()
 
-                if last_salary_log:
-                    # If there's a previous log, set the next date_due to the 25th of the next month
-                    last_log_date = last_salary_log.date_due
-                    if last_log_date.month == 12:
-                        next_month = 1
-                        next_year = last_log_date.year + 1
-                    else:
-                        next_month = last_log_date.month + 1
-                        next_year = last_log_date.year
-
-                    # Set the date_due to 25th of next month
+                if last_paid_salary_log:
+                    # Determine the next salary due date (25th of the next month)
+                    last_log_date = last_paid_salary_log.date_due
+                    next_month = 1 if last_log_date.month == 12 else last_log_date.month + 1
+                    next_year = last_log_date.year + 1 if last_log_date.month == 12 else last_log_date.year
                     date_due = datetime(next_year, next_month, 25).date()
-
-                    # Delete the old unpaid salary log
-                    last_unpaid_salary_logs = StaffSalaryLog.objects.filter(
-                        staff=staff, is_paid=False
-                        )
-                    
-                    last_unpaid_salary_logs.delete()
-
                 else:
-                    # If no previous log, set the first salary log to the 25th of the current month
+                    # If no previous logs, set the due date as the 25th of the current month
                     date_due = datetime(today.year, today.month, 25).date()
 
-                # Create the new salary log for the staff
+                # Check if an unpaid log for the same date already exists
+                existing_log = StaffSalaryLog.objects.filter(staff=staff, is_paid=False, date_due=date_due).exists()
+                if existing_log:
+                    # Skip creation if an unpaid log already exists
+                    continue
+
+                # Remove any outdated unpaid logs
+                StaffSalaryLog.objects.filter(staff=staff, is_paid=False, date_due__lt=date_due).delete()
+
+                # Create a new salary log for the monthly salary
                 StaffSalaryLog.objects.create(
                     staff=staff,
-                    amount_due=staff.salary,  # Assuming the `salary` attribute in Staff is the monthly salary
+                    amount_due=staff.salary,  # Use the staff's monthly salary
                     date_due=date_due,
-                    is_paid=False  # Set to False initially
+                    is_paid=False  # Mark as unpaid initially
                 )
 
-            # Check if the staff is a weekly salary earner (only if it's Saturday)
-            elif staff.salary_cycle == 'weekly' : #and is_saturday:
-                # Get all BespokeOrders that were marked as completed in the current week
-                start_of_week = today - timedelta(days=weekday)  # Starting from Monday of the current week
-                end_of_week = start_of_week + timedelta(days=6)  # Ending on Sunday
+            # Handle weekly salary cycle
+            elif staff.salary_cycle == 'weekly':
+                # Determine the start and end dates of the current week (Monday to Sunday)
+                start_of_week = today - timedelta(days=weekday)
+                end_of_week = start_of_week + timedelta(days=6)
 
-                # Get the related BespokeOrderStaffInfo for the approved orders within the current week
+                # Retrieve approved BespokeOrders for the current week
                 approved_orders_staff_infos = BespokeOrderStaffInfo.objects.filter(
                     staff=staff,
                     status='approved',
-                    date_staff_is_paid__isnull=True,  # Ensure it's unpaid
-                    date_approved__range=[start_of_week, end_of_week]
-                ).distinct()  # Ensure no duplicates
+                    date_staff_is_paid__isnull=True,  # Ensure the orders are unpaid
+                    date_approved__range=[start_of_week, end_of_week]  # Approved this week
+                ).distinct()
 
-                # Sum up the weekly earnings from the approved orders based on the `pay` field in BespokeOrderStaffInfo
-                weekly_salary_due = 0
-                bespoke_orders = []
-                for staff_info in approved_orders_staff_infos:
-                    # Add the pay from each staff_info record
-                    weekly_salary_due += staff_info.pay
-                    if staff_info.order not in bespoke_orders  : 
-                        bespoke_orders.append(staff_info.order) 
+                # Calculate the total weekly salary due from approved orders
+                weekly_salary_due = approved_orders_staff_infos.aggregate(total_pay=Sum('pay'))['total_pay'] or 0
 
-                # Only create a log if there's a valid weekly salary due
+                # Only proceed if there's a valid weekly salary due
                 if weekly_salary_due > 0:
-                    # Check if an unpaid salary log already exists for this staff within the current week
-                    existing_salary_log = StaffSalaryLog.objects.filter(
+                    # Check for existing unpaid logs for the current week
+                    existing_weekly_log = StaffSalaryLog.objects.filter(
                         staff=staff,
                         is_paid=False,
                         date_due__range=[start_of_week, end_of_week]
-                    )
+                    ).exists()
 
-                    if existing_salary_log:
-                        # If an existing unpaid log is found, delete the old log
-                        existing_salary_log.delete()
-
-                    # Create a new salary log with the calculated weekly salary
-                    log = StaffSalaryLog.objects.create(
-                        staff=staff,
-                        
-                        amount_due=weekly_salary_due,
-                        date_due=today,  # Set date_due as today (Saturday)
-                        is_paid=False  # Set to False initially
-                    )
-                    #add associuated bespoke orders
-                    if bespoke_orders : 
-                        log.bespoke_orders.add(*bespoke_orders)
+                    if not existing_weekly_log:
+                        # Create a new salary log for the weekly earnings
+                        log = StaffSalaryLog.objects.create(
+                            staff=staff,
+                            amount_due=weekly_salary_due,
+                            date_due=today,  # Set today's date as the due date
+                            is_paid=False  # Mark as unpaid initially
+                        )
+                        # Link the related BespokeOrders to the salary log
+                        log.bespoke_orders.add(*approved_orders_staff_infos.values_list('order', flat=True))
 
 
 
