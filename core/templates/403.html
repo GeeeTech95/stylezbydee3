@@ -1,23 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container py-5">
-    <div class="card text-center shadow-lg">
-        <div class="card-header bg-danger text-white">
-            <h2>403 - Forbidden</h2>
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">You don't have permission to access this page.</h4>
-            <p class="card-text text-muted">
-                It seems you tried to access a resource that is restricted. Please contact the administrator if you believe this is an error.
-            </p>
-            <a href="{% url 'home' %}" class="btn btn-primary">
-                <i class="fas fa-home"></i> Return to Home
-            </a>
-        </div>
-        <div class="card-footer text-muted">
-            If you continue to experience issues, please reach out to support.
-        </div>
-    </div>
+<div>
+    <h2>Error 403! </h2>
 </div>
+{% endblock %}
+
+{% block js %}
+
 {% endblock %}

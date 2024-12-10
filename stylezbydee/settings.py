@@ -174,7 +174,7 @@ INSTALLED_APPS = [
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dqlbvzdhx',
     'API_KEY': '491664366214778',
-    'API_SECRET': 'EroTArEsCH4bJhkApAQl4_bijIA',
+    'API_SECRET': '5toj_8Gck-CN0p71p6l6f1RfbVI',
 }
 
 if DEBUG :
