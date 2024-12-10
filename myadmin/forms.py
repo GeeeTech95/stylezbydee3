@@ -9,8 +9,11 @@ User = get_user_model()
 
 
 class StaffForm(forms.ModelForm):
-    user_id = forms.CharField(required=True, label="User ID",
-                              help_text="Enter the unique account ID of the user")
+    user_id = forms.CharField(
+        required=True,
+        label="User ID",
+        help_text="Enter the unique account ID of the user"
+    )
 
     class Meta:
         model = Staff
@@ -44,19 +47,19 @@ class StaffForm(forms.ModelForm):
     )
 
     def __init__(self, *args, **kwargs):
-
-        # Check if an instance is provided to determine if it's an edit operation
         self.instance = kwargs.get('instance', None)
         super(StaffForm, self).__init__(*args, **kwargs)
 
-        # If instance is provided (indicating an edit operation), set user_id to not required
-        if self.instance and self.instance.pk:
-            self.fields['user_id'].required = False
-        else:
-            # edit fields
+        # Dynamically exclude fields for new entries
+        if not self.instance or not self.instance.pk:
             self.fields.pop('date_terminated')
             self.fields.pop('employment_status')
 
+        # Set user_id to not required for edit operation
+        if self.instance and self.instance.pk:
+            self.fields['user_id'].required = False
+
+        # Crispy Forms setup
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.form_action = ''  # Replace with your view name or URL pattern name
@@ -71,14 +74,8 @@ class StaffForm(forms.ModelForm):
                 css_class='form-row'
             ),
             Row(
-                # Updated for multiple departments
                 Column(Field('department'), css_class='form-group'),
                 Column(Field('role'), css_class='form-group'),
-                css_class='form-row'
-            ),
-            Row(
-                Column(Field('employment_status'), css_class='form-group'),
-                Column(Field('date_terminated'), css_class='form-group'),
                 css_class='form-row'
             ),
             Row(
@@ -108,9 +105,20 @@ class StaffForm(forms.ModelForm):
                        css_class='form-group'),
                 css_class='form-row'
             ),
-            Submit('submit', 'Submit',
-                   css_class='btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500 mt-5'),
+            Submit(
+                'submit', 'Submit',
+                css_class='btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500 mt-5'
+            ),
         )
+
+    def clean_user_id(self):
+        user_id = self.cleaned_data.get('user_id')
+        # Ensure user exists only for new entries
+        if not self.instance or not self.instance.pk:
+            if not User.objects.filter(account_id=user_id).exists():
+                raise forms.ValidationError(
+                    f"No user found with User ID: {user_id}")
+        return user_id
 
     def clean(self):
         cleaned_data = super().clean()
@@ -121,28 +129,21 @@ class StaffForm(forms.ModelForm):
         if is_salary_fixed and not salary:
             raise forms.ValidationError(
                 "Salary must be entered if it is fixed.")
+        return cleaned_data
 
     def save(self, commit=True):
         staff = super(StaffForm, self).save(commit=False)
-        user_id = self.cleaned_data.get('user_id')
 
-        # Attempt to get the user; handle the case where the user does not exist
-        try:
-            if self.instance and self.instance.pk:  # Check if editing
-                # If editing, don't set user; assume it is already set
-                pass
-            else:
-                staff.user = User.objects.get(account_id=user_id)
-        except User.DoesNotExist:
-            raise forms.ValidationError(
-                f"No user found with User ID: {user_id}")
+        # Handle user assignment for new staff
+        user_id = self.cleaned_data.get('user_id')
+        if not self.instance or not self.instance.pk:
+            staff.user = User.objects.get(account_id=user_id)
 
         if commit:
             staff.save()
             self.save_m2m()  # Save many-to-many relationships
-            # Save M2M relationships
-            # staff.department.set(self.cleaned_data['department'])
-            # staff.role.set(self.cleaned_data['role'])
+            staff.department.set(self.cleaned_data.get('department'))
+            staff.role.set(self.cleaned_data.get('role'))
             staff.user.user_type = 'staff'  # Set user_type to 'staff'
             staff.user.save()  # Save user to update user_type
         return staff
