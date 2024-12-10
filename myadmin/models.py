@@ -217,7 +217,7 @@ class StaffSalaryLog(models.Model):
         Staff, related_name="salary_log", on_delete=models.CASCADE)
     #bespoke orders tied to this salary, can bu null
     bespoke_orders = models.ManyToManyField('fashion.BespokeOrder',related_name='salary_log')
-    date_due = models.DateTimeField(auto_now_add=True)
+    date_due = models.DateField(auto_now_add=True)
     date_paid = models.DateTimeField(blank=True, null=True)
     amount_due = models.DecimalField(decimal_places=2, max_digits=20)
     amount_paid = models.DecimalField(

@@ -1,0 +1,18 @@
+Internal Server Error: /myadmin-encoded-target/staffs/salary-logs/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "C:\Users\hp\Desktop\fiberswift\djangoprojects\stylezbydee\myadmin\staff.py", line 132, in get_queryset
+    SalaryUtils.create_salary_logs()
+  File "C:\Users\hp\Desktop\fiberswift\djangoprojects\stylezbydee\myadmin\utils.py", line 98, in create_salary_logs
+    date_due = timezone.datetime(year, next_month, 25).date()
+UnboundLocalError: local variable 'year' referenced before assignment
+"GET /myadmin-encoded-target/staffs/salary-logs/ HTTP/1.1" 500 93897
