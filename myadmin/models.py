@@ -14,6 +14,7 @@ class Department(models.Model):
         ("logistics", "Logistics"),
         ("customer service", "Customer Service"),
         ("beading", "Beading"),
+        ("stoning", "Stoning"),
         ("assistant", "Assistant"),
         ("cleaning", "Cleaning"),
         ("kitchen", "Kitchen"),
@@ -43,6 +44,7 @@ class StaffRole(models.Model):
         ("head tailor", "Head tailor"),
         ("head beeder", "Head beeder"),
         ("head stoner", "Head stoner"),
+        ("eventry", "Eventry"),
         ("no role", "No role"),
 
 
