@@ -139,6 +139,7 @@ class StaffForm(forms.ModelForm):
         if not self.instance or not self.instance.pk:
             staff.user = User.objects.get(account_id=user_id)
 
+
         if commit:
             staff.save()
             self.save_m2m()  # Save many-to-many relationships
