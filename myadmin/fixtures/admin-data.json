@@ -113,6 +113,13 @@
         "name": "no role"
       }
     },
+    {
+      "model": "myadmin.staffrole",
+      "pk": 17,
+      "fields": {
+        "name": "eventry"
+      }
+    },
   
   
     {
@@ -164,11 +171,19 @@
         "name": "kitchen"
       }
     },
+
     {
       "model": "myadmin.department",
       "pk": 8,
       "fields": {
         "name": "others"
+      }
+    },
+    {
+      "model": "myadmin.department",
+      "pk": 9,
+      "fields": {
+        "name": "stoning"
       }
     }
   ]
