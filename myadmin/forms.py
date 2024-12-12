@@ -8,6 +8,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+
 class StaffForm(forms.ModelForm):
     user_id = forms.CharField(
         required=True,
@@ -31,8 +32,7 @@ class StaffForm(forms.ModelForm):
         }
 
     department = forms.ModelMultipleChoiceField(
-        queryset=Department.objects.all(),  # Assuming you have a Department model
-        # Use checkboxes to select multiple departments
+        queryset=Department.objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=True,
         label="Department(s)"
@@ -50,14 +50,14 @@ class StaffForm(forms.ModelForm):
         self.instance = kwargs.get('instance', None)
         super(StaffForm, self).__init__(*args, **kwargs)
 
-        # Dynamically exclude fields for new entries
-        if not self.instance or not self.instance.pk:
+        # Dynamically exclude fields for edit mode (existing instance)
+        if self.instance and self.instance.pk:
+            # Remove 'user_id' and 'employee_id' fields from the form in edit mode
+            self.fields.pop('user_id')
+            self.fields.pop('employee_id')
+            # Optionally, exclude other fields if needed (e.g., 'date_terminated', 'employment_status')
             self.fields.pop('date_terminated')
             self.fields.pop('employment_status')
-
-        # Set user_id to not required for edit operation
-        if self.instance and self.instance.pk:
-            self.fields['user_id'].required = False
 
         # Crispy Forms setup
         self.helper = FormHelper()
@@ -99,10 +99,8 @@ class StaffForm(forms.ModelForm):
                 css_class='form-row'
             ),
             Row(
-                Column(Field('emergency_contact_name'),
-                       css_class='form-group'),
-                Column(Field('emergency_contact_phone'),
-                       css_class='form-group'),
+                Column(Field('emergency_contact_name'), css_class='form-group'),
+                Column(Field('emergency_contact_phone'), css_class='form-group'),
                 css_class='form-row'
             ),
             Submit(
@@ -116,8 +114,7 @@ class StaffForm(forms.ModelForm):
         # Ensure user exists only for new entries
         if not self.instance or not self.instance.pk:
             if not User.objects.filter(account_id=user_id).exists():
-                raise forms.ValidationError(
-                    f"No user found with User ID: {user_id}")
+                raise forms.ValidationError(f"No user found with User ID: {user_id}")
         return user_id
 
     def clean(self):
@@ -127,8 +124,7 @@ class StaffForm(forms.ModelForm):
 
         # Check if salary is fixed and salary is not provided
         if is_salary_fixed and not salary:
-            raise forms.ValidationError(
-                "Salary must be entered if it is fixed.")
+            raise forms.ValidationError("Salary must be entered if it is fixed.")
         return cleaned_data
 
     def save(self, commit=True):
@@ -138,7 +134,6 @@ class StaffForm(forms.ModelForm):
         user_id = self.cleaned_data.get('user_id')
         if not self.instance or not self.instance.pk:
             staff.user = User.objects.get(account_id=user_id)
-
 
         if commit:
             staff.save()

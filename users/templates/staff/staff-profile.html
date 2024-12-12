@@ -1,62 +1,37 @@
-{% extends 'admin-base.html' %}
-{% load humanize %}
+{% extends 'staff-base.html' %}
+
 {% load static %}
 {% load core %}
+{% load humanize %}
 {% block content %}
 <div class="main">
 
     <div class="main-content project">
-        <div class="row">
-            <div class="col-9 col-xl-7 col-md-8 col-sm-12">
-                <div class="box card-box p-1">
-                    <div class="icon-box bg-color-6 d-block ">
 
-                        <div class="content text-center color-6 ">
-                            <h5 class="title-box fs-17 font-w500">All Bespoke Orders</h5>
-                            <div class="themesflat-counter fs-18 font-wb">
-                                <span class="number" data-from="0" data-to="309" data-speed="2500"
-                                    data-inviewport="yes">{{staff.all_outfit_order}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="icon-box bg-color-1 d-block">
-
-                        <div class="content text-center color-8">
-                            <h5 class="title-box fs-17 font-w500">Pending Bespke Orders</h5>
-                            <div class="themesflat-counter fs-18 font-wb">
-                                <span class="number" data-from="0" data-to="309" data-speed="2500"
-                                    data-inviewport="yes">{{staff.pending_outfit_order}}</span>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-3 col-xl-5 col-md-4 col-sm-12">
-                <div class="box h-100 d-flex align-items-center" style="background-color: transparent;padding: 0;">
-                    <a class="create d-flex bg-primary justify-content-center" href="{% url 'myadmin:staff-create' %}">
-                        <div class="icon color-white pt-4 pr-8">
-                            <i class='bx bx-plus-circle'></i>
-                        </div>
-                        <div class="content">
-                            <h5 class="color-white">Add A New Bespoke Order</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
         <div class="col-4 col-xl-12">
             <div class="box user-pro-list overflow-hidden mb-30">
+                <div class="box-header  border-0 pd-0">
+                    <div class="box-title fs-20 font-w600"></div>
+                    <span>
+                        <a href="{% url 'staff-profile-update'   %}">
+                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
+                                type="submit">
+                                <i class="bx bx-edit-alt"></i> Update
+                            </button>
+                        </a>
+
+
+
+                    </span>
+                </div>
                 <div class="box-body">
                     <div class="user-pic text-center">
                         <div class="avar ">
-                            {% if staff.user.dp %}
-                            <img src="{{staff.passport.url}}" alt="" style="height: 150px;width: 150px;">
-                            {% else %}
-                            <img src="{% static 'myadmin/images/profile/staff-1.png' %}" alt="">
-                            {% endif %}
+                           
+                            
+                     
+                            <img src="{{staff.user.dp}}" alt="" height="160px">
+                         
                             <div class="pulse-css"></div>
                         </div>
                         <div class="pro-user " style="margin-top: 0px;">
@@ -68,33 +43,14 @@
                     </div>
                 </div>
 
-                <div class="box-footer " style="padding-top: 20px;">
-                    <div class="btn-list text-center">
-                        <a href="mailto:{{staff.user.email}}" class="btn btn-light"><i class='bx bxs-envelope'></i> </a>
-                        <a href="tel:{{staff.user.phone_number}}" class="btn btn-light"> <i
-                                class='bx bxs-phone-call'></i> </a>
 
-                        <a href="{{staff.user.whatsapp_link}}" class="btn btn-light"> <i class="bx bxl-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
 
 
             <div class="box left-dot mb-30">
                 <div class="box-header  border-0 pd-0">
-                    <div class="box-title fs-20 font-w600">Basic Info</div>
-                    <span>
-                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
-                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
-                                type="submit">
-                                <i class="bx bx-edit-alt"></i> Update
-                            </button>
-                        </a>
-
-
-
-                    </span>
+                    <div class="box-title fs-20 font-w600">Info</div>
+                 
                 </div>
                 <div class="box-body pt-20 user-profile">
                     <div class="table-responsive">
@@ -137,17 +93,7 @@
             <div class="box left-dot mb-30">
                 <div class="box-header  border-0 pd-0">
                     <div class="box-title fs-20 font-w600">Contact Details</div>
-                    <span>
-                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
-                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
-                                type="submit">
-                                <i class="bx bx-edit-alt"></i> Update
-                            </button>
-                        </a>
 
-
-
-                    </span>
                 </div>
                 <div class="box-body pt-20 user-profile">
                     <div class="table-responsive">
@@ -196,20 +142,10 @@
             <div class="box left-dot mb-30">
                 <div class="box-header  border-0 pd-0">
                     <div class="box-title fs-20 font-w600">Employment Details</div>
-                    <span>
-                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
-                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
-                                type="submit">
-                                <i class="bx bx-edit-alt"></i> Update
-                            </button>
-                        </a>
 
-
-
-                    </span>
                 </div>
                 <div class="box-body pt-20 user-profile">
-                    {% if staff.salary_log %}
+
                     <div class="table-responsive">
                         <table class="table mb-0 mw-100 color-span">
                             <tbody>
@@ -228,7 +164,8 @@
                                 <tr>
                                     <td class="py-2 px-0"> <span class="w-50">Date Of Employment</span> </td>
                                     <td>:</td>
-                                    <td class="py-2 px-0"> <span class="">{{staff.date_added|default:"None"}}</span>
+                                    <td class="py-2 px-0"> <span
+                                            class="">{{staff.date_added|date|default:"None"}}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -252,11 +189,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {% else %}
-                    <p>
-                        This staff has no log yet
-                    </p>
-                    {% endif %}
+
                 </div>
             </div>
 
@@ -264,17 +197,7 @@
             <div class="box left-dot mb-30">
                 <div class="box-header  border-0 pd-0">
                     <div class="box-title fs-20 font-w600">Salary Details</div>
-                    <span>
-                        <a href="{% url 'myadmin:staff-update' staff.pk  %}">
-                            <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500"
-                                type="submit">
-                                <i class="bx bx-edit-alt"></i> Update
-                            </button>
-                        </a>
-
-
-
-                    </span>
+               
                 </div>
                 <div class="box-body pt-20 user-profile">
                     <div class="table-responsive">
@@ -295,7 +218,7 @@
                                     <td>:</td>
                                     <td class="py-2 px-0"> <span class="">
                                             {% if staff.salary %}
-                                            &#8358; {{staff.salary}}</span> </td>
+                                            &#8358;  {{staff.salary}}</span> </td>
                                     {% else %}
                                     Not Fixed
                                     {% endif %}

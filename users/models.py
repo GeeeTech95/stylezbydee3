@@ -134,11 +134,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         return 5
        
 
-        
-
     @property
     def dp(self):
-        default = static("core/img/dp/default-dp.png")
+        default = static("myadmin/images/avatar/dp-woman.png")
         try:
             return self.display_picture.url or default
         except:
