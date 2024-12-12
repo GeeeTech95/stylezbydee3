@@ -55,7 +55,8 @@ class StaffForm(forms.ModelForm):
             # Remove 'user_id' and 'employee_id' fields from the form in edit mode
             self.fields.pop('user_id')
             self.fields.pop('employee_id')
-            # Optionally, exclude other fields if needed (e.g., 'date_terminated', 'employment_status')
+        else :    
+            #then its for a create
             self.fields.pop('date_terminated')
             self.fields.pop('employment_status')
 
