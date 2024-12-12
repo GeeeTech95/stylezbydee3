@@ -52,6 +52,13 @@ class StaffUpdateView(UpdateView):
     template_name = 'staff/staff_form.html'
     success_url = reverse_lazy('myadmin:staff-list')
 
+        
+    def form_valid(self, form):
+     
+        # Add a success message
+        messages.success(self.request, "Staff member details updated successfully!")
+        return super().form_valid(form)
+
 
 class StaffDeleteView(DeleteView):
     model = Staff

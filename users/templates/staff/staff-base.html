@@ -66,18 +66,18 @@
                         </div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        
+
                         <li>
                             <a href="#0">
                                 Order History
                             </a>
                         </li>
-                    
-                       
+
+
                     </ul>
                 </li>
 
-            
+
 
                 <li class="sidebar-submenu">
                     <a href="#0" class="sidebar-menu-dropdown">
@@ -88,7 +88,7 @@
                         </div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        
+
                         <li>
                             <a href="#0">
                                 Salary History
@@ -104,7 +104,7 @@
                                 Debt
                             </a>
                         </li>
-                       
+
                     </ul>
                 </li>
 
@@ -140,7 +140,7 @@
         <div class="d-flex align-items-center">
 
             <!-- App Search-->
-           
+
             <div class="dropdown d-inline-block d-lg-none ms-2">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -207,8 +207,7 @@
             <div class="dropdown d-inline-block mt-12">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user"
-                        src="{% static 'myadmin/images/profile/profile.png' %}" alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="{{user.dp}}" alt="dp" height="60px" width="60px">
                     <span class="pulse-css"></span>
                     <!--span class="info d-xl-inline-block  color-span d-none">
                         <span class="d-block fs-20 font-w600">{{user}}</span>
@@ -220,10 +219,12 @@
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
 
-                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i
-                            class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i>
-                        <span>Lock screen</span></a>
+                    <a class="dropdown-item d-block" href="{% url 'staff-profile' %}">
+
+                        <i class="bx bx-user font-size-16 align-middle me-1"></i>
+                        <span>Profile</span>
+                    </a>
+        
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="{% url 'logout' %}"><i
                             class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
@@ -234,7 +235,7 @@
     </div>
     <!-- End Main Header -->
     <!-- MAIN CONTENT -->
-  
+
     {% block content %}
     {% endblock %}
 
@@ -242,7 +243,7 @@
 
 
 
-    
+
 
     {% if messages %}
     {% for msg in messages %}

@@ -153,6 +153,10 @@ class Staff(models.Model):
         null=True
     )
 
+    def get_paid_salary_logs(self) :
+        return self.salary_log.all()
+
+
    
 
     def get_department_display(self):
@@ -225,6 +229,7 @@ class StaffSalaryLog(models.Model):
     amount_paid = models.DecimalField(
         decimal_places=2, max_digits=20, blank=True, null=True)
     is_paid = models.BooleanField(default=False)
+    remarks = models.CharField(max_length=400,null = True, blank= True)
 
     
 

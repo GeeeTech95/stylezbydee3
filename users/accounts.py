@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import FormView
 from .models import  User
-from .forms import RegisterForm,LoginForm
+from .forms import UserForm,LoginForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
 
@@ -31,9 +31,9 @@ class LoginFormView(FormView):
 
 
 
-class RegisterFormView(FormView):
+class RegisterView(FormView):
     template_name = 'registration/register.html'
-    form_class = RegisterForm
+    form_class = UserForm
     success_url = reverse_lazy("login")  # Redirect to the login page upon successful registration
 
 
