@@ -52,11 +52,7 @@
                 <div class="box-body">
                     <div class="user-pic text-center">
                         <div class="avar ">
-                            {% if staff.user.dp %}
-                            <img src="{{staff.passport.url}}" alt="" style="height: 150px;width: 150px;">
-                            {% else %}
-                            <img src="{% static 'myadmin/images/profile/staff-1.png' %}" alt="">
-                            {% endif %}
+                            <img src="{{staff.user.dp}}" alt="" height="160px">
                             <div class="pulse-css"></div>
                         </div>
                         <div class="pro-user " style="margin-top: 0px;">
