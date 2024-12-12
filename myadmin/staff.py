@@ -14,7 +14,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from users.permissions import ActivityPermissions
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
-
+import logging
+        
+        
+logger = logging.getLogger(__name__)
 
 
 class StaffListView(ListView):
@@ -38,6 +41,13 @@ class StaffCreateView(CreateView):
         # Add a success message
         messages.success(self.request, "Staff member created successfully!")
         return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        logger.error("Form is invalid. Errors: %s", form.errors)
+        
+        # Optionally, add a debug message visible in the UI
+        messages.error(self.request, "There was an issue with your submission. Check the console or logs for details.")
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class StaffDetailView(DetailView):
