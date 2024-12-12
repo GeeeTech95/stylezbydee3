@@ -19,13 +19,13 @@ class StaffForm(forms.ModelForm):
     class Meta:
         model = Staff
         fields = [
-            'user_id', 'employee_id', 'department', 'role', 'employment_status', 'date_terminated', 'is_salary_fixed',
+            'user_id', 'employee_id', 'department', 'role', 'employment_status', 'is_salary_fixed',
             'salary', 'salary_cycle', 'national_id_number', 'bank_account_number',
             'bank_name', 'bank_account_name', 'contract_type',
             'emergency_contact_name', 'emergency_contact_phone'
         ]
         widgets = {
-            'date_terminated': forms.DateInput(attrs={'type': 'date'}),
+            #'date_terminated': forms.DateInput(attrs={'type': 'date'}),
             'salary': forms.NumberInput(attrs={'step': '0.01'}),
             'employment_status': forms.Select(choices=Staff.EMPLOYMENT_STATUS_CHOICES),
             'role': forms.Select(),  # Assuming role is a ForeignKey to StaffRole
@@ -54,10 +54,10 @@ class StaffForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             # Remove 'user_id' and 'employee_id' fields from the form in edit mode
             self.fields.pop('user_id')
-            self.fields.pop('employee_id')
+            #self.fields.pop('employee_id')
         else :    
             #then its for a create
-            self.fields.pop('date_terminated')
+            #self.fields.pop('date_terminated')
             self.fields.pop('employment_status')
 
         # Crispy Forms setup
@@ -72,6 +72,11 @@ class StaffForm(forms.ModelForm):
             Row(
                 Column(Field('user_id'), css_class='form-group'),
                 Column(Field('employee_id'), css_class='form-group'),
+                css_class='form-row'
+            ),
+             Row(
+                Column(Field('employment_status'), css_class='form-group'),
+               
                 css_class='form-row'
             ),
             Row(
