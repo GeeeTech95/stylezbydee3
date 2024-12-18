@@ -1,0 +1,482 @@
+[
+{
+"model": "shop.productcategory",
+"pk": 1,
+"fields": {
+"path": "00020004",
+"depth": 2,
+"numchild": 0,
+"name": "Casual Shoes",
+"_name_verbose": "Casual Shoes",
+"description": "",
+"slug": "shoes-1",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 2,
+"fields": {
+"path": "00020003",
+"depth": 2,
+"numchild": 0,
+"name": "Formal Shoe",
+"_name_verbose": "Formal Shoes",
+"description": "",
+"slug": "formal-shoes-2",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 4,
+"fields": {
+"path": "00010006",
+"depth": 2,
+"numchild": 0,
+"name": "Jackets and coats",
+"_name_verbose": "Jackets and coats",
+"description": "",
+"slug": "jackets-4",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 5,
+"fields": {
+"path": "00030001",
+"depth": 2,
+"numchild": 0,
+"name": "ankara",
+"_name_verbose": "ankara",
+"description": "",
+"slug": "ankara-5",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 6,
+"fields": {
+"path": "0001",
+"depth": 1,
+"numchild": 8,
+"name": "Ready To Wear",
+"_name_verbose": "Ready To Wear",
+"description": "",
+"slug": "ready-to-wear-6",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": null,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 7,
+"fields": {
+"path": "00010008",
+"depth": 2,
+"numchild": 0,
+"name": "Dresses",
+"_name_verbose": "Dresses",
+"description": "",
+"slug": "dresses-7",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 8,
+"fields": {
+"path": "00010007",
+"depth": 2,
+"numchild": 0,
+"name": "Knitwear",
+"_name_verbose": "Knitwear",
+"description": "",
+"slug": "knitwear-8",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 9,
+"fields": {
+"path": "0002",
+"depth": 1,
+"numchild": 5,
+"name": "Foot wear",
+"_name_verbose": "Foot wears",
+"description": "",
+"slug": "foot-wears-9",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 10,
+"fields": {
+"path": "0003",
+"depth": 1,
+"numchild": 1,
+"name": "Bespoke",
+"_name_verbose": "Bespokes",
+"description": "",
+"slug": "bespokes-10",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 11,
+"fields": {
+"path": "00010005",
+"depth": 2,
+"numchild": 0,
+"name": "Skirt",
+"_name_verbose": "Skirts",
+"description": "",
+"slug": "skirts-11",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 12,
+"fields": {
+"path": "00010004",
+"depth": 2,
+"numchild": 0,
+"name": "Shirts and tops",
+"_name_verbose": "Shirts and tops",
+"description": "",
+"slug": "shirts-and-tops-12",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 13,
+"fields": {
+"path": "00010003",
+"depth": 2,
+"numchild": 0,
+"name": "Trousers and shorts",
+"_name_verbose": "Trousers and shorts",
+"description": "",
+"slug": "trousers-and-shorts-13",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 14,
+"fields": {
+"path": "00020002",
+"depth": 2,
+"numchild": 0,
+"name": "Loafers",
+"_name_verbose": "Loafers",
+"description": "",
+"slug": "loafers-14",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 15,
+"fields": {
+"path": "00020001",
+"depth": 2,
+"numchild": 0,
+"name": "Sneakers",
+"_name_verbose": "Sneakers",
+"description": "",
+"slug": "sneakers-15",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 16,
+"fields": {
+"path": "00020005",
+"depth": 2,
+"numchild": 0,
+"name": "Sandals",
+"_name_verbose": "Sandals",
+"description": "",
+"slug": "sandals-16",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 1,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 17,
+"fields": {
+"path": "00090001",
+"depth": 2,
+"numchild": 0,
+"name": "Sunglasses",
+"_name_verbose": "Sunglasses",
+"description": "",
+"slug": "sunglasses-17",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 2,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 18,
+"fields": {
+"path": "0009",
+"depth": 1,
+"numchild": 4,
+"name": "Accessories",
+"_name_verbose": "Accessories",
+"description": "",
+"slug": "accessories-18",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 2,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 19,
+"fields": {
+"path": "00090002",
+"depth": 2,
+"numchild": 0,
+"name": "Jewels",
+"_name_verbose": "Jewels",
+"description": "",
+"slug": "jewels-19",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 2,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 20,
+"fields": {
+"path": "00090004",
+"depth": 2,
+"numchild": 0,
+"name": "Belts",
+"_name_verbose": "Belts",
+"description": "",
+"slug": "belts-20",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 2,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 21,
+"fields": {
+"path": "00090003",
+"depth": 2,
+"numchild": 0,
+"name": "Watches",
+"_name_verbose": "Watches",
+"description": "",
+"slug": "watches-21",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 2,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 22,
+"fields": {
+"path": "00010001",
+"depth": 2,
+"numchild": 1,
+"name": "Outfits or Sets",
+"_name_verbose": "Outfits or Sets",
+"description": "",
+"slug": "outfits-or-sets-22",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 23,
+"fields": {
+"path": "000100010001",
+"depth": 3,
+"numchild": 0,
+"name": "Trousers & Shirt Sets",
+"_name_verbose": "Trousers & Shirt Sets",
+"description": "",
+"slug": "trousers-shirt-sets-23",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 24,
+"fields": {
+"path": "00010002",
+"depth": 2,
+"numchild": 1,
+"name": "Traditional Wear",
+"_name_verbose": "Traditional Wear",
+"description": "",
+"slug": "traditional-wear-24",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+},
+{
+"model": "shop.productcategory",
+"pk": 25,
+"fields": {
+"path": "000100020001",
+"depth": 3,
+"numchild": 0,
+"name": "Senator Suit",
+"_name_verbose": "Senator Suit",
+"description": "",
+"slug": "senator-suit-25",
+"meta_title": null,
+"meta_description": "",
+"is_public": true,
+"ancestors_are_public": true,
+"image": "",
+"product_class": 3,
+"gender": "Unisex"
+}
+}
+]

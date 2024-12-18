@@ -9,7 +9,7 @@ urlpatterns = [
     path("", views.Dashboard.as_view(), name="dashboard"),
 
     # CATALOGUE
-    path("catalogue/", catalogue.CatalogueListView.as_view(), name='calalogue-list'),
+    path("catalogue/", catalogue.CatalogueListView.as_view(), name='catalogue-list'),
     path('catalogue/create/', catalogue.CatalogueCreateView.as_view(),
          name='catalogue-create'),  # Create view
 
