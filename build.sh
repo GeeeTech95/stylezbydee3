@@ -14,8 +14,11 @@ python manage.py collectstatic --no-input
 
 #Apply any outstanding database migrations
 python manage.py migrate 
+
+
 #python manage.py loaddata admin-data.json
 #python manage.py loaddata custom_permissions.json
+python manage.py loaddata category.json 
 
 export DJANGO_SUPERUSER_EMAIL=admin2@stylezbydee.com
 export DJANGO_SUPERUSER_PASSWORD=VlopGoikB8 
