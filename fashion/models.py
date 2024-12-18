@@ -260,7 +260,7 @@ class Measurement(models.Model):
             'neck_circumference', 'shoulder_length',   'shoulder_to_underbust', 'shoulder_to_halflength', 'shoulder_to_hip', 'shoulder_to_knee',
             'bust_circumference',
             'round_underbust', 'waist_circumference',
-            'blouse_length', 'jacket_length', 'nipple_point_2_point_length', ' bust_point', 'back_depth',
+            'blouse_length', 'jacket_length', 'nipple_point_2_point_length', 'bust_point', 'back_depth',
             'skirt_waist_circumference',
             'hip_circumference', 'short_gown_length', 'long_gown_length', 'short_skirt_length', 'long_skirt_length', 'trouser_length', 'lap_circumference',
             'knee_circumference', 'calf_circumference', 'sleeve_length',  'armhole_circumference', 'round_sleeves_circumference',
