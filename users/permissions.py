@@ -22,6 +22,11 @@ class ActivityPermissions () :
 
         if not self.user.is_authenticated:
             return False
+        
+        #super user priviledges
+        if self.user.is_superuser :
+            return True
+          
         if hasattr(self.user, "custom_permissions"):
         
             return self.user.custom_permissions.filter(name=permission_name).exists()

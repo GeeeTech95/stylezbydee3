@@ -194,91 +194,52 @@ class Client(models.Model):
 
 
 class Measurement(models.Model):
-
     # Common measurements (unisex)
-    neck_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                             MinValueValidator(0)], verbose_name="Neck Circumference")
-    shoulder_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                          MinValueValidator(0)], verbose_name="Shoulder Length")
-    sleeve_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                        MinValueValidator(0)], verbose_name="Sleeve Length")
-    armhole_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                MinValueValidator(0)], verbose_name="Armhole Circumference")
-    round_sleeves_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                      MinValueValidator(0)], verbose_name="Round Sleeves Circumference")
-    hip_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                            MinValueValidator(0)], verbose_name="Hip Circumference")
-    trouser_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                         MinValueValidator(0)], verbose_name="Trouser Length")
-    lap_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                            MinValueValidator(0)], verbose_name="Lap Circumference")
-    knee_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                             MinValueValidator(0)], verbose_name="Knee Circumference")
-    calf_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                             MinValueValidator(0)], verbose_name="Calf Circumference")
-    jacket_sleeve_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                               MinValueValidator(0)], verbose_name="Jacket Sleeve Length")
+    neck_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Neck Circumference")
+    shoulder_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Shoulder Length")
+    sleeve_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Sleeve Length")
+    armhole_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Armhole Circumference")
+    round_sleeves_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Round Sleeves Circumference")
+    hip_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Hip Circumference")
+    trouser_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Trouser Length")
+    lap_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Lap Circumference")
+    knee_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Knee Circumference")
+    calf_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Calf Circumference")
+    jacket_sleeve_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Jacket Sleeve Length")
 
     # Women's measurements
-    shoulder_to_underbust = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                MinValueValidator(0)], verbose_name="Shoulder to Underbust")
-    shoulder_to_halflength = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                 MinValueValidator(0)], verbose_name="Shoulder to Halflength")
-    shoulder_to_hip = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                          MinValueValidator(0)], verbose_name="Shoulder to Hip")
-    shoulder_to_knee = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                           MinValueValidator(0)], verbose_name="Shoulder to Knee")
-    bust_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                             MinValueValidator(0)], verbose_name="Bust Circumference")
-    round_underbust = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                          MinValueValidator(0)], verbose_name="Underbust Circumference")
-    waist_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                              MinValueValidator(0)], verbose_name="Waist Circumference")
-    blouse_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                        MinValueValidator(0)], verbose_name="Blouse Length")
-    jacket_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                        MinValueValidator(0)], verbose_name="Jacket Length")
-    nipple_point_2_point_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                      MinValueValidator(0)], verbose_name="Nipple Point-to-Point Length")
-    bust_point = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                     MinValueValidator(0)], verbose_name="Bust Point")
-    back_depth = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                     MinValueValidator(0)], verbose_name="Back Depth")
-    skirt_waist_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                    MinValueValidator(0)], verbose_name="Skirt Waist Circumference")
+    shoulder_to_underbust = models.CharField(max_length=50, blank=True, null=True, verbose_name="Shoulder to Underbust")
+    shoulder_to_halflength = models.CharField(max_length=50, blank=True, null=True, verbose_name="Shoulder to Halflength")
+    shoulder_to_hip = models.CharField(max_length=50, blank=True, null=True, verbose_name="Shoulder to Hip")
+    shoulder_to_knee = models.CharField(max_length=50, blank=True, null=True, verbose_name="Shoulder to Knee")
+    bust_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Bust Circumference")
+    round_underbust = models.CharField(max_length=50, blank=True, null=True, verbose_name="Underbust Circumference")
+    waist_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Waist Circumference")
+    blouse_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Blouse Length")
+    jacket_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Jacket Length")
+    nipple_point_2_point_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Nipple Point-to-Point Length")
+    bust_point = models.CharField(max_length=50, blank=True, null=True, verbose_name="Bust Point")
+    back_depth = models.CharField(max_length=50, blank=True, null=True, verbose_name="Back Depth")
+    skirt_waist_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Skirt Waist Circumference")
 
-    short_gown_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                            MinValueValidator(0)], verbose_name="Short Gown Length")
-    long_gown_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                           MinValueValidator(0)], verbose_name="Long Gown Length")
-    short_skirt_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                             MinValueValidator(0)], verbose_name="Short Skirt Length")
-    long_skirt_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                            MinValueValidator(0)], verbose_name="Long Skirt Length")
+    short_gown_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Short Gown Length")
+    long_gown_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Long Gown Length")
+    short_skirt_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Short Skirt Length")
+    long_skirt_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Long Skirt Length")
 
     # Men's measurements
-    chest_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                              MinValueValidator(0)], verbose_name="Chest Circumference")
-    top_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                     MinValueValidator(0)], verbose_name="Top Length")
-    trouser_waist_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                                      MinValueValidator(0)], verbose_name="Trouser Waist Circumference")
-    bottom_circumference = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                               MinValueValidator(0)], verbose_name="Bottom Circumference")
-    waistcoat_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                           MinValueValidator(0)], verbose_name="Waistcoat Length")
+    chest_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Chest Circumference")
+    top_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Top Length")
+    trouser_waist_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Trouser Waist Circumference")
+    bottom_circumference = models.CharField(max_length=50, blank=True, null=True, verbose_name="Bottom Circumference")
+    waistcoat_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Waistcoat Length")
 
     # Measurements for traditional outfits
-    kaftan_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                        MinValueValidator(0)], verbose_name="Kaftan Length")
-    senator_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                         MinValueValidator(0)], verbose_name="Senator Length")
-    agbada_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                        MinValueValidator(0)], verbose_name="Agbada Length")
-    buba_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                      MinValueValidator(0)], verbose_name="Buba Length")
-    iro_length = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, validators=[
-                                     MinValueValidator(0)], verbose_name="Iro Length")
+    kaftan_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Kaftan Length")
+    senator_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Senator Length")
+    agbada_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Agbada Length")
+    buba_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Buba Length")
+    iro_length = models.CharField(max_length=50, blank=True, null=True, verbose_name="Iro Length")
 
     def __str__(self):
         return f"Measurements ID: {self.id}"
@@ -305,8 +266,10 @@ class Measurement(models.Model):
             'knee_circumference', 'calf_circumference', 'sleeve_length',  'armhole_circumference', 'round_sleeves_circumference',
         ]
 
-    class Meta():
+    class Meta:
         abstract = True
+
+
 
 
 class ClientBodyMeasurement(Measurement):

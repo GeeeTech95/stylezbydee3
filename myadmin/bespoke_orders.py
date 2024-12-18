@@ -79,6 +79,12 @@ class BespokeOrderDetailView(LoginRequiredMixin,UserPassesTestMixin ,DetailView)
             staff__user = user,order = order
         ).exists() :
             return True
+        
+        
+        perm  = ActivityPermissions(user)
+        if  perm.has_custom_permission("can view bespoke order status logs") :
+            return True
+
         return False
     
     def get_context_data(self, **kwargs) :
