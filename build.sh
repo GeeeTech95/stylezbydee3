@@ -18,7 +18,7 @@ python manage.py migrate
 
 #python manage.py loaddata admin-data.json
 #python manage.py loaddata custom_permissions.json
-python manage.py loaddata category.json 
+python manage.py loaddata shop.json 
 
 export DJANGO_SUPERUSER_EMAIL=admin2@stylezbydee.com
 export DJANGO_SUPERUSER_PASSWORD=VlopGoikB8 

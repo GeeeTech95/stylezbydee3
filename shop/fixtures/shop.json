@@ -1,0 +1,1093 @@
+[
+{
+    "model": "shop.productclass",
+    "pk": 1,
+    "fields": {
+        "name": "Foot Wear",
+        "slug": "foot-wear"
+    }
+},
+{
+    "model": "shop.productclass",
+    "pk": 2,
+    "fields": {
+        "name": "Accessories",
+        "slug": "accessories"
+    }
+},
+{
+    "model": "shop.productclass",
+    "pk": 3,
+    "fields": {
+        "name": "Clothing",
+        "slug": "clothing"
+    }
+},
+{
+    "model": "shop.productclass",
+    "pk": 6,
+    "fields": {
+        "name": "Sales/Promotions",
+        "slug": "salespromotions"
+    }
+},
+{
+    "model": "shop.productclass",
+    "pk": 7,
+    "fields": {
+        "name": "Bags",
+        "slug": "bags"
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 1,
+    "fields": {
+        "option": "40",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 2,
+    "fields": {
+        "option": "41",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 3,
+    "fields": {
+        "option": "42",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 4,
+    "fields": {
+        "option": "43",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 5,
+    "fields": {
+        "option": "44",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 6,
+    "fields": {
+        "option": "45",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 7,
+    "fields": {
+        "option": "46",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 8,
+    "fields": {
+        "option": "Black",
+        "img": "",
+        "group": 2
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 9,
+    "fields": {
+        "option": "white",
+        "img": "",
+        "group": 2
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 10,
+    "fields": {
+        "option": "brown",
+        "img": "",
+        "group": 2
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 11,
+    "fields": {
+        "option": "pure leather",
+        "img": "",
+        "group": 3
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 12,
+    "fields": {
+        "option": "croc skin",
+        "img": "option_images/2150394929.jpg",
+        "group": 3
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 13,
+    "fields": {
+        "option": "synthetic leather",
+        "img": "",
+        "group": 3
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 14,
+    "fields": {
+        "option": "sued",
+        "img": "",
+        "group": 3
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 15,
+    "fields": {
+        "option": "cotton",
+        "img": "option_images/27534.jpg",
+        "group": 3
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 16,
+    "fields": {
+        "option": "52",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoption",
+    "pk": 17,
+    "fields": {
+        "option": "50",
+        "img": "",
+        "group": 1
+    }
+},
+{
+    "model": "shop.productattributeoptiongroup",
+    "pk": 1,
+    "fields": {
+        "name": "size"
+    }
+},
+{
+    "model": "shop.productattributeoptiongroup",
+    "pk": 2,
+    "fields": {
+        "name": "colour"
+    }
+},
+{
+    "model": "shop.productattributeoptiongroup",
+    "pk": 3,
+    "fields": {
+        "name": "material"
+    }
+},
+{
+    "model": "shop.productattribute",
+    "pk": 1,
+    "fields": {
+        "name": "size",
+        "code": "size",
+        "type": "multi_option",
+        "required": true,
+        "product_class": 6,
+        "option_group": 1
+    }
+},
+{
+    "model": "shop.productattribute",
+    "pk": 2,
+    "fields": {
+        "name": "colour",
+        "code": "CLR",
+        "type": "multi_option",
+        "required": true,
+        "product_class": 1,
+        "option_group": 2
+    }
+},
+{
+    "model": "shop.productattribute",
+    "pk": 3,
+    "fields": {
+        "name": "material",
+        "code": "MAT",
+        "type": "multi_option",
+        "required": true,
+        "product_class": 1,
+        "option_group": 3
+    }
+},
+{
+    "model": "shop.productattributevalue",
+    "pk": 1,
+    "fields": {
+        "value_text": "",
+        "value_integer": null,
+        "value_boolean": null,
+        "value_float": null,
+        "value_richtext": "",
+        "value_date": null,
+        "value_datetime": null,
+        "product": 1,
+        "attribute": 1,
+        "value_option": null,
+        "value_multi_option": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "shop.productattributevalue",
+    "pk": 2,
+    "fields": {
+        "value_text": "",
+        "value_integer": null,
+        "value_boolean": null,
+        "value_float": null,
+        "value_richtext": "",
+        "value_date": null,
+        "value_datetime": null,
+        "product": 1,
+        "attribute": 2,
+        "value_option": null,
+        "value_multi_option": [
+            8,
+            10
+        ]
+    }
+},
+{
+    "model": "shop.productattributevalue",
+    "pk": 3,
+    "fields": {
+        "value_text": "",
+        "value_integer": null,
+        "value_boolean": null,
+        "value_float": null,
+        "value_richtext": "",
+        "value_date": null,
+        "value_datetime": null,
+        "product": 1,
+        "attribute": 3,
+        "value_option": null,
+        "value_multi_option": [
+            12
+        ]
+    }
+},
+{
+    "model": "shop.productattributevalue",
+    "pk": 4,
+    "fields": {
+        "value_text": "cotton",
+        "value_integer": null,
+        "value_boolean": null,
+        "value_float": null,
+        "value_richtext": "",
+        "value_date": null,
+        "value_datetime": null,
+        "product": 2,
+        "attribute": 3,
+        "value_option": null,
+        "value_multi_option": [
+            15
+        ]
+    }
+},
+{
+    "model": "shop.productattributevalue",
+    "pk": 5,
+    "fields": {
+        "value_text": "",
+        "value_integer": null,
+        "value_boolean": null,
+        "value_float": null,
+        "value_richtext": "",
+        "value_date": null,
+        "value_datetime": null,
+        "product": 2,
+        "attribute": 1,
+        "value_option": null,
+        "value_multi_option": [
+            16,
+            17
+        ]
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 1,
+    "fields": {
+        "path": "00020004",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Casual Shoes",
+        "_name_verbose": "Casual Shoes",
+        "description": "",
+        "slug": "shoes-1",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 2,
+    "fields": {
+        "path": "00020003",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Formal Shoe",
+        "_name_verbose": "Formal Shoes",
+        "description": "",
+        "slug": "formal-shoes-2",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 4,
+    "fields": {
+        "path": "00010006",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Jackets and coats",
+        "_name_verbose": "Jackets and coats",
+        "description": "",
+        "slug": "jackets-4",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 5,
+    "fields": {
+        "path": "00030001",
+        "depth": 2,
+        "numchild": 0,
+        "name": "ankara",
+        "_name_verbose": "ankara",
+        "description": "",
+        "slug": "ankara-5",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 6,
+    "fields": {
+        "path": "0001",
+        "depth": 1,
+        "numchild": 8,
+        "name": "Ready To Wear",
+        "_name_verbose": "Ready To Wear",
+        "description": "",
+        "slug": "ready-to-wear-6",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": null,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 7,
+    "fields": {
+        "path": "00010008",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Dresses",
+        "_name_verbose": "Dresses",
+        "description": "",
+        "slug": "dresses-7",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 8,
+    "fields": {
+        "path": "00010007",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Knitwear",
+        "_name_verbose": "Knitwear",
+        "description": "",
+        "slug": "knitwear-8",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 9,
+    "fields": {
+        "path": "0002",
+        "depth": 1,
+        "numchild": 5,
+        "name": "Foot wear",
+        "_name_verbose": "Foot wears",
+        "description": "",
+        "slug": "foot-wears-9",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 10,
+    "fields": {
+        "path": "0003",
+        "depth": 1,
+        "numchild": 1,
+        "name": "Bespoke",
+        "_name_verbose": "Bespokes",
+        "description": "",
+        "slug": "bespokes-10",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 11,
+    "fields": {
+        "path": "00010005",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Skirt",
+        "_name_verbose": "Skirts",
+        "description": "",
+        "slug": "skirts-11",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 12,
+    "fields": {
+        "path": "00010004",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Shirts and tops",
+        "_name_verbose": "Shirts and tops",
+        "description": "",
+        "slug": "shirts-and-tops-12",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 13,
+    "fields": {
+        "path": "00010003",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Trousers and shorts",
+        "_name_verbose": "Trousers and shorts",
+        "description": "",
+        "slug": "trousers-and-shorts-13",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 14,
+    "fields": {
+        "path": "00020002",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Loafers",
+        "_name_verbose": "Loafers",
+        "description": "",
+        "slug": "loafers-14",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 15,
+    "fields": {
+        "path": "00020001",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Sneakers",
+        "_name_verbose": "Sneakers",
+        "description": "",
+        "slug": "sneakers-15",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 16,
+    "fields": {
+        "path": "00020005",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Sandals",
+        "_name_verbose": "Sandals",
+        "description": "",
+        "slug": "sandals-16",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 1,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 17,
+    "fields": {
+        "path": "00090001",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Sunglasses",
+        "_name_verbose": "Sunglasses",
+        "description": "",
+        "slug": "sunglasses-17",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 2,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 18,
+    "fields": {
+        "path": "0009",
+        "depth": 1,
+        "numchild": 4,
+        "name": "Accessories",
+        "_name_verbose": "Accessories",
+        "description": "",
+        "slug": "accessories-18",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 2,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 19,
+    "fields": {
+        "path": "00090002",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Jewels",
+        "_name_verbose": "Jewels",
+        "description": "",
+        "slug": "jewels-19",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 2,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 20,
+    "fields": {
+        "path": "00090004",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Belts",
+        "_name_verbose": "Belts",
+        "description": "",
+        "slug": "belts-20",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 2,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 21,
+    "fields": {
+        "path": "00090003",
+        "depth": 2,
+        "numchild": 0,
+        "name": "Watches",
+        "_name_verbose": "Watches",
+        "description": "",
+        "slug": "watches-21",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 2,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 22,
+    "fields": {
+        "path": "00010001",
+        "depth": 2,
+        "numchild": 1,
+        "name": "Outfits or Sets",
+        "_name_verbose": "Outfits or Sets",
+        "description": "",
+        "slug": "outfits-or-sets-22",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 23,
+    "fields": {
+        "path": "000100010001",
+        "depth": 3,
+        "numchild": 0,
+        "name": "Trousers & Shirt Sets",
+        "_name_verbose": "Trousers & Shirt Sets",
+        "description": "",
+        "slug": "trousers-shirt-sets-23",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 24,
+    "fields": {
+        "path": "00010002",
+        "depth": 2,
+        "numchild": 1,
+        "name": "Traditional Wear",
+        "_name_verbose": "Traditional Wear",
+        "description": "",
+        "slug": "traditional-wear-24",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productcategory",
+    "pk": 25,
+    "fields": {
+        "path": "000100020001",
+        "depth": 3,
+        "numchild": 0,
+        "name": "Senator Suit",
+        "_name_verbose": "Senator Suit",
+        "description": "",
+        "slug": "senator-suit-25",
+        "meta_title": null,
+        "meta_description": "",
+        "is_public": true,
+        "ancestors_are_public": true,
+        "image": "",
+        "product_class": 3,
+        "gender": "Unisex"
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 1,
+    "fields": {
+        "product": 1,
+        "media": "shop/products/product_273449308956747/7.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 2,
+    "fields": {
+        "product": 1,
+        "media": "shop/products/product_273449308956747/file_5.png",
+        "tag": null,
+        "display_order": 1
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 3,
+    "fields": {
+        "product": 2,
+        "media": "shop/products/product_173614335222647/1_1.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 4,
+    "fields": {
+        "product": 3,
+        "media": "shop/products/product_298475366865246/Multi-pocket_cotton_jacket_-__Man___Mango_Man_Ireland.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 5,
+    "fields": {
+        "product": 4,
+        "media": "shop/products/product_307261484670854/ty.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 6,
+    "fields": {
+        "product": 5,
+        "media": "shop/products/product_248483077734130/file_4.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.productmedia",
+    "pk": 7,
+    "fields": {
+        "product": 6,
+        "media": "shop/products/product_195781124427356/louis-vuitton-denim-lv-trunk-dress_--FRRO65QNA801_PM2_Front_view.png",
+        "tag": null,
+        "display_order": 0
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+        "product_id": "273449308956747",
+        "product_class": 1,
+        "title": "Eleganza Bikata",
+        "description": "Dope",
+        "created_at": "2023-10-07T03:27:05.582Z",
+        "last_modified": null,
+        "gender": "Men",
+        "price": "92.50",
+        "currency": 2,
+        "old_price": "38000.00",
+        "rating": null,
+        "in_stock": true,
+        "available_units": 1,
+        "slug": "eleganza-bikata-273449308956747",
+        "is_free_delivery": false,
+        "is_ready_to_ship": false,
+        "category": [
+            6
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+        "product_id": "173614335222647",
+        "product_class": 3,
+        "title": "Granda beskpoke double breasted",
+        "description": "it is so dope",
+        "created_at": "2023-10-13T14:52:01.538Z",
+        "last_modified": null,
+        "gender": "Men",
+        "price": "125.00",
+        "currency": 2,
+        "old_price": "65000.00",
+        "rating": null,
+        "in_stock": true,
+        "available_units": 1,
+        "slug": "granda-beskpoke-double-breasted-173614335222647",
+        "is_free_delivery": false,
+        "is_ready_to_ship": true,
+        "category": [
+            6
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+        "product_id": "298475366865246",
+        "product_class": 3,
+        "title": "Multi-pocket cotton jacket",
+        "description": "Smart collection. Short design. Water-repellent technical fabric. Cotton-blend fabric. Classic collar. Multiple pockets. Long sleeve with loops to roll up the sleeve. Button fastening on the front section. Waist with adjustable inner cord. Without inner lining.\r\n\r\nPerformance is a selection of garments made of technical fibers that will keep you intact, and most of all, comfy all day long, whatever you do, wherever you go. Our performance selection includes a wide range of advanced features as bi-stretch, quick-dry, easy-iron, thermoregulator, breathable or water-repellent fabrics arranged in four general categories: Thermoregulator, Functional, Easy-care and Comfort.",
+        "created_at": "2023-10-20T07:53:50.366Z",
+        "last_modified": null,
+        "gender": "Unisex",
+        "price": "100.00",
+        "currency": 2,
+        "old_price": null,
+        "rating": null,
+        "in_stock": true,
+        "available_units": 1,
+        "slug": "multi-pocket-cotton-jacket-298475366865246",
+        "is_free_delivery": false,
+        "is_ready_to_ship": true,
+        "category": [
+            6
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+        "product_id": "307261484670854",
+        "product_class": 3,
+        "title": "Autum WInter Jacket",
+        "description": "Dope",
+        "created_at": "2023-10-20T07:57:39.422Z",
+        "last_modified": null,
+        "gender": "Unisex",
+        "price": "84.00",
+        "currency": 2,
+        "old_price": null,
+        "rating": null,
+        "in_stock": true,
+        "available_units": 1,
+        "slug": "autum-winter-jacket-307261484670854",
+        "is_free_delivery": true,
+        "is_ready_to_ship": true,
+        "category": [
+            6
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+        "product_id": "248483077734130",
+        "product_class": 3,
+        "title": "Luxury Trench Jacket",
+        "description": "Dope",
+        "created_at": "2023-10-20T08:01:34.036Z",
+        "last_modified": null,
+        "gender": "Men",
+        "price": "95.00",
+        "currency": 2,
+        "old_price": null,
+        "rating": null,
+        "in_stock": true,
+        "available_units": 1,
+        "slug": "luxury-trench-jacket-248483077734130",
+        "is_free_delivery": false,
+        "is_ready_to_ship": false,
+        "category": [
+            6
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+        "product_id": "195781124427356",
+        "product_class": 3,
+        "title": "Denim SBD Trunk Dress",
+        "description": "Elevate your wardrobe with the Louis Vuitton Denim LV Trunk Dress, a stunning fusion of luxury and iconic design. This sleeveless dress features a captivating print that echoes the classic Louis Vuitton trunk motif, blending rich brown tones with sophisticated beige accents. Crafted from premium materials, the dress showcases impeccable tailoring, with a fitted bodice and an A-line skirt that flatters any silhouette.\r\n\r\nThe gold-tone hardware details add a touch of opulence, while the front zipper closure provides a modern edge. Perfect for both day and evening wear, this dress is a statement piece that embodies timeless elegance and fashion-forward style. Pair it with your favorite Louis Vuitton accessories for a complete, chic look.",
+        "created_at": "2024-08-09T08:35:03.378Z",
+        "last_modified": null,
+        "gender": "Women",
+        "price": "180.00",
+        "currency": 2,
+        "old_price": "100000.00",
+        "rating": null,
+        "in_stock": true,
+        "available_units": 20,
+        "slug": "denim-sbd-trunk-dress-195781124427356",
+        "is_free_delivery": false,
+        "is_ready_to_ship": false,
+        "category": [
+            6,
+            7
+        ],
+        "saved_by": []
+    }
+},
+{
+    "model": "shop.productrecommendation",
+    "pk": 1,
+    "fields": {
+        "primary": 1,
+        "recommendation": 5,
+        "ranking": 0
+    }
+},
+{
+    "model": "shop.productrecommendation",
+    "pk": 2,
+    "fields": {
+        "primary": 1,
+        "recommendation": 2,
+        "ranking": 1
+    }
+},
+{
+    "model": "shop.productreview",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "username": "Jakosa",
+        "product": 1,
+        "title": "Lovely stuff",
+        "review": "its lovely",
+        "rating": 4,
+        "date": "2024-08-03T13:24:19.723Z"
+    }
+}
+]
