@@ -206,19 +206,29 @@
                         <table class="table mb-0 mw-100 color-span">
                             <tbody>
                                 {% if client.measurement %}
-                                {% if client.is_male %}
+                                    {% if client.is_male %}
 
 
-                                {% for field in client.measurement.male_measurement_fields %}
-                                <tr>
-                                    <td class="py-2 px-0"><span class="w-50">{{ field|get_verbose|capfirst }}</span>
-                                    </td>
-                                    <td>:</td>
-                                    <td class="py-2 px-0"><span>{{ client.measurement|get_attr:field }} inches</span>
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                                {% endif %}
+                                        {% for field in client.measurement.male_measurement_fields %}
+                                        <tr>
+                                            <td class="py-2 px-0"><span class="w-50">{{ field|get_verbose|capfirst }}</span>
+                                            </td>
+                                            <td>:</td>
+                                            <td class="py-2 px-0"><span>{{ client.measurement|get_attr:field }} inches</span>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for field in client.measurement.female_measurement_fields %}
+                                        <tr>
+                                            <td class="py-2 px-0"><span class="w-50">{{ field|get_verbose|capfirst }}</span>
+                                            </td>
+                                            <td>:</td>
+                                            <td class="py-2 px-0"><span>{{ client.measurement|get_attr:field }} inches</span>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}    
+                                    {% endif %}
                                 {% else %}
                                 <div class="text-center">
                                     <p>No Measurement has been added for this client </p>
