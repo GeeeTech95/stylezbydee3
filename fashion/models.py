@@ -289,11 +289,11 @@ class ClientBodyMeasurement(Measurement):
 class BespokeOrder(Measurement):
 
     def get_order_id():
-        return "SBDO" + str(uuid.uuid4().int)[:8]
+        return "SBDO" + str(uuid.uuid4().int)[:6]
 
 
     order_id = models.CharField(
-        max_length=20, default=get_order_id, blank=True,null=False,unique=True)
+        max_length=20, default=get_order_id, blank=True,null=False,unique=True,editable=False)
 
 
     client = models.ForeignKey(
