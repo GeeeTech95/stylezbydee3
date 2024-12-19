@@ -35,8 +35,8 @@
 
             {% if catalogue_items %}
             {% for catalogue in catalogue_items %}
-            <div class="col-3 col-md-6 col-sm-12 mb-25">
-                <div class="box client">
+            <div class="col-3 col-md-6 col-sm-12 mb-25" style="min-width: fit-content">
+                <div class="box client" >
                     <div class="dropdown">
                         <a hidden href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -57,7 +57,7 @@
                                 alt="{{ catalogue.alt_text }}">
 
                         </div>
-                        <a href="client-details.html">
+                        <a href="{% url 'myadmin:catalogue-detail'  catalogue.pk  %}">
                             <h5 class="mt-17">{{ catalogue.title }}</h5>
                         </a>
                         <p class="fs-14 font-w400 font-main">
@@ -72,9 +72,9 @@
                                 <i class='bx bx-percent'></i>Discount Price: {{ catalogue.discount_price|default:"N" }}
                             </li>
                         </ul>
-                        <div class="group-btn d-flex justify-content-between">
+                        <div class="group-btn d-flex justify-content-between text-center" style="width: 100%;">
 
-                            <a hidden class="bg-btn-sec color-main" href="#0">View Profile</a>
+                            <a  class="bg-btn-sec color-main btn  w-100 waves-effect waves-light fs-18 font-w500 mt-5" href="{% url 'myadmin:catalogue-detail'  catalogue.pk  %}">View Details</a>
                         </div>
                     </div>
                 </div>
