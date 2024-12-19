@@ -1017,3 +1017,801 @@ Traceback (most recent call last):
     raise TypeError(
 TypeError: Tried to update field fashion.BespokeOrder.last_status_log with a model instance, <BespokeOrderStatusLog: 42853720 - measurement acquired - waiting for a advance on payment. on 2024-12-19 17:09>. Use a value compatible with CharField.
 "POST /myadmin-encoded-target/bespoke-orders/8/update/ HTTP/1.1" 500 164296
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173126
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173263
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /admin-coded-target/fashion/bespokeorder/8/change/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1889, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 1820, in _changeform_view
+    formsets, inline_instances = self._create_formsets(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2257, in _create_formsets
+    for FormSet, inline in self.get_formsets_with_inlines(*get_formsets_args):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 907, in get_formsets_with_inlines
+    yield inline.get_formset(request, obj), inline
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\contrib\admin\options.py", line 2436, in get_formset
+    return inlineformset_factory(self.parent_model, self.model, **defaults)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1322, in inlineformset_factory
+    FormSet = modelformset_factory(model, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 1036, in modelformset_factory
+    form = modelform_factory(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 642, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 300, in __new__
+    fields = fields_for_model(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 198, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
+"GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
