@@ -293,7 +293,7 @@ class BespokeOrder(Measurement):
 
 
     order_id = models.CharField(
-        max_length=20, default=get_order_id, blank=True,null  False= unique=True)
+        max_length=20, default=get_order_id, blank=True,null=False,unique=True)
 
 
     client = models.ForeignKey(
