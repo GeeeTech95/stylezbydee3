@@ -289,11 +289,11 @@ class ClientBodyMeasurement(Measurement):
 class BespokeOrder(Measurement):
 
     def get_order_id():
-        return str(uuid.uuid4().int)[:8]
+        return "SBDO" + str(uuid.uuid4().int)[:8]
 
 
     order_id = models.CharField(
-        max_length=10, default=get_order_id, blank=True, unique=True)
+        max_length=20, default=get_order_id, blank=False, unique=True)
 
 
     client = models.ForeignKey(
@@ -321,13 +321,13 @@ class BespokeOrder(Measurement):
 
     def save(self, *args, **kwargs):
         # Generate a unique 8-digit order ID if it doesn't already exist
-        if not self.order_id:
+        """if not self.order_id:
             self.order_id = ''.join(
                 [str(random.randint(0, 9)) for _ in range(8)])
             while BespokeOrder.objects.filter(order_id=self.order_id).exists():
                 self.order_id = ''.join(
                     [str(random.randint(0, 9)) for _ in range(8)])
-            self.order_id = "BO" + self.order_id
+            self.order_id = "BO" + self.order_id"""
         if not self.advance_fee:
             self.advance_fee = self.get_advance_payment()
         super().save(*args, **kwargs)

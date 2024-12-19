@@ -45,7 +45,7 @@
                             <a href="{% url 'myadmin:client-detail' order.client.pk %}">
                                 {% if order.client.passport %}
                                 <img src="{{ order.client.passport.url }}" alt="Client Profile Picture"
-                                    class="img-fluid rounded-circle" style="width: 150px;">
+                                    class="img-fluid rounded-circle" style="width: 150px;height: 150px;">
                                 {% else %}
                                 <img src="{% static 'myadmin/images/profile/client-1.png' %}"
                                     alt="Default Profile Picture" class="img-fluid rounded-circle"
