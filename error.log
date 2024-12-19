@@ -979,3 +979,41 @@ Traceback (most recent call last):
     return super().execute(query, params)
 django.db.utils.IntegrityError: UNIQUE constraint failed: fashion_bespokeorder.order_id
 "POST /myadmin-encoded-target/clients/1/bespoke-orders/create/ HTTP/1.1" 500 214803
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/8/update/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\edit.py", line 208, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\hp\Desktop\fiberswift\djangoprojects\stylezbydee\myadmin\bespoke_orders.py", line 215, in form_valid
+    self.object = form.save()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\hp\Desktop\fiberswift\djangoprojects\stylezbydee\fashion\models.py", line 417, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\sql\compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\sql\compiler.py", line 1549, in execute_sql
+    sql, params = self.as_sql()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\db\models\sql\compiler.py", line 1942, in as_sql
+    raise TypeError(
+TypeError: Tried to update field fashion.BespokeOrder.last_status_log with a model instance, <BespokeOrderStatusLog: 42853720 - measurement acquired - waiting for a advance on payment. on 2024-12-19 17:09>. Use a value compatible with CharField.
+"POST /myadmin-encoded-target/bespoke-orders/8/update/ HTTP/1.1" 500 164296
