@@ -413,7 +413,7 @@ class BespokeOrder(Measurement):
         return f"Order #{self.order_id} for {self.client} - Due: {self.expected_date_of_delivery}"
 
     def save(self, *args, **kwargs):
-        self.last_status_log = self.status
+        self.last_status_log = self.status.status
         super().save(*args, **kwargs)
 
 
