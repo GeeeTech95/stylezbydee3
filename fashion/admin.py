@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BespokeOrder, Client, Catalogue, BespokeOrderStaffInfo, CatalogueImage, BespokeOrderStatusLog, Staff
+from .models import BespokeOrder, Client, Catalogue, BespokeOrderStaffInfo, CatalogueImage, BespokeOrderStatusLog, Staff, ClientBodyMeasurement
 
 class BespokeOrderStaffInfoInline(admin.TabularInline):
     model = BespokeOrderStaffInfo
@@ -95,3 +95,7 @@ class CatalogueImageAdmin(admin.ModelAdmin):
     list_filter = ('created_at', 'updated_at', 'catalogue')
     search_fields = ('alt_text', 'catalogue__title')
     ordering = ['catalogue', 'position']  # Orders by catalogue and position
+
+
+
+admin.site.register(ClientBodyMeasurement)

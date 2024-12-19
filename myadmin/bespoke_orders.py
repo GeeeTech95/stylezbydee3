@@ -29,7 +29,7 @@ class BespokeOrderListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
     def test_func(self) :
         user = self.request.user
         perm = ActivityPermissions(user)
-        if user.is_company_staff and  perm.has_custom_permission('can view bespoke order status logs'):
+        if user.is_superuser  or  perm.has_custom_permission('can view bespoke order status logs'):
             return True
         return False
 

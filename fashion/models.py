@@ -288,7 +288,14 @@ class ClientBodyMeasurement(Measurement):
 
 class BespokeOrder(Measurement):
 
-    order_id = models.CharField(max_length=8, unique=True, editable=False)
+    def get_order_id():
+        return str(uuid.uuid4().int)[:8]
+
+
+    order_id = models.CharField(
+        max_length=10, default=get_order_id, blank=True, unique=True)
+
+
     client = models.ForeignKey(
         Client, related_name='bespoke_order', on_delete=models.PROTECT)
     style = models.ForeignKey(Catalogue, related_name='bespoke_order', on_delete=models.CASCADE,
