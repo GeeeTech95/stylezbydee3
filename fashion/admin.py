@@ -11,7 +11,7 @@ class BespokeOrderStaffInfoInline(admin.TabularInline):
 class BespokeOrderStatusLogInline(admin.TabularInline):
     model = BespokeOrderStatusLog
     extra = 1
-    fields = ('status', 'date')
+    fields = ('status',)
     ordering = ['-date']  # Order by most recent status first
 
 
