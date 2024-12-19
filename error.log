@@ -1815,3 +1815,298 @@ Traceback (most recent call last):
     raise FieldError(
 django.core.exceptions.FieldError: 'date' cannot be specified for BespokeOrderStatusLog model form as it is a non-editable field
 "GET /admin-coded-target/fashion/bespokeorder/8/change/ HTTP/1.1" 500 173072
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/2/detail/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 353: 'else', expected 'endif'. Did you forget to register or load this tag?
+"GET /myadmin-encoded-target/bespoke-orders/2/detail/ HTTP/1.1" 500 220623
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/2/detail/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 353: 'else', expected 'endif'. Did you forget to register or load this tag?
+"GET /myadmin-encoded-target/bespoke-orders/2/detail/ HTTP/1.1" 500 220623
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/2/detail/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 353: 'else', expected 'endif'. Did you forget to register or load this tag?
+"GET /myadmin-encoded-target/bespoke-orders/2/detail/ HTTP/1.1" 500 220623
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/2/detail/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 353: 'else', expected 'endif'. Did you forget to register or load this tag?
+"GET /myadmin-encoded-target/bespoke-orders/2/detail/ HTTP/1.1" 500 220623
+Internal Server Error: /myadmin-encoded-target/bespoke-orders/2/detail/
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\defaulttags.py", line 967, in do_if
+    nodelist = parser.parse(("endif",))
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\hp\.virtualenvs\stylezbydee-MONumO1N\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 353: 'else', expected 'endif'. Did you forget to register or load this tag?
+"GET /myadmin-encoded-target/bespoke-orders/2/detail/ HTTP/1.1" 500 220623
