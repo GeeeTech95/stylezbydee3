@@ -321,13 +321,10 @@ class BespokeOrder(Measurement):
 
     def save(self, *args, **kwargs):
         # Generate a unique 8-digit order ID if it doesn't already exist
-        """if not self.order_id:
-            self.order_id = ''.join(
-                [str(random.randint(0, 9)) for _ in range(8)])
-            while BespokeOrder.objects.filter(order_id=self.order_id).exists():
-                self.order_id = ''.join(
-                    [str(random.randint(0, 9)) for _ in range(8)])
-            self.order_id = "BO" + self.order_id"""
+        if not self.order_id:
+            self.order_id = self.get_order_id()
+             
+
         if not self.advance_fee:
             self.advance_fee = self.get_advance_payment()
         super().save(*args, **kwargs)
