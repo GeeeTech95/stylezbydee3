@@ -15,7 +15,7 @@ from PIL import Image
 from django.utils.text import slugify
 from decimal import Decimal
 
-
+from .managers import BespokeOrderManager
 
 
 def validate_image(image):
@@ -104,10 +104,6 @@ class Catalogue(models.Model):
         """Check if the item has a discounted price."""
         return bool(self.discount_price and self.discount_price < self.cost)
 
-
-
-
-
 class CatalogueImage(models.Model):
     catalogue = models.ForeignKey(
         'Catalogue',  # Reference to the Catalogue model
@@ -138,9 +134,6 @@ class CatalogueImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.catalogue.title} (Position: {self.position})"
-
-
-
 
 class Client(models.Model):
     def get_client_id():
@@ -191,7 +184,6 @@ class Client(models.Model):
 
     def __str__(self):
         return self.full_name or self.client_id
-
 
 class Measurement(models.Model):
     # Common measurements (unisex)
@@ -269,9 +261,6 @@ class Measurement(models.Model):
     class Meta:
         abstract = True
 
-
-
-
 class ClientBodyMeasurement(Measurement):
     """ associates a client with his body measurement"""
     client = models.OneToOneField(
@@ -283,10 +272,12 @@ class ClientBodyMeasurement(Measurement):
         return f"Measurement for {self.client}"
 
 
-# class BespokeOrderStaffInfoStatusLog(models.Model) :
-
+#class BespokeOrderStaffInfoStatusLog(models.Model) :
 
 class BespokeOrder(Measurement):
+    
+    # Add the custom manager to BespokeOrder
+    objects = BespokeOrderManager()
 
     def get_order_id():
         return "SBDO" + str(uuid.uuid4().int)[:6]
@@ -318,6 +309,30 @@ class BespokeOrder(Measurement):
     @property
     def created_at(self):
         return self.status_log.filter(status=BespokeOrderStatusLog.ORDER_CREATED).first().date
+    
+
+    @property
+    def balance_fee(self) :
+        return float(self.total_cost) - float(self.advance_fee)  
+    
+
+    @property
+    def is_advance_payment_made(self) :
+  
+        if not self.advance_fee > 0  : return True 
+        return BespokeOrderStatusLog.objects.filter(
+            outfit=self, 
+            status=BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE
+            ).exists() 
+    
+    @property
+    def is_payment_completed(self):
+        return BespokeOrderStatusLog.objects.filter(
+            outfit=self, 
+            status=BespokeOrderStatusLog.PAYMENT_COMPLETED
+            ).exists()
+        
+    
 
     def save(self, *args, **kwargs):
         # Generate a unique 8-digit order ID if it doesn't already exist
@@ -404,14 +419,15 @@ class BespokeOrder(Measurement):
             latest_status_log = self.status_log.order_by("-date").first()
         except :
             latest_status_log = None
-        return latest_status_log if latest_status_log else "No status updates available."
+        return latest_status_log 
 
     def __str__(self):
         return f"Order #{self.order_id} for {self.client} - Due: {self.expected_date_of_delivery}"
 
     def save(self, *args, **kwargs):
-        self.last_status_log = self.status.status
+        self.last_status_log = self.status.status if self.status else "No status updates available."
         super().save(*args, **kwargs)
+
 
 
 class BespokeOrderStaffInfo(models.Model):
@@ -487,9 +503,9 @@ class BespokeOrderStatusLog(models.Model):
     outfit = models.ForeignKey(
         BespokeOrder, related_name="status_log", on_delete=models.PROTECT)
     ORDER_CREATED, MEASUREMENT_ACQUIRED, ADVANCE_PAYMENT_MADE, \
-        SEWING_COMMENCED, READY_FOR_DELIVERY, PAYMENT_COMPLETED, DELIVERED = (
+        SEWING_COMMENCED, READY_FOR_DELIVERY, PAYMENT_COMPLETED, DELIVERED , CANCELLED = (
             "order created", "measurement acquired", "advance payment made",
-            "sewing commenced", "ready for delivery", "payment completed", "delivered"
+            "sewing commenced", "ready for delivery", "payment completed", "delivered", "cancelled"
         )
     outfit_status_choices = (
         (ORDER_CREATED, "order created - wating for measurements."),
@@ -499,7 +515,8 @@ class BespokeOrderStatusLog(models.Model):
         (SEWING_COMMENCED, "sewing commenced - order is been processed."),
         (READY_FOR_DELIVERY, "ready for delivery - order is ready for delivery."),
         (PAYMENT_COMPLETED, "payment completed - order payment has been completed."),
-        (DELIVERED, "delivered - this order has been delivered.")
+        (DELIVERED, "delivered - this order has been delivered."),
+        (CANCELLED, "cancelled - this order has been cancelled.")
     )
     status = models.CharField(max_length=20, choices=outfit_status_choices)
     description = models.TextField(blank=True, null=True)
@@ -508,7 +525,7 @@ class BespokeOrderStatusLog(models.Model):
     def save(self, *args, **kwargs):
         # check make sure yoy dont crteate sewing commnced if advance has not been paid
         if self.status == BespokeOrderStatusLog.SEWING_COMMENCED:
-            if BespokeOrderStatusLog.objects.filter(status=BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE,
+            if not BespokeOrderStatusLog.objects.filter(status=BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE,
                                                     outfit=self.outfit).exists():
                 raise ValidationError("Advance payment has not been made")
         super().save(*args, **kwargs)

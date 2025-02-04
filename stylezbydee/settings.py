@@ -26,13 +26,12 @@ SECRET_KEY = 'y0uR$ecR3tK3y-!@#R4nD0mly-Gen3Rat3d-FoR$3cUrity&STaBil1ty'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = True
 #DEBUG  = False
 
 ALLOWED_HOSTS = ['*']
 
 SITE_WHATSAPP_NO = "+2348162467444"
-
 SITE_URL = "http://127.0.0.1:8000"
 
 
@@ -162,7 +161,6 @@ INSTALLED_APPS = [
     'django_filters',
     'phonenumber_field',
 
-
     'rest_framework',
     'rest_framework.authtoken',
     'django_rest_passwordreset',
@@ -170,6 +168,11 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
 ]
+
+"""if DEBUG :
+    INSTALLED_APPS += [ "django_browser_reload"]"""
+
+
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dqlbvzdhx',
@@ -198,6 +201,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+"""if DEBUG:
+    MIDDLEWARE += ['django_browser_reload.middleware.BrowserReloadMiddleware']"""
 
 ROOT_URLCONF = 'stylezbydee.urls'
 
@@ -254,7 +260,7 @@ if DEBUG:
     }
 
 else:
-    # Replace the SQLite DATABASES configuration with PostgreSQL:
+
 
     DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost:5432/mydatabase')

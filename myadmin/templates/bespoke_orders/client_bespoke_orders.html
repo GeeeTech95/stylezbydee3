@@ -1,13 +1,16 @@
 {% extends 'admin-base.html' %}
 {% load static %}
-
+{% load humanize %}
 {% block content %}
 <div class="main">
 
 
     <div class="main-content project">
         <div>
-            <h4 class="box-title fs-22">{{status}} Bespoke Orders for {{client}}</h4>
+            <h4 class="box-title fs-22">
+                {{status}} Bespoke Orders for 
+                <a href="{% url 'myadmin:client-detail' client.pk %}">{{client}}</a>
+            </h4>
         </div>
         <div class="row">
             <div class="col-9 col-xl-7 col-md-8 col-sm-12">
@@ -116,16 +119,24 @@
                                   
                                     <td>{% if order.style %} {{ order.style.name  }} {% else %} "N/A" {% endif %}</td>
                                     <td>
+                                        
                                         {% if order.status_log.exists %}
+                                        {% if order.status.status == BO_STATUS_LOG_READY_FOR_DELIVERY %}
                                         <span
-                                            class="task-btn bg-success-1 text-success-1 fs-14">{{ order.status.status }}</span>
+                                            class="task-btn bg-success-1 text-success-1 fs-14">{{ order.status.status }}
+                                        </span>
+                                        {% else %}
+                                        <span
+                                            class="task-btn bg-secondary text-white fs-14">{{ order.status.status }}
+                                        </span>
+                                        {% endif  %}
                                         {% else %}
 
-                                        <span class="task-btn bg-success-1 text-success-1 fs-14">No Status</span>
+                                        <span class="task-btn bg-secondary text-white fs-14">N/A</span>
                                         {% endif %}
                                     </td>
-                                    <td>₦{{ order.total_cost }}</td>
-                                    <td>₦{{ order.advance_payment }}</td>
+                                    <td>₦{{ order.total_cost|floatformat:"2"|intcomma }}</td>
+                                    <td>₦{{ order.advance_payment|floatformat:"2"|intcomma }}</td>
                                     <td>{{ order.expected_date_of_delivery|date:"Y-m-d" }}</td>
                                     <td>
                                         <div class="dropdown">

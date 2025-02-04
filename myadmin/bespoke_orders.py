@@ -25,6 +25,7 @@ class BespokeOrderListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
     model = BespokeOrder
     template_name = 'bespoke_orders/bespoke_orders_list.html'
     context_object_name = 'orders'
+    available_statuses = ['ALL', 'PENDING', 'IN PROGRESS', 'READY FOR DELIVERY' , 'DELIVERED', 'CANCELLED']
 
     def test_func(self) :
         user = self.request.user
@@ -43,7 +44,17 @@ class BespokeOrderListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
             return self.model.objects.all()
 
         # Filter the orders based on the given status, if it's a valid status
-        if status in ['PENDING', 'DELIVERED', 'IN_PROGRESS', 'CANCELLED']:
+        if status in self.available_statuses :
+            if status == "PENDING" :
+                return self.model.objects.pending_orders()
+            elif status == "IN PROGRESS" :
+                return self.model.objects.in_progress_orders()   
+            elif status == "READY FOR DELIVERY" : 
+                return self.model.objects.ready_for_delivery_orders()
+            elif status == "DELIVERED" :
+                return self.model.objects.delivered_orders()
+            elif status == "CANCELLED" :
+                return self.model.objects.cancelled_orders()
             return self.model.objects.filter(
                 status_log__status=status
             ).distinct()
@@ -58,8 +69,7 @@ class BespokeOrderListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
         context['new_orders_count'] = self.model.created_in_last_week(True)
 
         # Add available statuses for tab navigation
-        context['available_statuses'] = ['ALL', 'PENDING',
-                                         'IN PROGRESS', 'DELIVERED', 'CANCELLED']
+        context['available_statuses'] = self.available_statuses 
 
         # Add the selected status
         context['selected_status'] = self.kwargs['status'].upper() or "ALL"
@@ -298,22 +308,48 @@ class BespokeOrderUpdateViewX(UpdateView):
 
 class BespokeOrderStatusUpdate(View):
 
+    actions = ['advance_payment_made','complete_payment_made']
+
     def post(self, request, *args, **kwargs):
         order_id  = kwargs['pk']
+        action = kwargs['action']
         order = get_object_or_404(BespokeOrder, id=order_id)
 
-        # Try to create or get the status log entry
-        status_log, created = BespokeOrderStatusLog.objects.get_or_create(
-            outfit=order,
-            status=BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE
-        )
+        if action not in self.actions:
+            return JsonResponse({
+                'success': False,
+                'message': "Invalid action."
+            })
+        
+        if action == 'advance_payment_made':
 
-        if created:
-            message = "Advance payment marked as made."
-            success = True
-        else:
-            message = "Advance payment was already marked as made."
-            success = False
+            # Try to create or get the status log entry
+            status_log, created = BespokeOrderStatusLog.objects.get_or_create(
+                outfit=order,
+                status=BespokeOrderStatusLog.ADVANCE_PAYMENT_MADE
+            )
+
+            if created:
+                message = "Advance payment marked as made."
+                success = True
+            else:
+                message = "Advance payment was already marked as made."
+                success = False
+
+
+        elif action == "complete_payment_made":
+            # Try to create or get the status log entry
+            status_log, created = BespokeOrderStatusLog.objects.get_or_create(
+                outfit=order,
+                status=BespokeOrderStatusLog.PAYMENT_COMPLETED
+            )
+
+            if created:
+                message = "Complete payment marked as made."
+                success = True
+            else:
+                message = "Complete payment was already marked as made."
+                success = False
 
         return JsonResponse({
             'success': success,

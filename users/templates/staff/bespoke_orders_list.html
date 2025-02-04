@@ -5,6 +5,7 @@
 {% block content %}
 
 
+
 {% csrf_token %}
 <div class="main">
 
@@ -103,7 +104,7 @@
                                 {% for order in orders %}
                                 <tr class="{% cycle 'odd' 'even' %}">
                                     <td>
-                                        <a href="{% url 'myadmin:bespoke-orders-detail' order.pk %}" class="d-flex">
+                                        <a href="{% url 'staff-bespoke-order-detail' order.pk %}" class="d-flex">
                                             <span><b>{{ order.order_id }}</b></span>
                                         </a>
                                     </td>
@@ -163,7 +164,7 @@
                                                     <i class="bx bx-edit mr-5"></i>Edit
                                                 </a>
                                                 <a class="dropdown-item"
-                                                    href="{% url 'myadmin:bespoke-orders-detail' order.pk %}">
+                                                    href="{% url 'staff-bespoke-order-detail' order.pk %}">
                                                     <i class="bx bx-eye mr-5"></i>View Details
                                                 </a>
                                             </div>

@@ -78,6 +78,7 @@
                     }
                    
                     statusButton.attr("data-new-status",newStatus)
+                    window.location.reload();
                 } else {
                     alert(response.error);
                 }
@@ -93,14 +94,27 @@
 
     // When   the Mark Advance Payment button is clicked, show the confirmation modal
     $('.change-order-status-btn').on('click', function() {
-       
+   
         targetUrl =  $(this).attr('data-target-url');
-        $("#confirm-advance-payment").attr("data-target-url",targetUrl )
-        $('#markAdvancePaymentConfirmationModal').modal('show');
+        action = $(this).attr('data-action-type');
+     
+        if (action == "advance-payment"){
+            $("#confirmPaymentModalModalLabel").html("Mark Advance Payment")
+            $("#confirmPaymentModalBtn").html("Yes, Mark as Paid")
+            $("#confirmPaymentModalBody").html("Would you like to mark advance made for this order ?")
+        }
+        else if(action == "complete-payment"){
+            $("#confirmPaymentModalLabel").html("Mark Complete Payment")
+            $("#confirmPaymentModalBtn").html("Yes, Mark as Paid")
+            $("#confirmPaymentModalBody").html("Would you like to mark complete payment made for this order ?")
+        }
+
+        $("#confirmPaymentModalBtn").attr("data-target-url",targetUrl )
+        $('#confirmPaymentModal').modal('show');
     });
 
     // When the user confirms in the modal, send the AJAX request
-    $('#confirm-advance-payment').on('click', function() {
+    $('#confirmPaymentModalBtn').on('click', function() {
         targetUrl =  $(this).attr('data-target-url');
         $.ajax({
             url: targetUrl,
@@ -115,11 +129,11 @@
                 } else {
          
                 }
-                $('#confirmationModal').modal('hide');  // Hide the modal
+                $('#confirmPaymentModal').modal('hide');  // Hide the modal
             },
             error: function(xhr, errmsg, err) {
                 alert("Error occurred. Please try again.");
-                $('#confirmationModal').modal('hide');  // Hide the modal in case of error
+                $('#confirmPaymentModal').modal('hide');  // Hide the modal in case of error
             }
         });
     });
