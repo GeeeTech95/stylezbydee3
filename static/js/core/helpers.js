@@ -114,6 +114,8 @@ function feedback (el, state) {
         $(el).parent().find('.copy-feedback').text('Faild to Copy').fadeIn().delay(1000).fadeOut();
     }
 }
+
+
 var clipboard = new ClipboardJS('.copy-clipboard');
 clipboard.on('success', function(e) {
     feedback(e.trigger, 'success'); e.clearSelection();

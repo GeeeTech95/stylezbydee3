@@ -1,4 +1,4 @@
-{% extends 'admin-base.html' %}
+{% extends 'staff-base.html' %}
 {% load static %}
 {% load myadmin %}
 {% load humanize %}
@@ -112,12 +112,8 @@
                                     </tr>
                                     {% if user|has_custom_permission:"can view bespoke order status logs" %}
                                     <tr>
-                                        <td class="w-50">Order Status Log</td>
-                                        <td class="w-50">{{ order.status }}</td>
-                                    </tr>
-                                    <tr>
                                         <td class="w-50">Order Status</td>
-                                        <td class="w-50">{{ order.status.status }}</td>
+                                        <td class="w-50">{{ order.status }}</td>
                                     </tr>
                                     {% endif %}
 
@@ -225,17 +221,6 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer text-end">
-                        {% if order.status.status == MEASUREMENT_ACQUIRED_STATUS %}
-
-                        <button data-action-type="advance-payment" data-target-url="{% url 'myadmin:bespoke-orders-status-update' order.id 'advance_payment_made' %}"
-                            class="btn btn-success change-order-status-btn ">Mark Advance Payment Paid</button>
-
-                        {% elif order.status.status == READY_FOR_DELIVERY_STATUS %}
-                        <button data-action-type="complete-payment" data-target-url="{% url 'myadmin:bespoke-orders-status-update' order.id 'complete_payment_made'%}"
-                            class="btn btn-success change-order-status-btn ">Mark Complete Payment Made</button>
-                        {% endif %}
-                    </div>
                 </div>
 
                 {% endif %}
@@ -260,7 +245,17 @@
                         </ul>
                     </div>
 
-                    
+                    <div class="card-footer text-end">
+                        {% if order.status.status == MEASUREMENT_ACQUIRED_STATUS %}
+
+                        <button data-action-type="advance-payment" data-target-url="{% url 'myadmin:bespoke-orders-status-update' order.id 'advance_payment_made' %}"
+                            class="btn btn-success change-order-status-btn ">Mark Advance Payment Paid</button>
+
+                        {% elif order.status.status == READY_FOR_DELIVERY_STATUS %}
+                        <button data-action-type="complete-payment" data-target-url="{% url 'myadmin:bespoke-orders-status-update' order.id 'complete_payment_made'%}"
+                            class="btn btn-success change-order-status-btn ">Mark Complete Payment Made</button>
+                        {% endif %}
+                    </div>
 
                 </div>
                 {% endif %}

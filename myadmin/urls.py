@@ -43,7 +43,7 @@ urlpatterns = [
     path('bespoke-orders/<int:pk>/update/',
          bespoke_orders.BespokeOrderUpdateView.as_view(), name='bespoke-orders-update'),
 
-    path('bespoke-orders/<int:pk>/status/update/',
+    path('bespoke-orders/<int:pk>/status/update/<str:action>',
 
          bespoke_orders.BespokeOrderStatusUpdate.as_view(), name='bespoke-orders-status-update'),
 

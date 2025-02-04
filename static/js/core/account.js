@@ -72,6 +72,7 @@ $(document).on("submit", ".registration-form", function (e) {
         url: form.attr("action"),
         data: data,
         success: function (response) {
+           
             normalizeLoadingButton(buttonObj,"Register Account")
             account_id = response.account_id
             Swal.fire({

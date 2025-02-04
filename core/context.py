@@ -1,5 +1,6 @@
 from .models import Currency, Country
 from shop.models import Product
+from django.conf import settings
 
 
 def core(request):
@@ -21,6 +22,7 @@ def core(request):
     ctx['linkedin_link'] = "#0"
     ctx['youtube_link'] = "#0"
     ctx['whatsapp_item_enquiry_link}}'] = "https://wa.me/+2349026890331"
+    ctx['DEBUG'] = settings.DEBUG
     return ctx
 
 
