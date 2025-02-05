@@ -301,11 +301,6 @@ class BespokeOrderUpdateViewX(UpdateView):
 
 
 
-
-
-
-
-
 class BespokeOrderStatusUpdate(View):
 
     actions = ['advance_payment_made','complete_payment_made']
@@ -356,11 +351,6 @@ class BespokeOrderStatusUpdate(View):
             'message': message
         })
       
-
-
-
-
-
 
 
 
