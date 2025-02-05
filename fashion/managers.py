@@ -7,8 +7,6 @@ from django.apps import apps
 class BespokeOrderManager(models.Manager):
    
 
-
-
     def pending_orders(self):
         # Get the status log model dynamically
         status_log_model = apps.get_model('fashion', 'BespokeOrderStatusLog')
