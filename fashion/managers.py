@@ -81,3 +81,8 @@ class BespokeOrderManager(models.Manager):
         return self.filter(
             status_log__status=status_log_model.CANCELLED
         ).distinct()
+
+
+class ClientManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)  # Excludes inactive clients

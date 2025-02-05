@@ -29,13 +29,13 @@ def create_initial_status_log(sender, instance, created, **kwargs):
         )
 
         # Check if the client has a saved measurement
-        try:
-            instance.client.measurement
-            # Create a MeasurementLog if the client has a saved measurement
+        if hasattr(instance.client, "measurement"):
+            # Create a status log entry if the client has a saved measurement
             BespokeOrderStatusLog.objects.create(
-            outfit=instance,
-            status=BespokeOrderStatusLog.MEASUREMENT_ACQUIRED,
-        )
-        except Measurement.DoesNotExist:
-            # Client doesn't have a measurement saved, do nothing or log a message
+                outfit=instance,
+                status=BespokeOrderStatusLog.MEASUREMENT_ACQUIRED,
+            )
+        else:
+            # Log a message if no measurement is found
             print(f"No measurements found for client {instance.client.full_name}.")
+

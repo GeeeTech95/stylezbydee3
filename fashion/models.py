@@ -15,7 +15,7 @@ from PIL import Image
 from django.utils.text import slugify
 from decimal import Decimal
 
-from .managers import BespokeOrderManager
+from .managers import BespokeOrderManager,ClientManager
 
 
 def validate_image(image):
@@ -135,32 +135,63 @@ class CatalogueImage(models.Model):
     def __str__(self):
         return f"Image for {self.catalogue.title} (Position: {self.position})"
 
+
+
+
+
 class Client(models.Model):
+    """Model representing a client with contact details and status tracking."""
+    
+    GENDER_CHOICES = [("male", "Male"), ("female", "Female")]
+
+
     def get_client_id():
+        """Generate a unique 6-digit client ID."""
         return str(uuid.uuid4().int)[:6]
 
-    gender_choices = (("male", "male"), ("female", "female"))
+
 
     client_id = models.CharField(
-        max_length=30, default=get_client_id, blank=True, unique=True)
-    gender = models.CharField(choices=gender_choices, max_length=10)
-    full_name = models.CharField(max_length=30)
-    home_address = models.CharField(max_length=100, blank=True, null=True)
-    office_address = models.CharField(max_length=100, blank=True, null=True)
-    # contact
-    phone_number = models.CharField(max_length=50)
+        max_length=30, default=get_client_id, blank=True, unique=True
+    )
+    full_name = models.CharField(max_length=50)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=10)
+    
+    # Addresses
+    home_address = models.CharField(max_length=255, blank=True, null=True)
+    office_address = models.CharField(max_length=255, blank=True, null=True)
+
+    # Contact Information
+    phone_number = models.CharField(max_length=20)
     whatsapp_number = models.CharField(
-        max_length=30, blank=True, null=True, help_text="in international format")
+        max_length=20, blank=True, null=True, help_text="Enter in international format"
+    )
     email = models.EmailField(blank=True, null=True)
+    
+    # Other Details
     passport = models.ImageField(
-        blank=True, null=True, upload_to="clients/passports")
+        upload_to="clients/passports", blank=True, null=True
+    )
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
+    # Managers
+    objects = ClientManager()  # Custom manager (returns only active clients)
+    all_objects = models.Manager()  # Default manager (returns all clients)
 
+    class Meta:
+        ordering = ["-date_added"]  # Default ordering by most recent clients
+        verbose_name = "Client"
+        verbose_name_plural = "Clients"
+
+    def __str__(self):
+        """Return a string representation of the client."""
+        return self.full_name or f"Client {self.client_id}"
+   
     @property
     def whatsapp_link(self):
-        return "https://wa.me/{}".format(self.whatsapp_number)
+        """Return a WhatsApp contact link if a number is provided."""
+        return f"https://wa.me/{self.whatsapp_number}" if self.whatsapp_number else None
 
     @property
     def is_male(self):
@@ -172,20 +203,20 @@ class Client(models.Model):
 
     @property
     def last_worked_with(self):
-        import datetime
-        return datetime.datetime.now()
+        """Return the last date the client was worked with based on their latest order."""
+        last_order = self.bespoke_order.order_by("-date_created").first()
+        return last_order.date_created if last_order else None
 
     @property
-    def pending_outfit_order(self):
-        # return self.outfit_order.filter(status_log = READY_FOR_DELIVERY)
-        return 0
+    def pending_outfit_orders(self):
+        """Return the count of pending outfit orders."""
+        return self.outfit_order.exclude(status_log__status="READY_FOR_DELIVERY").count()
 
     @property
-    def pending_bespoke_order(self):
-        return self.bespoke_order.exclude(status_log__status=BespokeOrderStatusLog.DELIVERED)
+    def pending_bespoke_orders(self):
+        """Return the count of pending bespoke orders."""
+        return self.bespoke_order.exclude(status_log__status="DELIVERED").count()
 
-    def __str__(self):
-        return self.full_name or self.client_id
 
 class Measurement(models.Model):
     # Common measurements (unisex)
