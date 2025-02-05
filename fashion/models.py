@@ -155,6 +155,8 @@ class Client(models.Model):
     passport = models.ImageField(
         blank=True, null=True, upload_to="clients/passports")
     date_added = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+
 
     @property
     def whatsapp_link(self):
