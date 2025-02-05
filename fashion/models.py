@@ -162,11 +162,11 @@ class Client(models.Model):
     office_address = models.CharField(max_length=255, blank=True, null=True)
 
     # Contact Information
-    phone_number = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=20,unique=False,null = True)
     whatsapp_number = models.CharField(
         max_length=20, blank=True, null=True, help_text="Enter in international format"
     )
-    email = models.EmailField(blank=True, null=True)
+    email = models.EmailField(blank=True, unique=False, null=True)
     
     # Other Details
     passport = models.ImageField(
