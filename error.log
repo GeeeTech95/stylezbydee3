@@ -13709,3 +13709,126 @@ Traceback (most recent call last):
     queryset = queryset.filter(staff_info__staff=self.staff)
 UnboundLocalError: local variable 'queryset' referenced before assignment
 "GET /account/staff/bespoke-orders/2/ HTTP/1.1" 500 91213
+Internal Server Error: /myadmin-encoded-target/clients/
+Traceback (most recent call last):
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: fashion_client.is_active
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: fashion_client.is_active
+"GET /myadmin-encoded-target/clients/ HTTP/1.1" 500 221079
+Internal Server Error: /myadmin-encoded-target/clients/1/
+Traceback (most recent call last):
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\7400\.virtualenvs\stylezbydee-i2NRBlpD\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'client-create' not found. 'client-create' is not a valid view function or pattern name.
+"GET /myadmin-encoded-target/clients/1/ HTTP/1.1" 500 178578
