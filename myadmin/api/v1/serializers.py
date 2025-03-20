@@ -7,7 +7,7 @@ from rest_framework.authtoken.models import Token
 
 
 
-from myadmin.models import StaffSavingsLog
+
 from fashion.models import Client
 
 class ClientSerializer(serializers.ModelSerializer):
@@ -18,7 +18,3 @@ class ClientSerializer(serializers.ModelSerializer):
 
 
 
-class StaffSavingsLogSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = StaffSavingsLog
-        fields = '__all__'

@@ -12,10 +12,9 @@ urlpatterns = [
 
     #STAFF
     path('staffs/create-salary-log/', staffs.CreateSalaryLogView.as_view(), name='create-salary-log-api'),
+    path('staffs/<int:pk>/delete/', staffs.StaffDeleteView.as_view(), name='staff-delete-api'),
 
-
-    path('staffs/savings/<int:pk>/delete/', staffs.StaffSavingsLogDeleteView.as_view(), name='savings_log_delete_api'),
-
+ 
 
 ]
 

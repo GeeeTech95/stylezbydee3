@@ -308,6 +308,8 @@
     {% endfor %}
     {% endif %}
 
+    <!-- CSRF Token -->
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
     <!-- SCRIPT -->
     <!-- APEX CHART -->
@@ -327,6 +329,9 @@
     <script src="{% static 'myadmin/js/dashboard.js' %}""></script>
     <script src=" {% static 'myadmin/js/shortcode.js' %}""></script>
     <script src="{% static 'myadmin/js/pages/dashboard.js' %}""></script>
+
+    <!-- MINE JS -->
+    <script src=" {% static 'js/admin/all.js' %}""></script>
 
     {% block js %}{% endblock %}
 </body>
