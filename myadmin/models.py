@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.apps import apps
+from .managers import StaffManager
 
 class Department(models.Model):
     DEPARTMENT_CHOICES = [
@@ -152,6 +153,11 @@ class Staff(models.Model):
         blank=True,
         null=True
     )
+
+    all_objects = models.Manager()
+    objects = StaffManager()
+
+
 
     def get_paid_salary_logs(self) :
         return self.salary_log.all()
