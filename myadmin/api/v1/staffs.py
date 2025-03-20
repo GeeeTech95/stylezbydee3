@@ -69,3 +69,17 @@ class StaffTransactionLogDeleteView(APIView):
         savings_log = get_object_or_404(StaffTransactionLog, pk=pk)
         savings_log.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+
+class StaffDeleteView(APIView):
+    """API View to delete a Staff member"""
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args,**kwargs):
+        pk = kwargs.get('pk')
+        staff = get_object_or_404(Staff, pk=pk)
+        staff.delete()
+        return Response({"message": "Staff deleted successfully"}, status=status.HTTP_204_NO_CONTENT)

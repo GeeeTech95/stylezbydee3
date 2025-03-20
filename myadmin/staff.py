@@ -78,7 +78,6 @@ class StaffDeleteView(DeleteView):
 
 
 
-
 class StaffTransactionLogListView(ListView):
     model = StaffTransactionLog
     template_name = 'staff/staff_transaction_list.html'

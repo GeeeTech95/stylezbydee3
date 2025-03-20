@@ -13,12 +13,14 @@ urlpatterns = [
     path("order/", include("order.urls")),
     path("myadmin-encoded-target/", include("myadmin.urls", namespace='myadmin')),
     path("account/",include("users.urls")),
+    
     # API
     path("api/v1/", include("core.api.v1.urls")),
     path("api/v1/", include("users.api.v1.urls")),
     path("api/v1/", include("fashion.api.v1.urls")),
     path("api/v1/shop/", include("shop.api.v1.urls")),
     path("api/v1/order/", include("order.api.v1.urls")),
+    path("api/v1/myadmin/", include("myadmin.api.v1.urls")),
 ]
 
 if settings.DEBUG:
