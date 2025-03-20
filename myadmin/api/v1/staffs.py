@@ -81,5 +81,7 @@ class StaffDeleteView(APIView):
     def post(self, request, *args,**kwargs):
         pk = kwargs.get('pk')
         staff = get_object_or_404(Staff, pk=pk)
-        staff.delete()
+        staff.employment_status = "terminated"
+        staff.date_terminated = timezone.now()
+        staff.save()
         return Response({"message": "Staff deleted successfully"}, status=status.HTTP_204_NO_CONTENT)

@@ -175,6 +175,7 @@ class Client(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
+
     # Managers
     objects = ClientManager()  # Custom manager (returns only active clients)
     all_objects = models.Manager()  # Default manager (returns all clients)
