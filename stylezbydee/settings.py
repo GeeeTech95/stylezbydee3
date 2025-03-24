@@ -1,8 +1,9 @@
 import environ
 import os
+import dj_database_url
 from pathlib import Path
 from django.templatetags.static import static
-from django.urls import reverse_lazy
+
 from django.utils.translation import gettext_lazy as _
 
 # Initialize environment variables
