@@ -62,5 +62,14 @@ class Contact(generic.TemplateView) :
 
 
 
-class Test(generic.TemplateView) :
-    template_name = "checkout.html"
+class TestTemplate(generic.TemplateView):
+    template_name = "email/security/verification-code-mail.html"
+
+    def get_context_data(self, **kwargs):
+        
+        context = super().get_context_data(**kwargs)
+
+        context['user_obj'] = self.request.user
+        context['reset_link'] = 'https://example.com/reset-password'  # Example URL for password resetontext
+        context['verification_code'] = '123456'  #
+        return context

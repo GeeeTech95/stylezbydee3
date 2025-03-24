@@ -6,6 +6,20 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
 
 
+from django.contrib.auth.forms import PasswordResetForm
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
+
+
+
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.urls import reverse
+from django.contrib.auth.tokens import default_token_generator
+
+from core.communication import AccountMail
+
 
 
 class UserForm(UserCreationForm):
@@ -116,3 +130,42 @@ class LoginForm(AuthenticationForm):
             ),
             Submit('login', 'Login')
         )
+
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+
+    def send_mail(self, user, context):
+        """Overriding this method to customize the email sending process."""
+        mail = AccountMail(user)
+        mail.send_password_reset_email(context)
+
+    def save(self, domain_override=None,
+             subject_template_name='registration/password_reset_subject.txt',
+             email_template_name='registration/password_reset_email.html',
+             use_https=False, token_generator=default_token_generator,
+             from_email=None, request=None, html_email_template_name=None,
+             extra_email_context=None):
+        """
+        Override save method to ensure custom send_mail is used.
+        """
+        UserModel = get_user_model()
+        email = self.cleaned_data["email"]
+        active_users = UserModel._default_manager.filter(email__iexact=email, is_active=True)
+
+        for user in active_users:
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = token_generator.make_token(user)
+            domain = domain_override or request.get_host()
+            protocol = 'https' if use_https else 'http'
+            
+            # Construct the password reset link
+            reset_link = f"{protocol}://{domain}{reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})}"
+
+            context = {
+                'email': user.email,
+                'reset_link': reset_link,  
+            }
+
+            self.send_mail(user, context) 
+

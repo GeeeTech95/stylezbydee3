@@ -19,12 +19,9 @@ urlpatterns = [
     path("password-reset/", include('django_rest_passwordreset.urls', namespace='reset-password-api')),
 
 
-
-
-  
-
     #NOTIFICATION
     path("notification/",notification.NotificationList.as_view(),name = 'notification-list-api')
+
    
 
 ]

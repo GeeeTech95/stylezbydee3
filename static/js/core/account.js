@@ -3,55 +3,133 @@
 
 
 $(document).on("submit", ".login-form", function (e) {
-    e.preventDefault()
- 
-    form = $(this)
-    data = new FormData(form[0])
-  
-    buttonObj = $(this).find("button")
-    origText = buttonObj.html()
-    changeToLoading(buttonObj, "Logging on")
- 
+    e.preventDefault();
+
+    let form = $(this);
+    let data = new FormData(form[0]);
+
+    let buttonObj = form.find("button");
+    let origText = buttonObj.html();
+    changeToLoading(buttonObj, "Logging in...");
 
     $.ajax({
-
         type: "POST",
         url: form.attr("action"),
         data: form.serialize(),
-      
-        timeout: 3000,
+        timeout: 5000,
+
         success: function (response) {
-        
-            url = response.success_url
-            window.location.href = url
+            let url = response.success_url;
+            window.location.href = url;
         },
 
-        /*error : function(){
-            normalizeLoadingButton(buttonObj,"Pay From Bank")
-            popUp("Request timed out, please retry")
-        },*/
-
         statusCode: {
-
-            400 : function (response) {
-                normalizeLoadingButton(buttonObj,origText)
-                handleFormError(form, response.responseJSON)
+            400: function (response) {
+                normalizeLoadingButton(buttonObj, origText);
+                Swal.fire({
+                    icon: "error",
+                    title: "Login Failed",
+                    text: response.responseJSON.detail || "Invalid credentials. Please check your email and password.",
+                    confirmButtonColor: "#994d99",
+                    confirmButtonText: "Try Again"
+                });
             },
 
-            500 : function (response) {
-                normalizeLoadingButton(buttonObj, origText)
-                popUp("Request timed out, please retry", form_object = form)
+            500: function () {
+                normalizeLoadingButton(buttonObj, origText);
+                Swal.fire({
+                    icon: "error",
+                    title: "Server Error",
+                    text: "Something went wrong on the server. Please try again later.",
+                    confirmButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                });
             }
         }
-
-    })
-})
-
+    });
+});
 
 
 
 
 $(document).on("submit", ".registration-form", function (e) {
+    e.preventDefault();
+
+    let form = $(this);
+    let buttonObj = form.find("button");
+    let origText = buttonObj.html();
+
+    changeToLoading(buttonObj, "Creating Account...");
+
+    $.ajax({
+        type: "POST",
+        url: form.attr("action"),
+        data: form.serialize(),
+
+        success: function (response) {
+            normalizeLoadingButton(buttonObj, "Register Account");
+
+            let account_id = response.account_id;
+
+            Swal.fire({
+                icon: "success",
+                title: "Registration Successful!",
+                html: `Your account ID: <strong>${account_id}</strong>`,
+                confirmButtonText: "Verify Email",
+                showCloseButton: true,
+                allowOutsideClick: false,
+                willClose: () => {
+                    window.location.href = form.attr("success_link");
+                }
+            });
+        },
+
+        error: function (response) {
+            normalizeLoadingButton(buttonObj, "Register Account");
+
+            let errorMessage = response.responseJSON?.detail || "An error occurred. Please try again or contact support.";
+
+            Swal.fire({
+                icon: "error",
+                title: "Registration Failed",
+                text: errorMessage,
+                confirmButtonText: "Retry",
+                showCloseButton: true
+            });
+        },
+
+        statusCode: {
+            400: function (response) {
+                normalizeLoadingButton(buttonObj, "Register Account");
+                handleFormError(form, response.responseJSON);
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Form Error",
+                    text: "Please correct the errors in the form.",
+                    confirmButtonText: "Fix Issues",
+                    showCloseButton: true
+                });
+            },
+
+            500: function () {
+                normalizeLoadingButton(buttonObj, "Register Account");
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Server Error",
+                    text: "Request timed out. Please retry later.",
+                    confirmButtonText: "OK",
+                    showCloseButton: true
+                });
+            }
+        }
+    });
+});
+
+
+
+$(document).on("submit", ".registration-form-old", function (e) {
     e.preventDefault()
     buttonObj = $(this).find("button")
 

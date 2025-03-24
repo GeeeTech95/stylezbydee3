@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="signup-area ptb-100">
+    <div class="container">
+        <div class="signup-content text-center">
+            <h2>{{title}}</h2>
+            <p>
+                {{message}}
+            </p>
+           
+
+            <a href="{{back_link}}" class="default-btn">{{back_link_text}}</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

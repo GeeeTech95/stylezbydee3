@@ -3,6 +3,7 @@
 {% load static %}
 
 
+
 {% block content %}
 <!-- Start SignUP Area -->
 <section class="signup-area ptb-100">
@@ -32,6 +33,10 @@
                 <p style="width: 100%;font-size: 20px;">
                     Don't have an account ? <a href="{% url 'register' %}" class="return-store">
                         <b>Register</b>
+                </p>
+                <p style="width: 100%;font-size: 20px;">
+                    Can't Log in ?  &nbsp; <a href="{% url 'password_reset' %}" class="return-store">
+                        <b>Forgot Password</b>
                 </p>
                     
                 </a>

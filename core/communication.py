@@ -16,6 +16,9 @@ import random
 from django.core.mail import EmailMultiAlternatives, SafeMIMEMultipart
 from email.mime.image import MIMEImage
 
+from twilio.rest import Client
+from django.conf import settings
+
 from core.templatetags.vocabulary import capitalize
 import os
 
@@ -46,6 +49,17 @@ class AccountMail() :
             subject = "Welcome to {}".format(settings.SITE_NAME),
             ctx = {"name" : self.user.full_name}
             )   
+        
+    def send_password_reset_email(self, context):
+        mail = Email("security")
+        context['user_obj'] = self.user
+        print(context)
+        mail.send_html_email(
+            [self.user.email],
+            template="email/auth/password-reset-mail.html",
+            subject="{} password reset".format(settings.SITE_NAME),
+            ctx=context
+        )
 
 
     def send_verification_code(self,email,code)   :
@@ -56,9 +70,6 @@ class AccountMail() :
             subject = "{} Verification Code".format(settings.SITE_NAME),
             ctx = {"code" : code,"verification_code_validity" : 5 }
             )      
-
-
-
 
 
 class Email() :
@@ -153,7 +164,83 @@ class Email() :
         except : pass
 
 
- 
+
+
+
+
+
+class Notification():
+    def __init__(self):
+        self.client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        self.from_sms = settings.TWILIO_PHONE_NUMBER
+        self.from_whatsapp = f"whatsapp:{settings.TWILIO_WHATSAPP_NUMBER}"
+
+    def send_sms(self, to, message):
+        """
+        Sends an SMS notification.
+        :param to: Recipient phone number (E.164 format, e.g., +1234567890).
+        :param message: Text message to send.
+        """
+        try:
+            self.client.messages.create(
+                body=message,
+                from_=self.from_sms,
+                to=to
+            )
+        except Exception as e:
+            print(f"SMS sending failed: {e}")
+
+    def send_whatsapp(self, to, message):
+        """
+        Sends a WhatsApp message.
+        :param to: Recipient phone number (E.164 format, e.g., +1234567890).
+        :param message: Text message to send.
+        """
+        try:
+            self.client.messages.create(
+                body=message,
+                from_=self.from_whatsapp,
+                to=f"whatsapp:{to}"
+            )
+        except Exception as e:
+            print(f"WhatsApp message sending failed: {e}")
+
+
+class AccountNotification:
+    def __init__(self, user):
+        self.user = user
+        self.notifier = Notification()
+
+    def send_verification_code(self, code):
+        """
+        Sends verification code via SMS and WhatsApp.
+        """
+        message = f"Your verification code is: {code}. It is valid for 5 minutes."
+        self.notifier.send_sms(self.user.phone_number, message)
+        self.notifier.send_whatsapp(self.user.phone_number, message)
+
+    def send_password_reset_code(self, code):
+        """
+        Sends password reset code via SMS and WhatsApp.
+        """
+        message = f"Your password reset code is: {code}. It expires in 10 minutes."
+        self.notifier.send_sms(self.user.phone_number, message)
+        self.notifier.send_whatsapp(self.user.phone_number, message)
+
+
+
+class FashionNotification():
+    def __init__(self, user):
+        self.user = user
+        self.notifier = Notification()
+
+    def send_staff_order_notification(self, message):
+        """
+        Sends order notification to staffs via SMS and WhatsApp.
+        """
+        message = f"You"
+        self.notifier.send_sms(self.user.phone_number, message)
+        #self.notifier.send_whatsapp(self.user.phone_number, message)
 
     
 
