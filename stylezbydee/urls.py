@@ -21,6 +21,7 @@ urlpatterns = [
     path("api/v1/shop/", include("shop.api.v1.urls")),
     path("api/v1/order/", include("order.api.v1.urls")),
     path("api/v1/myadmin/", include("myadmin.api.v1.urls")),
+    
 ]
 
 if settings.DEBUG:

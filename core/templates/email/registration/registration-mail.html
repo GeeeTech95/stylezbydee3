@@ -3,22 +3,24 @@
 {% load static %} 
 
 {% block content %}
-<tr>
-  <td>
-    {% if name %}
-    <strong>
-      <h2>Dear {{name}},</h2>
-    </strong>
-    {% endif %}
+<h2>Welcome to {{ site_name }}!</h2>
+<p>Hi {{ user_obj.full_name }},</p>
+<p>Thank you for registering! We're excited to have you on board.</p>
 
-    {% autoescape off %}
-    {{text}}
-    {% endautoescape %}
+<p>Your Email:</p>
+
+<div class="code-box">{{ user_obj.email }}</div>
 
 
-  
-   
-  </td>
-</tr>
+<p>Your Account ID:</p>
+
+<div class="code-box">{{ user_obj.account_id }}</div>
+
+<p>You can log in anytime using the button below:</p>
+
+<a href="{{ login_link }}" class="button">Login to Your Account</a>
+
+<p>If you have any questions, feel free to contact us.</p>
+
 {% endblock %}
                

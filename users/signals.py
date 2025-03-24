@@ -17,7 +17,7 @@ def create_user_credentials(sender, instance, created, **kwargs):
 
         # send credentials email
         mail = AccountMail(instance)
-        mail.send_user_credentials()
+        mail.send_registration_email()
 
 
 @receiver(post_save, sender=CustomPermission)

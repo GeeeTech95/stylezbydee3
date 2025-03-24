@@ -8,6 +8,9 @@ urlpatterns = [
     path('contact/', pages.Contact.as_view(), name='contact'),
     path('login-redirect/', views.my_redirect_view, name='login-redirect'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+
+    path('test-template/', pages.TestTemplate.as_view(), name='test-template'),
 ]
 
 

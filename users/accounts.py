@@ -50,3 +50,5 @@ class LoginRedirect(LoginRequiredMixin, RedirectView):
             return HttpResponseRedirect((reverse('admin-dashboard')))
         else:
             return HttpResponseRedirect((reverse('dashboard')))
+
+
