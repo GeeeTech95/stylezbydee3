@@ -22,7 +22,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-default-secret-key')
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+ALLOWED_HOSTS = ['*']
 
 SITE_WHATSAPP_NO = env('SITE_WHATSAPP_NO', default="+2348162467444")
 SITE_URL = env('SITE_URL', default="http://127.0.0.1:8000")
@@ -145,6 +145,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'stylezbydee.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -242,6 +243,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 EMAIL_HOST = env('EMAIL_HOST', default="smtp.zoho.com")
 EMAIL_PORT = env.int('EMAIL_PORT', default=587)
 EMAIL_HOST_USER = env('EMAIL_HOST_USER', default="customer.care@stylezbydee.com")
+EMAIL_HOST_USER_SUPPORT = env('EMAIL_HOST_USER_SUPPORT')
+EMAIL_HOST_USER_LOGISTICS   = env('EMAIL_HOST_USER_LOGISTICS')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
 
